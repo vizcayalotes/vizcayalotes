@@ -253,6 +253,7 @@ details.plan .tbl{max-height:260px;overflow:auto;margin-top:8px}
 .sh-sign{display:grid;grid-template-columns:120px 1fr 260px;align-items:end}
 .sh-sign .who input{border-bottom:0;font-size:13px}
 .sh-sign small{font-style:italic;font-size:11px;padding-left:4px}
+.rlact{display:flex;gap:4px;justify-content:flex-end;flex-wrap:nowrap}.rc-list td:nth-child(6){max-width:240px;white-space:normal}.rc-list td{vertical-align:middle}.rlsop{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}.rledit input{padding:5px 7px}.btn.ok{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
 .rc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
 .rc-bar label.ck{display:flex;gap:7px;align-items:center;font-size:13px;margin-right:auto}
 
@@ -591,6 +592,26 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
 .tabhide{display:none!important}
 .pyp{margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface-2)} .pyp h3{margin:0 0 6px;font-size:14px} .pyp ul{margin:4px 0;padding-left:18px;font-size:13px}
 .backbtn{display:inline-flex;align-items:center;gap:6px;width:auto!important;padding:0 12px!important;font:inherit;font-weight:600;font-size:13px}.backbtn[hidden]{display:none!important}
+.rptpl{padding:12px 16px;border-bottom:1px solid var(--line);display:grid;gap:8px;background:color-mix(in srgb,var(--lake) 4%,var(--surface))}
+.rptpl-sel select{font-size:15px;font-weight:600;padding:9px 10px;max-width:420px}
+.rptpl details summary{cursor:pointer;color:var(--lake);font-weight:600;font-size:13.5px;padding:4px 0}
+.rptpl textarea{width:100%;font:inherit;font-size:13.5px;line-height:1.45;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);resize:vertical}
+.rptpl input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg)}
+.rpprev{white-space:pre-wrap;font-family:var(--f-body);font-size:13px;background:var(--surface);border:1px dashed var(--lake);border-radius:8px;padding:12px;margin:6px 0 0;max-height:360px;overflow:auto}
+.rpqueue{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:12px 16px;background:#fff3e6;border-bottom:1px solid #f3b36b}
+.rpqueue>div{display:flex;flex-direction:column;margin-right:auto} .rpqueue>div span{font-size:12.5px;color:var(--muted)} .rpqueue small{flex-basis:100%;color:var(--muted)} .rpqueue a.btn{text-decoration:none}
+body.vview .side-nav .vshow{display:flex!important}
+body.vview .nvd,body.vview .wabar{display:none!important}
+body.ger [data-go="recibo"],body.ger .side-nav [data-v="recibo"],body.ger .side-nav [data-v="reportes"],body.ger .side-nav [data-v="config"],body.ger [data-go="config"],body.ger #moraStrip,body.ger [data-rpgo],body.ger #rcSend,body.ger [data-rp="one"],body.ger [data-rp="oneLiq"],body.ger #cSave,body.ger #rcXls,body.ger #rcSave,body.ger #rcPdf,body.ger #rcClear,body.ger #rcReg,body.ger label[for=rcReg],body.ger .rc-bar .ck,body.ger #rpTplSave,body.ger #rpTplReset,body.ger #lqTplSave,body.ger #lqTplReset,body.ger #pAddBtn,body.ger #pAuto,body.ger [data-pa="edit"],body.ger [data-pa="del"],body.ger #prSave,body.ger #prApply,body.ger #prPct,body.ger #comSave,body.ger #comDef,body.ger #aForm,body.ger #uForm,body.ger [data-ua],body.ger [data-aa],body.ger [data-sa],body.ger #waAdd,body.ger #waSave,body.ger [data-wd],body.ger #asgSave,body.ger #asgAll,body.ger #cfSave,body.ger #cfReset,body.ger #cfProy .drop,body.ger #pyTpl~*,body.ger #bImport,body.ger #bReset,body.ger [data-rp="liq"],body.ger [data-rp="liqSel"],body.ger [data-rp="unliq"],body.ger [data-rp="cancel"],body.ger #ctDelAll,body.ger [data-ctdel],body.ger [data-pd="add"],body.ger [data-pd="edit"],body.ger [data-pd="del"],body.ger #pdDrop,body.ger .rptpl .adm,body.ger [data-esc]{display:none!important}
+body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rpDias):not(#asgQ),body.ger textarea{pointer-events:none;background:var(--surface-2)!important}
+.gerbadge{display:none}body.ger .gerbadge{display:block;background:#fff3e6;border:1px solid #f3b36b;color:#7a3e00;border-radius:10px;padding:8px 14px;font-size:13px;margin-bottom:10px}
+.subh{font-size:13.5px;margin:14px 0 6px;color:var(--fg)}
+.sopc{display:inline-flex;align-items:center;gap:2px;margin:0 6px 4px 0;background:var(--surface-2);border-radius:8px;padding:1px 4px}
+.sopadd{cursor:pointer;padding:3px 8px!important;font-size:12px!important}
+.pjbox{border:1px dashed var(--lake);border-radius:10px;padding:8px 12px;margin:8px 0;background:color-mix(in srgb,var(--lake) 4%,var(--surface))}
+.tag.ok{background:var(--ok-soft);color:var(--ok)}
+.rcmail{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 16px 14px;padding:12px 14px;border-radius:12px;background:var(--ok-soft);border:1px solid color-mix(in srgb,var(--ok) 35%,transparent)}
+.rcmail>div{display:flex;flex-direction:column;margin-right:auto;font-size:13px}.rcmail>div span{color:var(--muted)}
 </style>
 </head>
 <body>
@@ -614,7 +635,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
     <div class="gate-logo" data-logo="card" role="img" aria-label="Logo"></div>
     <form id="gLogin" novalidate>
       <div><h2 data-cfg="loginTitulo"></h2><p data-cfg="loginSub"></p></div>
-      <button type="button" class="visitbar" id="gVisit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span><b>Ingresar como usuario</b><small>Ver los lotes disponibles, separados y vendidos · sin contraseña</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button type="button" class="visitbar" id="gVisit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span><b>Ingresar como cliente</b><small>Ver los lotes disponibles, separados y vendidos · sin contraseña</small></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arr"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       <div class="gor"><span>Vendedor o administrador: entra con tu cuenta</span></div>
       <label class="fi"><span class="sr">Correo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg><input type="email" id="gEmail" autocomplete="username" inputmode="email" placeholder="Correo" required></label>
       <label class="fi"><span class="sr">Contraseña</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><input type="password" id="gPass" autocomplete="current-password" placeholder="Contraseña" required>
@@ -661,7 +682,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
       <button type="button" draggable="false" data-v="lotes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Lotes</button>
       <button type="button" draggable="false" data-v="clientes" class="noc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.6 2.5 3 5.2"/></svg>Clientes</button>
       <button type="button" draggable="false" data-v="recaudo" class="adm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>Pagos y cartera</button>
-      <button type="button" draggable="false" data-v="comisiones" class="adm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg>Asesores y comisiones</button>
+      <button type="button" draggable="false" data-v="comisiones" class="adm vshow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg>Asesores y comisiones</button>
       <button type="button" draggable="false" data-v="recibo" class="noc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>Recibo de caja</button>
       <button type="button" draggable="false" data-v="reportes" class="noc" id="navRep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Reportes masivos</button>
       <button type="button" draggable="false" data-v="usuarios" id="navUsers" hidden style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Usuarios</button>
@@ -732,6 +753,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
     </section>
 
     <div class="pagehead" id="pageHead" hidden><span class="phic" id="phIc"></span><div><h1 id="phT"></h1><p id="phS"></p></div></div>
+    <div class="gerbadge">👁 Modo Gerencia: puedes ver toda la información, pero no se pueden hacer cambios.</div>
     <section class="kpis" id="kpis" aria-label="Resumen"></section>
 
 
@@ -833,7 +855,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
 
         <!-- COMISIONES -->
         <section id="v-comisiones" hidden class="stack">
-          <div class="panel">
+          <div class="panel nvd">
             <div class="panel-h"><h2>Comisiones de lotes vendidos</h2>
               <select id="coF" aria-label="Filtrar comisiones"><option value="">Todos los lotes vendidos</option><option value="pend">Con comisión pendiente</option><option value="c1">Solo cuota 1 causada</option><option value="full">Comisión causada completa</option></select>
               <input type="search" id="coQ" placeholder="Buscar lote, cliente o asesor…" aria-label="Buscar en comisiones"></div>
@@ -951,7 +973,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
           <form class="cform" id="uForm" style="padding:14px 16px;border-bottom:1px solid var(--line)" novalidate>
             <label class="fl">Nombre<input id="uNom" autocomplete="off" required></label>
             <label class="fl">Correo<input id="uMail" type="email" autocomplete="off" required></label>
-            <label class="fl">Rol<select id="uRol"><option value="vendedor">Vendedor · sus clientes y abonos</option><option value="admin">Administrador · todo</option></select></label>
+            <label class="fl">Rol<select id="uRol"><option value="vendedor">Vendedor · lotes disponibles y comisiones</option><option value="gerencia">Gerencia · ve todo, no edita</option><option value="admin">Administrador · todo</option></select></label>
             <label class="fl" id="uAseW">Asesor vinculado<select id="uAse"></select></label>
             <label class="fl">Contraseña temporal<input id="uPass" type="text" minlength="8" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required></label>
             <div class="fl" style="justify-content:flex-end"><button class="btn" type="submit" id="uBtn">Crear usuario</button></div>
@@ -1028,8 +1050,20 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
             <div class="panel-h"><h2>Clientes en mora</h2>
               <label class="fl" style="flex-direction:row;align-items:center;gap:8px">Mora de<select id="rpDias"><option value="30">1 mes o más</option><option value="60">2 meses o más</option><option value="90">3 meses o más</option><option value="9">Toda la mora (más de 8 días)</option></select></label>
               <input id="rpQ" type="search" placeholder="Buscar cliente, lote o vendedor" style="min-width:min(260px,100%)"></div>
+            <div class="rptpl">
+              <label class="fl rptpl-sel">Correo que vas a enviar<select id="rpTpl"><option value="cartera">Estado de cuenta (cartera, con todas las cuotas)</option><option value="mora">Aviso de mora</option></select></label>
+              <details id="rpTplBox"><summary>Ver o cambiar el texto de este correo</summary>
+                <label class="fl">Asunto<input id="rpSu"></label>
+                <label class="fl">Mensaje<textarea id="rpTx" rows="12"></textarea></label>
+                <p class="note" style="padding:4px 0">Estas palabras entre llaves se cambian solas por los datos de cada cliente: <b>{nombre}</b> <b>{lote}</b> <b>{dias}</b> (días de mora) <b>{vencido}</b> <b>{saldo}</b> <b>{pagado}</b> <b>{precio}</b> <b>{cuotas}</b> (cuotas vencidas) <b>{fecha}</b> <b>{estado}</b> (el estado de cuenta completo: cuotas vencidas y últimos pagos) <b>{empresa}</b> <b>{telefono}</b></p>
+                <div class="btns" style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn sm adm" id="rpTplSave">Guardar este correo</button><button type="button" class="btn sm ghost adm" id="rpTplReset">Volver al texto original</button><button type="button" class="btn sm ghost" id="rpTplPrev">Ver cómo le llega al primer cliente</button><span class="msg" id="rpTplMsg"></span></div>
+                <pre class="rpprev" id="rpPrev" hidden></pre>
+              </details>
+            </div>
+            <div class="rpqueue" id="rpQueue" hidden></div>
             <div class="rp-bar"><span id="rpSel"></span>
-              <button type="button" class="btn sm" data-rp="mailSel">Enviar correo a los seleccionados</button>
+              <button type="button" class="btn sm" data-rp="mailSel">Enviar a los seleccionados (uno por uno, con sus datos)</button>
+              <button type="button" class="btn sm ghost" data-rp="mailBcc">Un solo correo general (copia oculta)</button>
               <button type="button" class="btn sm ghost" data-rp="copySel">Copiar correos</button>
               <button type="button" class="btn sm ghost" data-rp="xls">Descargar Excel</button>
               <button type="button" class="btn sm danger adm" data-rp="liqSel">Pasar a liquidación</button></div>
@@ -1039,7 +1073,18 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
           </div>
           <div class="panel adm liqp">
             <div class="panel-h"><h2>Cancelar venta y liquidar</h2><span style="color:var(--muted);font-size:12.5px" id="lqCount"></span>
-              <button type="button" class="btn sm" data-rp="mailLiq">Correo masivo de cancelación</button></div>
+              <button type="button" class="btn sm" data-rp="mailLiq">Enviar el correo elegido a todos (uno por uno)</button></div>
+            <div class="rptpl">
+              <label class="fl rptpl-sel">Correo que vas a enviar<select id="lqTpl"><option value="preaviso">Preaviso de liquidación</option><option value="liq">Liquidación (cancelación de la venta)</option></select></label>
+              <details id="lqTplBox"><summary>Ver o cambiar el texto de este correo</summary>
+                <label class="fl">Asunto<input id="lqSu"></label>
+                <label class="fl">Mensaje<textarea id="lqTx" rows="12"></textarea></label>
+                <p class="note" style="padding:4px 0">Estas palabras entre llaves se cambian solas por los datos de cada cliente: <b>{nombre}</b> <b>{lote}</b> <b>{dias}</b> (días de mora) <b>{vencido}</b> <b>{saldo}</b> <b>{pagado}</b> <b>{precio}</b> <b>{cuotas}</b> (cuotas vencidas) <b>{fecha}</b> <b>{estado}</b> (el estado de cuenta completo: cuotas vencidas y últimos pagos) <b>{empresa}</b> <b>{telefono}</b></p>
+                <div class="btns" style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn sm adm" id="lqTplSave">Guardar este correo</button><button type="button" class="btn sm ghost adm" id="lqTplReset">Volver al texto original</button><button type="button" class="btn sm ghost" id="lqTplPrev">Ver cómo le llega al primer cliente</button><span class="msg" id="lqTplMsg"></span></div>
+                <pre class="rpprev" id="lqPrev" hidden></pre>
+              </details>
+            </div>
+            <div class="rpqueue" id="lqQueue" hidden></div>
             <div class="tbl"><table><thead><tr><th>Cliente</th><th>Lote</th><th>Vendedor</th><th>Pasó a liquidación</th><th class="r">Pagado</th><th class="r">Cartera vencida</th><th>Correo</th><th class="r"></th></tr></thead><tbody id="lqBody"></tbody></table></div>
             <p class="note">Aquí quedan los clientes que no quisieron pagar. «Correo» les avisa que, a causa de la mora, se decidió cancelar la venta. «Cancelar venta y liberar lote» guarda una copia de la venta en el archivo de canceladas, borra el estado de cuenta y deja el lote disponible otra vez.</p>
           </div>
@@ -1078,17 +1123,19 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
           <div class="rc-bar">
             <label class="ck wr"><input type="checkbox" id="rcReg" checked> Al descargar, registrar este recibo en el estado de cuenta del lote</label>
             <button type="button" class="btn ghost" id="rcClear">Limpiar</button>
+            <button type="button" class="btn ok" id="rcSave">💾 Guardar abono</button>
             <button type="button" class="btn ghost" id="rcPdf">Descargar PDF</button>
             <button type="button" class="btn" id="rcXls">Descargar Excel</button>
           </div>
           <div class="msg" id="rcMsg" style="padding:0 16px 12px"></div>
+          <div class="rcmail" id="rcMail" hidden></div>
           <div class="rc-list">
             <div class="panel-h"><h2>Recibos de caja</h2>
               <span style="color:var(--muted);font-size:12.5px" id="rlCount"></span>
               <label class="ck"><input type="checkbox" id="rlGen"> Solo los generados aquí</label>
               <input id="rlQ" type="search" placeholder="Buscar por número, comprador o vendedor" aria-label="Buscar recibos" style="min-width:min(320px,100%)"></div>
             <div class="tbl"><table>
-              <thead><tr><th>No. recibo</th><th>Fecha</th><th>Lote</th><th>Comprador</th><th>Vendedor</th><th>Concepto</th><th class="r">Valor</th><th class="r">Volver a descargar</th></tr></thead>
+              <thead><tr><th>No. recibo</th><th>Fecha</th><th>Lote</th><th>Comprador</th><th>Vendedor</th><th>Concepto</th><th class="r">Valor</th><th class="r">Acciones y comprobantes</th></tr></thead>
               <tbody id="rlBody"></tbody>
             </table></div>
             <div class="rl-more" id="rlMore"></div>
@@ -1637,8 +1684,8 @@ function load(){
 // artifact: página publicada en Claude (base compartida de Claude, sin login propio)
 // firebase: archivo o hosting propio con Firebase (login obligatorio)
 // local:    archivo sin Firebase configurado (solo este navegador)
-let MODE="local",ROLE="admin",USER=null,FB=null,VISIT=false,LOTES_OK=false,PUBLAST="";
-const canEdit=()=>ROLE==="admin";
+let MODE="local",ROLE="admin",USER=null,FB=null,VISIT=false,GER=false,VEND=false,LOTES_OK=false,PUBLAST="";
+const canEdit=()=>ROLE==="admin"&&!GER;
 function toast(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,3600)}
 
 // ---------- guardado (la misma interfaz sirve para la base de Claude y para Firestore) ----------
@@ -1657,7 +1704,7 @@ const canAbonar=l=>ROLE==="admin"||mine(l);
 const verPlata=l=>ROLE==="admin"||mine(l);
 function save(ch={}){
   const abonoOk=ch.abono&&ROLE==="vendedor"&&(ch.v||[]).length&&(ch.v||[]).every(mineId)&&(ch.l||[]).every(mineId)&&!ch.cfg&&!ch.com&&!(ch.p||[]).length&&!(ch.ase||[]).length;
-  if(!canEdit()&&!abonoOk){toast(ROLE==="vendedor"?"Como vendedor solo puedes registrar abonos de tus clientes.":"Tu usuario es de solo consulta: no puede guardar cambios.");return false}
+  if(!canEdit()&&!abonoOk){toast(GER?"Gerencia solo puede ver: los cambios no se guardan.":"Tu usuario es de solo consulta: no puede guardar cambios.");return false}
   DB.guardado=new Date().toISOString();
   persist();
   if(!CLOUD){stamp();return true}
@@ -1902,7 +1949,7 @@ function drawMap(){
   ["map","miniMap"].forEach(id=>document.getElementById(id).setAttribute("viewBox","0 0 1110 820"));
   let h=`<rect width="1110" height="820" fill="var(--surface)"/>`;
   h+=`<rect x="1068" y="0" width="30" height="820" fill="var(--road)"/><text x="1083" y="420" transform="rotate(-90 1083 420)" text-anchor="middle" font-size="12" letter-spacing="2">VÍA A CARTAGENA</text>`;
-  h+=`<g transform="rotate(-33 545 425)"><ellipse cx="545" cy="425" rx="230" ry="62" fill="var(--grass)" stroke="var(--grass-line)"/></g><text x="545" y="430" text-anchor="middle" font-size="13" letter-spacing="3" transform="rotate(-33 545 425)">ZONA VERDE</text>`;
+  h+=`<g transform="rotate(-33 545 425)"><ellipse cx="545" cy="425" rx="236" ry="68" fill="#cfe8d2"/><ellipse cx="545" cy="425" rx="230" ry="62" fill="#2f86b8" stroke="#22709e" stroke-width="1.5"/><ellipse cx="530" cy="415" rx="190" ry="40" fill="#4aa3d1" opacity=".55"/><path d="M380 410 q20 -6 40 0 t40 0 M600 445 q20 -6 40 0 t40 0 M470 450 q16 -5 32 0 t32 0 M630 395 q16 -5 32 0" stroke="#ffffff" stroke-opacity=".55" stroke-width="2" fill="none" stroke-linecap="round"/></g><text x="545" y="431" text-anchor="middle" font-size="18" font-weight="700" letter-spacing="8" style="fill:#ffffff" transform="rotate(-33 545 425)">LAGO</text>`;
   h+=`<rect x="640" y="40" width="200" height="76" rx="8" fill="var(--lake-soft)" stroke="var(--lake)" stroke-dasharray="4 3"/><text x="740" y="72" text-anchor="middle" font-size="11.5" style="fill:var(--lake)">Zona deportiva · Parque infantil</text><text x="740" y="90" text-anchor="middle" font-size="11" style="fill:var(--lake)">Salón social · Portería</text>`;
   h+=`<path d="M430 128 C 520 100, 600 128, 630 118" stroke="var(--lake)" stroke-width="5" fill="none" opacity=".45"/><text x="530" y="102" text-anchor="middle" font-size="10">Canal en tierra</text>`;
   for(const k in MZ){const p=MZ[k].p;h+=`<path d="M${p[0]}Q${p[1]} ${p[2]}" stroke="var(--road)" stroke-width="${W+24}" fill="none" stroke-linecap="round"/>`}
@@ -2057,17 +2104,29 @@ function clientDetail(){
        ${pagoHTML(l)}
        <div class="escrow wr"><span>¿Tiene escritura?</span><div class="seg" role="group" aria-label="Escritura"><button type="button" data-esc="0" aria-pressed="${!l.escrito}">No</button><button type="button" data-esc="1" aria-pressed="${l.escrito}">Sí</button></div><span class="note" style="padding:0">Estado: <b>${ESTN[l.estado]}</b></span></div>
        <div><div class="bar"><div style="width:${(p*100).toFixed(1)}%"></div></div><div style="font-size:12px;color:var(--muted);margin-top:4px">${Math.round(p*100)}% pagado${l.atraso>0?` · <span class="tag late">${fmt(l.atraso)} en atraso según el plan de cuotas</span>`:""}</div></div>
-       <div class="tbl"><table class="rtable"><thead><tr><th>Fecha</th><th>Descripción</th><th class="r">Valor</th><th class="r wr"></th></tr></thead><tbody>
+       <h5 class="subh">Abonos y recibos de caja</h5>
+       <div class="tbl"><table class="rtable"><thead><tr><th>Fecha</th><th>No. recibo</th><th>Descripción</th><th class="r">Valor</th><th>Comprobante</th><th class="r wr"></th></tr></thead><tbody>
         ${recs.map(r=>S.editRow===l.id+":"+r.i
-          ?`<tr><td><input type="date" class="eF" value="${r.f||""}"></td><td><input class="eD" value="${esc(r.d)}"></td><td><input type="number" class="eV" value="${r.v}" style="text-align:right"></td>
+          ?`<tr><td><input type="date" class="eF" value="${r.f||""}"></td><td><input type="number" class="eN" value="${r.n??""}" placeholder="No." style="width:90px"></td><td><input class="eD" value="${esc(r.d)}"></td><td><input type="number" class="eV" value="${r.v}" style="text-align:right"></td><td></td>
              <td class="act"><button class="btn sm" data-act="ok" data-i="${r.i}">Guardar</button> <button class="btn sm ghost" data-act="cancel">Cancelar</button></td></tr>`
-          :`<tr><td class="n">${dshow(r.f)}</td><td>${esc(r.d)}</td><td class="r n">${fmt(r.v)}</td>
+          :`<tr><td class="n">${dshow(r.f)}</td><td class="n">${r.n?"<b>No. "+r.n+"</b>":'<span class="tag late wr">Sin número</span>'}</td><td>${esc(r.d)}</td><td class="r n">${fmt(r.v)}</td>
+             <td>${(r.sop||[]).map(x=>`<span class="sopc"><button type="button" class="lnk3" data-sop="${esc(x.id)}" title="${esc(x.n)}">📎 ${esc(x.n.length>16?x.n.slice(0,14)+"…":x.n)}</button><button type="button" class="iconb wr" data-sopdel="${esc(x.id)}" data-i="${r.i}" title="Quitar">✕</button></span>`).join("")}<label class="btn sm ghost wr sopadd">Adjuntar<input type="file" accept="image/*,application/pdf" data-sopi="${r.i}" hidden></label></td>
              <td class="act wr"><button class="iconb" data-act="edit" data-i="${r.i}" title="Editar" aria-label="Editar recibo">✎</button><button class="iconb" data-act="del" data-i="${r.i}" title="Eliminar" aria-label="Eliminar recibo">✕</button></td></tr>`).join("")
-          ||`<tr><td colspan="4" style="color:var(--muted)">Todavía no hay recibos.</td></tr>`}
-        <tr class="abrow ${canAbonar(l)?"":"wr"}"><td><input type="date" class="nF" value="${hoyStr()}"></td><td><input class="nD" placeholder="Recibo de Caja No. ${nextRC()}."></td><td><input type="number" class="nV" placeholder="Valor" style="text-align:right"></td><td class="act"><button class="btn sm" data-act="add">Agregar abono</button></td></tr>
+          ||`<tr><td colspan="6" style="color:var(--muted)">Todavía no hay recibos.</td></tr>`}
+        <tr><td colspan="6" class="note" style="padding:8px 10px">Los abonos nuevos se registran solo con <b>Recibo de caja</b> (botón de arriba), para evitar errores.</td></tr>
        </tbody></table></div>
-       <details class="plan"><summary>Plan de cuotas (${(v.cuotas||[]).length})</summary><div class="tbl"><table><thead><tr><th>Fecha</th><th>Cuota</th><th class="r">Valor</th></tr></thead><tbody>
-        ${(v.cuotas||[]).map(q=>`<tr><td class="n">${dshow(q.f)}</td><td>${esc(q.d)}${q.f&&new Date(q.f+"T00:00")<=HOY?' <span class="tag">causada</span>':""}</td><td class="r n">${fmt(q.v)}</td></tr>`).join("")}
+       <details class="plan"${S.planOpen===l.id?" open":""}><summary>Plan de cuotas (${(v.cuotas||[]).length})${(v.ajustes||[]).length?` · ajustado el ${dshow(v.ajustes[v.ajustes.length-1].f)}`:""}</summary>
+        <div class="wr pjbox"><h5 class="subh" style="margin-top:6px">Ajustar el plan de pagos (conciliación)</h5>
+          <p class="note" style="padding:0 0 6px">Las cuotas ya pagadas se conservan. El saldo de hoy (${fmt(Math.max(0,l.precio-l.pagado))}) se reparte en las cuotas nuevas.</p>
+          <div class="cform" style="display:flex;flex-wrap:wrap;gap:10px;align-items:end"><label class="fl">Primera cuota nueva<input type="date" class="pjF" value="${(()=>{const d=new Date();d.setMonth(d.getMonth()+1);return d.toISOString().slice(0,10)})()}"></label>
+          <label class="fl">Número de cuotas (meses)<input type="number" class="pjN" min="1" max="240" value="12" style="width:110px"></label>
+          <button type="button" class="btn sm" data-act="pjok">Aplicar nuevo plan</button></div><p class="note pjOut" style="padding:6px 0 0"></p></div>
+        <div class="tbl"><table class="ptab"><thead><tr><th>Fecha</th><th>Cuota</th><th class="r">Valor</th><th>Estado</th><th class="wr"></th></tr></thead><tbody>
+        ${(()=>{let cum=0;return (v.cuotas||[]).map((q,qi)=>({q,qi})).sort((a,b)=>(a.q.f||"").localeCompare(b.q.f||"")).map(({q,qi})=>{const prev=cum;cum+=+q.v||0;const debe=Math.max(0,Math.min(+q.v||0,cum-l.pagado));const caus=q.f&&new Date(q.f+"T00:00")<=HOY;
+          const st=debe<=1?'<span class="tag ok">pagada</span>':(caus?`<span class="tag late">${debe<+q.v?"debe "+fmt(debe):"vencida"}</span>`:'<span class="tag">por causar</span>');
+          return S.editQ===l.id+":"+qi?`<tr><td><input type="date" class="qF" value="${q.f||""}"></td><td><input class="qD" value="${esc(q.d||"")}"></td><td><input type="number" class="qV" value="${q.v}" style="text-align:right;width:130px"></td><td></td><td class="act"><button class="btn sm" data-act="qok" data-i="${qi}">Guardar</button> <button class="btn sm ghost" data-act="qcancel">Cancelar</button></td></tr>`
+          :`<tr><td class="n">${dshow(q.f)}</td><td>${esc(q.d)}</td><td class="r n">${fmt(q.v)}</td><td>${st}</td><td class="act wr"><button class="iconb" data-act="qedit" data-i="${qi}" title="Editar cuota">✎</button><button class="iconb" data-act="qdel" data-i="${qi}" title="Eliminar cuota">✕</button></td></tr>`}).join("")})()}
+        <tr class="wr"><td colspan="5"><button type="button" class="btn sm ghost" data-act="qadd">+ Agregar cuota</button> <span class="note" style="padding:0">Total del plan: ${fmt((v.cuotas||[]).reduce((s,q)=>s+(+q.v||0),0))} · precio del lote: ${fmt(v.precio)}</span></td></tr>
        </tbody></table></div></details>
        <div class="msg lmsg"></div>
       </div></div>`;
@@ -2087,16 +2146,31 @@ function clientEvents(){
     if(act==="cancel"){S.editRow=null;clientDetail();return}
     if(act==="ok"){const r=v.recibos[+b.dataset.i],val=+box.querySelector(".eV").value;
       if(!(val>0)){msg.className="msg err";msg.textContent="El valor debe ser mayor que cero.";return}
-      Object.assign(r,{f:box.querySelector(".eF").value,d:box.querySelector(".eD").value.trim()||r.d,v:val});const m=(r.d.match(/caja\D*(\d+)/i)||[])[1];r.n=m?+m:r.n;
+      recEdit(r,{f:box.querySelector(".eF").value,n:box.querySelector(".eN").value.trim(),d:box.querySelector(".eD").value.trim(),v:val});
       S.editRow=null;guardarAbonos(id,"Abono corregido");return}
     if(act==="del"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Eliminar?";b.style.color="var(--bad)";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕";b.style.color=""}},3000);return}
       v.recibos.splice(+b.dataset.i,1);guardarAbonos(id,"Abono eliminado");return}
+    if(act==="qedit"){S.editQ=id+":"+b.dataset.i;S.planOpen=id;clientDetail();return}
+    if(act==="qcancel"){S.editQ=null;clientDetail();return}
+    if(act==="qok"){const q=v.cuotas[+b.dataset.i],val=+box.querySelector(".qV").value;if(!(val>0)){msg.className="msg err";msg.textContent="El valor de la cuota debe ser mayor que cero.";return}
+      Object.assign(q,{f:box.querySelector(".qF").value||q.f,d:box.querySelector(".qD").value.trim()||q.d,v:val});S.editQ=null;S.planOpen=id;guardarAbonos(id,"Cuota actualizada");return}
+    if(act==="qdel"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Eliminar?";b.style.color="var(--bad)";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕";b.style.color=""}},3000);return}
+      v.cuotas.splice(+b.dataset.i,1);S.planOpen=id;guardarAbonos(id,"Cuota eliminada");return}
+    if(act==="qadd"){const last=(v.cuotas||[]).map(q=>q.f).sort().pop()||hoyStr();const d=new Date(last+"T00:00");d.setMonth(d.getMonth()+1);v.cuotas=(v.cuotas||[]).concat({f:d.toISOString().slice(0,10),d:"Cuota "+String((v.cuotas||[]).length+1).padStart(2,"0"),v:0.01});S.editQ=id+":"+(v.cuotas.length-1);S.planOpen=id;clientDetail();return}
+    if(act==="pjok"){const P=planPreview(box,byId[id]);if(!P)return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Sí, aplicar este plan";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Aplicar nuevo plan"}},5000);return}
+      S.planOpen=id;planApply(id,P);return}
+    if(b.dataset.sop){sopOpen(b.dataset.sop);return}
+    if(b.dataset.sopdel){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Quitar?";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕"}},3000);return}sopDel(id,+b.dataset.i,b.dataset.sopdel);return}
     if(act==="add"){const val=+box.querySelector(".nV").value;
       if(!(val>0)){msg.className="msg err";msg.textContent="Escribe el valor del abono.";return}
       const n=nextRC(),d=box.querySelector(".nD").value.trim()||`Recibo de Caja No. ${n}.`,m=(d.match(/caja\D*(\d+)/i)||[])[1];
       v.recibos.push({f:box.querySelector(".nF").value||hoyStr(),d,v:val,n:m?+m:null});guardarAbonos(id,"Abono guardado");return}
   });
   el.addEventListener("click",e=>{const b=e.target.closest("[data-esc]");if(!b)return;const box=b.closest(".box[data-lot]");if(box)setEscritura(box.dataset.lot,b.dataset.esc==="1")});
+  el.addEventListener("input",e=>{if(e.target.closest(".pjF,.pjN")){const box=e.target.closest(".box[data-lot]");planPreview(box,byId[box.dataset.lot])}});
+  el.addEventListener("toggle",e=>{const d=e.target.closest&&e.target.closest("details.plan");if(d&&d.open){const box=d.closest(".box[data-lot]");if(box){S.planOpen=box.dataset.lot;const pj=box.querySelector(".pjF");if(pj)planPreview(box,byId[box.dataset.lot])}}},true);
+  el.addEventListener("change",async e=>{const f=e.target.closest("[data-sopi]");if(!f||!f.files[0])return;const box=f.closest(".box[data-lot]"),msg=box.querySelector(".lmsg");msg.className="msg";msg.textContent="Subiendo comprobante…";
+    try{await sopAdd(box.dataset.lot,+f.dataset.sopi,f.files[0])}catch(err){msg.className="msg err";msg.textContent=err.message||"No se pudo adjuntar."}});
   el.addEventListener("change",e=>{if(e.target.classList.contains("lAsesor")){const box=e.target.closest(".box[data-lot]");DB.ventas[box.dataset.lot].asesor=e.target.value.trim();if(save({v:[box.dataset.lot]})){refresh();toast("Asesor guardado")}return}
     if(!e.target.classList.contains("lPrecio"))return;const box=e.target.closest(".box[data-lot]"),val=+e.target.value;
     if(val>0){DB.ventas[box.dataset.lot].precio=val;guardarAbonos(box.dataset.lot,"Precio guardado")}});
@@ -2374,8 +2448,9 @@ function rcList(){
   if(q){const qd=q.replace(/\D/g,"");L=L.filter(x=>(qd&&q===qd&&x.n!=null&&String(x.n).includes(qd))||pnorm(x.cli).includes(q)||pnorm(x.ase).includes(q)||pnorm(x.id)===q||("lote "+pnorm(x.id))===q)}
   const lim=S.rlLim||50,tot=L.reduce((s,x)=>s+(+x.r.v||0),0);
   document.getElementById("rlCount").textContent=`${L.length} recibos · ${fmt(tot)}`;
-  body.innerHTML=L.slice(0,lim).map(x=>`<tr data-id="${x.id}" data-i="${x.i}"><td class="n"><b>${x.n!=null?"No. "+x.n:"—"}</b>${x.r.rc?` <span class="tag-rc" title="Generado en la app">app</span>`:""}</td><td class="n">${dshow(x.r.f)}</td><td><b>${esc(x.id)}</b></td><td>${esc(x.cli)}</td><td>${x.ase?esc(x.ase):'<span style="color:var(--muted)">Sin asignar</span>'}</td><td>${esc((x.r.m&&x.r.m[0]&&x.r.m[0].c)||x.r.d||"")}</td><td class="r n">${fmt(+x.r.v||0)}</td>
-    <td class="act r">${x.n!=null?`<button class="btn sm ghost" data-rl="open" title="Cargar en el formulario">Abrir</button> <button class="btn sm ghost" data-rl="pdf">PDF</button> <button class="btn sm ghost" data-rl="xls">Excel</button>`:""}</td></tr>`).join("")
+  body.innerHTML=L.slice(0,lim).map(x=>S.rlEdit===x.id+":"+x.i?`<tr data-id="${x.id}" data-i="${x.i}" class="rledit"><td><input type="number" class="rN" value="${x.r.n??""}" placeholder="No." style="width:90px"></td><td><input type="date" class="rF" value="${x.r.f||""}"></td><td><b>${esc(x.id)}</b></td><td>${esc(x.cli)}</td><td>${x.ase?esc(x.ase):""}</td><td><input class="rD" value="${esc(x.r.d||"")}" style="min-width:220px"></td><td class="r"><input type="number" class="rV" value="${+x.r.v||0}" style="text-align:right;width:130px"></td>
+    <td class="act r"><button class="btn sm" data-rl="eok">Guardar</button> <button class="btn sm ghost" data-rl="ecancel">Cancelar</button><div class="msg rlmsg"></div></td></tr>`:`<tr data-id="${x.id}" data-i="${x.i}"><td class="n"><b>${x.n!=null?"No. "+x.n:"—"}</b>${x.r.rc?` <span class="tag-rc" title="Generado en la app">app</span>`:""}</td><td class="n">${dshow(x.r.f)}</td><td><b>${esc(x.id)}</b></td><td>${esc(x.cli)}</td><td>${x.ase?esc(x.ase):'<span style="color:var(--muted)">Sin asignar</span>'}</td><td>${esc((x.r.m&&x.r.m[0]&&x.r.m[0].c)||x.r.d||"")}</td><td class="r n">${fmt(+x.r.v||0)}</td>
+    <td class="act r"><div class="rlact">${x.n!=null?`<button class="btn sm ghost" data-rl="open" title="Cargar en el formulario">Abrir</button> <button class="btn sm ghost" data-rl="pdf">PDF</button> <button class="btn sm ghost" data-rl="xls">Excel</button>`:""}<button class="btn sm ghost wr" data-rl="edit" title="Editar fecha, número, concepto o valor">✎</button>${(x.r.sop||[]).length?"":sopCell(x.id,x.r,x.i,1)}</div>${(x.r.sop||[]).length?`<div class="rlsop">${sopCell(x.id,x.r,x.i,1)}</div>`:""}</td></tr>`).join("")
     ||`<tr><td colspan="8" class="empty">${q?"No hay recibos con esa búsqueda.":"Todavía no hay recibos."}</td></tr>`;
   document.getElementById("rlMore").innerHTML=L.length>lim?`<button class="btn ghost sm" data-rl="more">Ver ${Math.min(50,L.length-lim)} más (${L.length-lim} restantes)</button>`:"";
 }
@@ -2388,9 +2463,21 @@ function rcLoad(id,i){const v=DB.ventas[id],r=v.recibos[i];const sel=document.ge
 function rcListEvents(){
   const q=document.getElementById("rlQ");let t;q.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(()=>{S.rlLim=50;rcList()},150)});
   document.getElementById("rlGen").addEventListener("change",()=>{S.rlLim=50;rcList()});
-  document.querySelector(".rc-list").addEventListener("click",async e=>{const b=e.target.closest("[data-rl]");if(!b)return;const a=b.dataset.rl;
+  const RL=document.querySelector(".rc-list");
+  RL.addEventListener("change",async e=>{const f=e.target.closest("input[data-sopl]");if(!f||!f.files[0])return;try{await sopAdd(f.dataset.sopl,+f.dataset.sopi,f.files[0]);toast("Comprobante adjuntado al abono del lote "+f.dataset.sopl+".")}catch(err){toast(err.message||"No se pudo adjuntar el archivo.")}f.value=""});
+  RL.addEventListener("click",e=>{const b=e.target.closest("button[data-sop],button[data-sopdel]");if(!b)return;const tr=b.closest("tr");
+    if(b.dataset.sop){sopOpen(b.dataset.sop);return}
+    if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Quitar?";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕"}},3000);return}sopDel(tr.dataset.id,+tr.dataset.i,b.dataset.sopdel)});
+  RL.addEventListener("click",async e=>{const b=e.target.closest("[data-rl]");if(!b)return;const a=b.dataset.rl;
     if(a==="more"){S.rlLim=(S.rlLim||50)+50;rcList();return}
-    const tr=b.closest("tr");rcLoad(tr.dataset.id,+tr.dataset.i);
+    const tr=b.closest("tr"),id=tr.dataset.id,i=+tr.dataset.i;
+    if(a==="edit"){S.rlEdit=id+":"+i;rcList();const n=document.querySelector("#rlBody .rledit .rN");if(n)n.focus();return}
+    if(a==="ecancel"){S.rlEdit=null;rcList();return}
+    if(a==="eok"){const r=DB.ventas[id].recibos[i],val=+tr.querySelector(".rV").value,m=tr.querySelector(".rlmsg");
+      if(!(val>0)){m.className="msg err rlmsg";m.textContent="El valor debe ser mayor que cero.";return}
+      const nn=tr.querySelector(".rN").value.trim();if(nn&&DB.ventas[id].recibos.some((o,k)=>k!==i&&+o.n===+nn)){m.className="msg err rlmsg";m.textContent="Ese número ya está en este lote.";return}
+      recEdit(r,{f:tr.querySelector(".rF").value,n:nn,d:tr.querySelector(".rD").value.trim(),v:val});S.rlEdit=null;guardarAbonos(id,"Abono corregido");toast("Abono del lote "+id+" actualizado.");return}
+    rcLoad(tr.dataset.id,+tr.dataset.i);
     if(a==="open"){document.getElementById("sheet").scrollIntoView({behavior:"smooth",block:"start"});return}
     const reg=document.getElementById("rcReg"),was=reg.checked;reg.checked=false;
     try{if(a==="pdf")await rcPdf();else await rcExcel()}finally{reg.checked=was;document.getElementById("rcNum").value=nextRC()}});
@@ -2409,9 +2496,9 @@ function publicMode(fs){
   fs.doc("publico/mapa").onSnapshot(d=>{const x=d.exists?d.data():{};LASTMAPA=x;DB.lotes=pubLotes(x.e,x.p);DB.ventas={};SYNC={state:"ok",at:null,err:""};refresh();stamp()},
     e=>{SYNC={state:"err",at:null,err:"No se pudo leer el plano en la nube."};stamp()});
 }
-function enterVisitor(){if(!FB)return;VISIT=true;MODE="firebase";ROLE="consulta";USER={uid:"",email:"",nombre:"Visitante",asesor:""};publicMode(FB.fs)}
+function enterVisitor(){if(!FB)return;VISIT=true;MODE="firebase";ROLE="consulta";USER={uid:"",email:"",nombre:"Cliente",asesor:""};publicMode(FB.fs)}
 function pubSync(){
-  if(MODE!=="firebase"||!CLOUD||!LOTES_OK||!(ROLE==="admin"||ROLE==="vendedor"))return;
+  if(MODE!=="firebase"||!CLOUD||!LOTES_OK||!canEdit())return;
   const e={},p={};RAW.forEach(([n])=>{const L=DB.lotes[n]||{},st=L.estado;e[n]=st==="separado"?"s":(st&&st!=="disponible"?"v":"d");if(e[n]==="d"&&+L.valor>0)p[n]=Math.round(+L.valor)});
   const j=JSON.stringify([e,p]);if(j===PUBLAST)return;PUBLAST=j;
   CLOUD.doc("publico/mapa").set({e,p}).catch(()=>{PUBLAST=""});
@@ -2450,8 +2537,8 @@ function tContactos(){const tb=document.getElementById("tCont");if(!tb)return;co
 
 // ---------- asignar clientes a vendedores ----------
 let ASE_OK=false;
-function syncVendAse(){if(!ASE_OK||ROLE!=="admin"||typeof USERS==="undefined")return;USERS.filter(u=>u.rol==="vendedor").forEach(u=>ensureAsesor(u.asesor||u.nombre||u.correo,u.correo,u.nombre))}
-function ensureAsesor(n,correo,nom){n=String(n||"").trim();if(!n||ROLE!=="admin")return;DB.asesores=DB.asesores||{};
+function syncVendAse(){if(!ASE_OK||!canEdit()||typeof USERS==="undefined")return;USERS.filter(u=>u.rol==="vendedor").forEach(u=>ensureAsesor(u.asesor||u.nombre||u.correo,u.correo,u.nombre))}
+function ensureAsesor(n,correo,nom){n=String(n||"").trim();if(!n||!canEdit())return;DB.asesores=DB.asesores||{};
   const ex=Object.entries(DB.asesores).find(([,a])=>normA(a.nombre)===normA(n));
   if(ex){if(correo&&!ex[1].correo){ex[1].correo=correo;save({ase:[ex[0]]})}return}
   if(MODE==="firebase"&&!ASE_OK)return;const id="a"+Date.now()+Math.floor(Math.random()*99);
@@ -2498,8 +2585,10 @@ function moraRows(min){min=min||30;return CLIENTES.map(c=>{const L=c.lots.filter
 function liqRows(){return LOTS.filter(l=>l.v&&l.v.liq).map(l=>({l,c:CLIENTES.find(c=>c.lots.includes(l)),mail:(l.v.mail||"").trim()}))}
 function fillTpl(t,o){const C=CFG();return String(t||"").replace(/\\n/g,"\n").replace(/\{(\w+)\}/g,(m,k)=>k in o?o[k]:(k==="telefono"?C.telefono:k==="empresa"?C.empresa:m))}
 function gmailUrl(to,su,body,bcc){const e=encodeURIComponent;return`https://mail.google.com/mail/?view=cm&fs=1${to?"&to="+e(to):""}${bcc?"&bcc="+e(bcc):""}&su=${e(su)}&body=${e(body)}`}
-function moraMail(r){const C=CFG(),o={nombre:title(r.c.nombre),lote:r.L.map(l=>l.n).join(", "),dias:r.dias,vencido:fmt(r.venc),saldo:fmt(r.saldo)};return gmailUrl(r.mail,fillTpl(C.moraAsunto,o),fillTpl(C.moraMensaje,o))}
-function liqMail(x){const C=CFG(),o={nombre:title(x.l.v.cliente),lote:x.l.n};return gmailUrl(x.mail,fillTpl(C.liqAsunto,o),fillTpl(C.liqMensaje,o))}
+function moraItem(r,k){return mailItem(k||S.rpTpl||"cartera",r.mail,tplObj(r.L,r.c.nombre,r.dias),title(r.c.nombre))}
+function moraMail(r,k){return moraItem(r,k).url}
+function liqItem(x,k){return mailItem(k||S.lqTpl||"preaviso",x.mail,tplObj([x.l],x.l.v.cliente),title(x.l.v.cliente))}
+function liqMail(x){return liqItem(x).url}
 function tReportes(){const body=document.getElementById("rpBody");if(!body)return;
   const min=+(S.rpDias||30),q=normA(S.rpQ||""),sel=S.rpSel||(S.rpSel={});
   const all30=moraRows(30),R=moraRows(min).filter(r=>!q||normA(r.c.nombre+" "+r.L.map(l=>"lote "+l.n).join(" ")+" "+r.ase).includes(q));
@@ -2508,7 +2597,7 @@ function tReportes(){const body=document.getElementById("rpBody");if(!body)retur
   document.getElementById("rpBand").className="moraband"+(all30.length?"":" ok");
   body.innerHTML=R.map(r=>`<tr data-k="${esc(r.c.key)}"><td><input type="checkbox" class="rpC"${sel[r.c.key]?" checked":""} aria-label="Seleccionar ${esc(r.c.nombre)}"></td><td><b>${esc(title(r.c.nombre))}</b><div class="pdet">${r.mail?esc(r.mail):'<span style="color:var(--warn)">Sin correo</span>'} · ${esc(r.c.tel||"")}</div></td><td>${r.L.map(l=>`<b>${esc(l.n)}</b>`).join(", ")}</td><td>${r.ase?esc(title(r.ase)):'<span class="note" style="padding:0">Sin asignar</span>'}</td>
     <td class="r n"><span class="dpill ${r.dias>=90?"d3":r.dias>=60?"d2":"d1"}">${r.dias} días</span></td><td class="r n" style="color:var(--bad);font-weight:600">${fmt(r.venc)}</td><td class="r n">${fmt(r.saldo)}</td>
-    <td class="act r"><div class="rpact">${r.mail?`<a class="btn sm" href="${esc(moraMail(r))}" target="_blank" rel="noopener">Enviar correo</a>`:`<button type="button" class="btn sm ghost" data-rp="cli">Agregar correo</button>`} ${ROLE==="admin"?`<button type="button" class="btn sm danger" data-rp="liq">Liquidar</button>`:""}</div></td></tr>`).join("")||`<tr><td colspan="8" class="empty">No hay clientes en mora con ese filtro.</td></tr>`;
+    <td class="act r"><div class="rpact">${r.mail?`<button type="button" class="btn sm" data-rp="one">Enviar correo</button>`:`<button type="button" class="btn sm ghost" data-rp="cli">Agregar correo</button>`} ${ROLE==="admin"?`<button type="button" class="btn sm danger" data-rp="liq">Liquidar</button>`:""}</div></td></tr>`).join("")||`<tr><td colspan="8" class="empty">No hay clientes en mora con ese filtro.</td></tr>`;
   document.getElementById("rpFoot").innerHTML=R.length?`<tr><td colspan="5">${R.length} clientes</td><td class="r n">${fmt(R.reduce((s,r)=>s+r.venc,0))}</td><td class="r n">${fmt(R.reduce((s,r)=>s+r.saldo,0))}</td><td></td></tr>`:"";
   const ns=R.filter(r=>sel[r.c.key]).length;document.getElementById("rpSel").textContent=ns?`${ns} seleccionados`:"Marca clientes para el envío masivo";
   document.getElementById("rpAll").checked=R.length>0&&ns===R.length;
@@ -2516,7 +2605,7 @@ function tReportes(){const body=document.getElementById("rpBody");if(!body)retur
   const LQ=liqRows();document.getElementById("lqCount").textContent=LQ.length?`${LQ.length} en liquidación`:"";
   document.getElementById("lqBody").innerHTML=LQ.map(x=>`<tr data-id="${x.l.id}"><td><b>${esc(title(x.l.v.cliente))}</b><div class="pdet">C.C. ${esc(x.l.v.cc||"—")}</div></td><td><b>${esc(x.l.n)}</b></td><td>${esc(title(x.l.v.asesor||"—"))}</td><td class="n">${dshow(x.l.v.liq.f)}</td><td class="r n">${fmt(x.l.pagado)}</td><td class="r n" style="color:var(--bad)">${fmt(x.l.plan?x.l.plan.late:0)}</td>
     <td>${x.mail?esc(x.mail):'<span class="note" style="padding:0;color:var(--warn)">Sin correo</span>'}</td>
-    <td class="act r" style="white-space:nowrap">${x.mail?`<a class="btn sm ghost" href="${esc(liqMail(x))}" target="_blank" rel="noopener">Correo</a>`:""} <button type="button" class="btn sm ghost" data-rp="unliq">Sacar</button> <button type="button" class="btn sm danger" data-rp="cancel">Cancelar venta y liberar lote</button></td></tr>`).join("")||`<tr><td colspan="8" class="empty">Nadie en liquidación. Usa «Liquidar» en un cliente moroso que no quiera pagar.</td></tr>`;
+    <td class="act r" style="white-space:nowrap">${x.mail?`<button type="button" class="btn sm ghost" data-rp="oneLiq">Enviar correo</button>`:""} <button type="button" class="btn sm ghost" data-rp="unliq">Sacar</button> <button type="button" class="btn sm danger" data-rp="cancel">Cancelar venta y liberar lote</button></td></tr>`).join("")||`<tr><td colspan="8" class="empty">Nadie en liquidación. Usa «Liquidar» en un cliente moroso que no quiera pagar.</td></tr>`;
   const nb=document.getElementById("navRep");if(nb)nb.dataset.n=all30.length||"";
 }
 function rpEvents(){const sec=document.getElementById("v-reportes");if(!sec)return;
@@ -2526,10 +2615,13 @@ function rpEvents(){const sec=document.getElementById("v-reportes");if(!sec)retu
   sec.addEventListener("change",e=>{const c=e.target.closest(".rpC");if(!c)return;const k=c.closest("tr").dataset.k;S.rpSel=S.rpSel||{};if(c.checked)S.rpSel[k]=1;else delete S.rpSel[k];tReportes()});
   sec.addEventListener("click",async e=>{const b=e.target.closest("[data-rp]");if(!b)return;const a=b.dataset.rp,tr=b.closest("tr"),C=CFG();
     const R=moraRows(+(S.rpDias||30)),selR=R.filter(r=>(S.rpSel||{})[r.c.key]);
+    if(a==="one"){const r=R.find(r=>r.c.key===tr.dataset.k);if(r)openMailItem(moraItem(r));return}
+    if(a==="oneLiq"){const x=liqRows().find(x=>x.l.id===tr.dataset.id);if(x)openMailItem(liqItem(x));return}
     if(a==="mailSel"){if(!selR.length){toast("Marca primero los clientes.");return}const m=selR.filter(r=>r.mail);if(!m.length){toast("Ninguno de los seleccionados tiene correo.");return}
-      if(m.length===1){window.open(moraMail(m[0]),"_blank","noopener");return}
-      window.open(gmailUrl("",fillTpl(C.moraAsunto,{lote:"",nombre:""}).replace(/·\s*Lote\s*·?/,"·").replace(/\s+·\s*$/,""),fillTpl(C.moraMasivo,{}),m.map(r=>r.mail).join(",")),"_blank","noopener");
+      const k=S.rpTpl||"cartera";queueStart("rp",k,m.map(r=>moraItem(r,k)));
       if(selR.length>m.length)toast(`${selR.length-m.length} seleccionados no tienen correo: no van en el envío.`);return}
+    if(a==="mailBcc"){if(!selR.length){toast("Marca primero los clientes.");return}const m=selR.filter(r=>r.mail);if(!m.length){toast("Ninguno de los seleccionados tiene correo.");return}
+      window.open(gmailUrl("","Aviso de cartera vencida · Vizcaya Lake House",fillTpl(C.moraMasivo,{}),m.map(r=>r.mail).join(",")),"_blank","noopener");return}
     if(a==="copySel"){const m=(selR.length?selR:R).filter(r=>r.mail).map(r=>r.mail);try{await navigator.clipboard.writeText(m.join(", "));toast(m.length+" correos copiados")}catch(err){toast("No se pudo copiar")}return}
     if(a==="xls"){repMora(R);return}
     if(a==="cli"){go("cliente",byId[CLIENTES.find(c=>c.key===tr.dataset.k).lots[0].id].id);return}
@@ -2538,8 +2630,7 @@ function rpEvents(){const sec=document.getElementById("v-reportes");if(!sec)retu
       const ids=[];list.forEach(r=>r.L.forEach(l=>{l.v.liq={f:hoyStr(),dias:r.dias};ids.push(l.id)}));S.rpSel={};if(save({v:ids})){refresh();toast(`${list.length} ${list.length===1?"cliente pasó":"clientes pasaron"} a liquidación.`)}return}
     if(a==="unliq"){const id=tr.dataset.id;delete DB.ventas[id].liq;if(save({v:[id]})){refresh();toast("Lote "+id+": salió de liquidación.")}return}
     if(a==="mailLiq"){const LQ=liqRows().filter(x=>x.mail);if(!LQ.length){toast("Nadie en liquidación tiene correo.");return}
-      if(LQ.length===1){window.open(liqMail(LQ[0]),"_blank","noopener");return}
-      window.open(gmailUrl("",C.liqAsunto,fillTpl(C.liqMensaje,{nombre:"cliente",lote:"adquirido"}),LQ.map(x=>x.mail).join(",")),"_blank","noopener");return}
+      const k=S.lqTpl||"preaviso";queueStart("lq",k,LQ.map(x=>liqItem(x,k)));return}
     if(a==="cancel"){const id=tr.dataset.id;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Sí, cancelar y liberar";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Cancelar venta y liberar lote"}},4000);return}
       const v=DB.ventas[id];const arc={...v,lote:id,canceladaEn:hoyStr()};delete arc.actualizadoPor;delete arc.actualizadoEn;
       try{if(CLOUD)await CLOUD.doc("canceladas/"+id+"-"+Date.now()).set(clean(arc));else{DB.canceladas=DB.canceladas||[];DB.canceladas.push(arc)}}catch(err){toast("No se pudo archivar la venta: "+authErr(err));return}
@@ -2673,6 +2764,91 @@ function pyEvents(){const $=id=>document.getElementById(id);if(!$("cfProy"))retu
     b.disabled=true;try{await pyApply()}finally{b.disabled=false}});
   applyProject.k=applyProject.k||null;const pi=$("pyInfo");if(pi)pi.textContent=PROY?`Proyecto propio · ${RAW.length} lotes`:"Proyecto Vizcaya · plano original";
 }
+
+// ---------- plantillas de correo (estado de cuenta, mora, preaviso, liquidación) ----------
+const TPL={gracias:["Gracias por su pago (recibo de caja)","tplGrSu","tplGrTx"],cartera:["Estado de cuenta (cartera)","tplCarteraSu","tplCarteraTx"],mora:["Aviso de mora","moraAsunto","moraMensaje"],preaviso:["Preaviso de liquidación","tplPreSu","tplPreTx"],liq:["Liquidación (cancelación de la venta)","liqAsunto","liqMensaje"]};
+function tplOf(k){const C=CFG(),t=TPL[k]||TPL.cartera;return{su:C[t[1]],tx:C[t[2]]}}
+function tplObj(lots,nombre,dias){const due=l=>(l.v&&l.v.cuotas||[]).filter(c=>c.f&&new Date(c.f+"T00:00")<=HOY&&+c.v>0).length;
+  return{nombre:title(nombre||""),lote:lots.map(l=>l.n).join(", "),dias:dias??Math.max(0,...lots.map(l=>l.plan&&l.plan.days||0)),
+    vencido:fmt(lots.reduce((s,l)=>s+(l.plan?l.plan.late:0),0)),saldo:fmt(lots.reduce((s,l)=>s+l.saldo,0)),pagado:fmt(lots.reduce((s,l)=>s+l.pagado,0)),
+    precio:fmt(lots.reduce((s,l)=>s+l.precio,0)),cuotas:lots.reduce((s,l)=>s+Math.max(0,due(l)-(l.plan?l.plan.paidN:0)),0),
+    fecha:new Date().toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"}),estado:lots.map(estadoTxt).join("\n\n")}}
+function estadoTxt(l){const v=l.v||{},p=l.plan||{},L=[];const ln="────────────────────────";
+  L.push("ESTADO DE CUENTA · LOTE "+l.n+" · Manzana "+l.mz,ln,"Precio del lote: "+fmt(l.precio),"Total pagado: "+fmt(l.pagado),"Saldo por pagar: "+fmt(l.saldo),"Valor vencido a la fecha: "+fmt(p.late||0)+(p.days?" ("+p.days+" días de mora)":""));
+  const cs=(v.cuotas||[]).filter(c=>c.f&&+c.v>0).sort((a,b)=>a.f.localeCompare(b.f));let cum=0;const rows=[],atr=[];
+  cs.forEach(c=>{const prev=cum;cum+=+c.v;const causada=new Date(c.f+"T00:00")<=HOY;const debe=Math.max(0,Math.min(+c.v,cum-l.pagado));
+    const st=debe<=1?"Pagada":(debe<+c.v?"Abono parcial, debe "+fmt(debe):"Sin pagar");
+    rows.push("  "+dshow(c.f)+" | "+(c.d||"Cuota")+" | "+fmt(+c.v)+" | "+(causada?"causada":"por causar")+" | "+st);
+    if(causada&&debe>1)atr.push({c,debe})});
+  if(rows.length){L.push("","PLAN DE CUOTAS COMPLETO ("+cs.length+" cuotas · total "+fmt(cs.reduce((s,c)=>s+(+c.v),0))+")","  Fecha | Cuota | Valor | Causación | Estado");L.push(...rows)}
+  if(atr.length){L.push("","CUOTAS ATRASADAS ("+atr.length+" · total atrasado "+fmt(atr.reduce((s,x)=>s+x.debe,0))+")");atr.forEach(x=>L.push("  "+dshow(x.c.f)+" | "+(x.c.d||"Cuota")+" | debe "+fmt(x.debe)+(x.debe<+x.c.v?" de "+fmt(+x.c.v):"")+" | "+Math.max(0,Math.round((HOY-new Date(x.c.f+"T00:00"))/864e5))+" días de atraso"))}
+  else L.push("","CUOTAS ATRASADAS: ninguna. Está al día.");
+  const rc=(v.recibos||[]).filter(r=>r.f).sort((a,b)=>a.f.localeCompare(b.f));
+  if(rc.length){L.push("","PAGOS RECIBIDOS ("+rc.length+")");rc.forEach(r=>L.push("  "+dshow(r.f)+" | "+(r.n?"Recibo No. "+r.n:(r.d||"Abono"))+" | "+fmt(+r.v||0)));L.push("  Total pagado: "+fmt(l.pagado))}
+  L.push(ln);return L.join("\n")}
+function tplMail(k,mail,o){const t=tplOf(k);return gmailUrl(mail,fillTpl(t.su,o),fillTpl(t.tx,o))}
+function mailItem(k,mail,o,nombre){const t=tplOf(k),su=fillTpl(t.su,o),body=fillTpl(t.tx,o);let url=gmailUrl(mail,su,body),long=false;
+  if(url.length>8000){long=true;url=gmailUrl(mail,su,body.replace(/ESTADO DE CUENTA[\s\S]*?────────────────────────\n[\s\S]*?────────────────────────/g,"[ESTADO DE CUENTA: pégalo aquí con Ctrl+V]"))}
+  return{nombre,mail,su,body,url,long}}
+function openMailItem(it){if(GER){toast("Gerencia no envía correos.");return}window.open(it.url,"_blank","noopener");if(it.long){try{navigator.clipboard.writeText(it.body);toast("El estado de cuenta es largo: quedó copiado. En Gmail bórrale la línea que dice «pégalo aquí» y pega con Ctrl+V.")}catch(e){}}}
+function tplLoad(pre){const k=S[pre+"Tpl"]||(pre==="lq"?"preaviso":"cartera"),t=tplOf(k),su=document.getElementById(pre+"Su"),tx=document.getElementById(pre+"Tx");if(!su)return;
+  su.value=t.su||"";tx.value=String(t.tx||"").replace(/\\n/g,"\n");const ro=ROLE!=="admin";su.readOnly=ro;tx.readOnly=ro;document.getElementById(pre+"Prev").hidden=true}
+function rpTplLoad(){tplLoad("rp");tplLoad("lq")}
+function queueShow(pre){const q=S[pre+"Q"],box=document.getElementById(pre+"Queue");if(!box)return;if(!q||q.i>=q.items.length){box.hidden=true;if(q&&q.items.length)toast(`Listo: abriste ${q.sent} de ${q.items.length} correos.`);S[pre+"Q"]=null;return}
+  const it=q.items[q.i];box.hidden=false;
+  box.innerHTML=`<div><b>Envío uno por uno · ${q.i+1} de ${q.items.length}</b><span>${esc(TPL[q.k][0])} → ${esc(it.nombre)} (${esc(it.mail)})</span></div>
+    <button type="button" class="btn sm" data-q="go">Abrir correo de ${esc(it.nombre.split(" ")[0])} →</button>
+    <button type="button" class="btn sm ghost" data-q="skip">Saltar</button><button type="button" class="btn sm ghost" data-q="stop">Terminar</button>
+    <small>Gmail se abre con el correo listo: dale «Enviar» y vuelve aquí para el siguiente.</small>`}
+function queueStart(pre,k,items){if(GER){toast("Gerencia no envía correos.");return}if(!items.length){toast("Ninguno tiene correo registrado.");return}S[pre+"Q"]={k,items,i:0,sent:0};queueShow(pre);document.getElementById(pre+"Queue").scrollIntoView({behavior:"smooth",block:"center"})}
+function rpQueueStart(k,items){queueStart(TPL[k]&&(k==="preaviso"||k==="liq")?"lq":"rp",k,items)}
+function tplUI(pre){const $=id=>document.getElementById(pre+id);if(!$("Tpl"))return;const def=pre==="lq"?"preaviso":"cartera";
+  $("Tpl").addEventListener("change",e=>{S[pre+"Tpl"]=e.target.value;tplLoad(pre)});
+  $("TplSave").addEventListener("click",()=>{const t=TPL[S[pre+"Tpl"]||def];DB.config=DB.config||{};DB.config[t[1]]=$("Su").value.trim();DB.config[t[2]]=$("Tx").value;
+    const m=$("TplMsg");if(save({cfg:true})){m.className="msg";m.textContent="Guardado: así saldrá este correo desde ahora.";setTimeout(()=>m.textContent="",4000)}});
+  $("TplReset").addEventListener("click",()=>{const t=TPL[S[pre+"Tpl"]||def];if(DB.config){delete DB.config[t[1]];delete DB.config[t[2]]}save({cfg:true});tplLoad(pre);$("TplMsg").textContent="Se restableció el texto original."});
+  $("TplPrev").addEventListener("click",()=>{let o;if(pre==="lq"){const x=liqRows()[0]||null;const r=moraRows(30)[0];o=x?tplObj([x.l],x.l.v.cliente):r?tplObj(r.L,r.c.nombre,r.dias):tplObj([],"Cliente de ejemplo",0)}
+    else{const r=moraRows(+(S.rpDias||30))[0];o=r?tplObj(r.L,r.c.nombre,r.dias):tplObj([],"Cliente de ejemplo",0)}
+    const p=$("Prev");p.hidden=false;p.textContent="Asunto: "+fillTpl($("Su").value,o)+"\n\n"+fillTpl($("Tx").value,o)});
+  $("Queue").addEventListener("click",e=>{const b=e.target.closest("[data-q]"),q=S[pre+"Q"];if(!b||!q)return;const a=b.dataset.q;
+    if(a==="go"){openMailItem(q.items[q.i]);q.sent++;setTimeout(()=>{q.i++;queueShow(pre)},400);return}
+    if(a==="skip"){q.i++;queueShow(pre);return}if(a==="stop"){q.i=q.items.length;queueShow(pre)}});
+  tplLoad(pre)}
+function rpTplEvents(){tplUI("rp");tplUI("lq")}
+
+// ---------- correo de gracias con el recibo y el estado de cuenta ----------
+function rcOfferMail(d,ext){const box=document.getElementById("rcMail");const l=byId[d.lote],v=DB.ventas[d.lote];if(!box||!l||!v)return;
+  const mail=(v.mail||"").trim();S.rcLast={d,ext};
+  box.hidden=false;box.innerHTML=mail?`<span class="mi ok">✓</span><div><b>Abono guardado. Envíale el recibo y las gracias a ${esc(title(v.cliente))}</b><span>Se abre Gmail con el mensaje de agradecimiento y su estado de cuenta actualizado. ${ext?`Adjunta el archivo «${esc(fname(d,ext))}» que se acaba de descargar (botón del clip en Gmail).`:"Primero descarga el PDF del recibo (botón «Descargar PDF») y adjúntalo en Gmail con el clip."}</span></div><button type="button" class="btn" id="rcSend">✉️ Enviar recibo y gracias por correo</button>`
+    :`<span class="mi">!</span><div><b>Este cliente no tiene correo registrado.</b><span>Agrégalo en Clientes → Datos del cliente para poder enviarle el recibo.</span></div>`;
+  const b=document.getElementById("rcSend");if(b)b.onclick=()=>{const L=byId[d.lote];const o=tplObj([L],v.cliente);Object.assign(o,{recibo:d.num,valor:fmt(d.t3),fechapago:dshow(d.fecha)});
+    const it=mailItem("gracias",mail,o,title(v.cliente));openMailItem(it);toast("Adjunta en Gmail el archivo «"+fname(d,ext||"pdf")+"» antes de enviar.")}}
+function recEdit(r,o){Object.assign(r,{f:o.f||r.f,d:o.d||r.d,v:o.v});const nn=o.n;
+  if(nn){r.n=+nn;if(!/caja/i.test(r.d)||/resumen|pagado a la fecha/i.test(r.d)){if(!/caja\D*\d+/i.test(r.d))r.d=r.d.replace(/\.$/,"")+` · Recibo de Caja No. ${r.n}.`;else r.d=r.d.replace(/(caja\D*)\d+/i,"$1"+r.n)}else r.d=r.d.replace(/(caja\D*)\d+/i,"$1"+r.n)}
+  else{const m=(r.d.match(/caja\D*(\d+)/i)||[])[1];r.n=m?+m:null}}
+function sopCell(id,r,i,short){return (r.sop||[]).map(x=>`<span class="sopc"><button type="button" class="lnk3" data-sop="${esc(x.id)}" title="${esc(x.n)}">📎 ${esc(x.n.length>16?x.n.slice(0,14)+"…":x.n)}</button><button type="button" class="iconb wr" data-sopdel="${esc(x.id)}" data-i="${i}" title="Quitar">✕</button></span>`).join("")+`<label class="btn sm ghost wr sopadd" title="Adjuntar imagen o PDF del comprobante de pago">📎${short?"":" Adjuntar"}<input type="file" accept="image/*,application/pdf" data-sopi="${i}" data-sopl="${esc(id)}" hidden></label>`}
+// ---------- comprobantes de pago (imagen o PDF) de cada abono ----------
+const rid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+async function fileToData(f){if(/^image\//.test(f.type)){const img=await new Promise((ok,ko)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=ko;i.src=URL.createObjectURL(f)});
+    const k=Math.min(1,1600/Math.max(img.width,img.height)),c=document.createElement("canvas");c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+    let q=.8,u=c.toDataURL("image/jpeg",q);while(u.length>900000&&q>.35){q-=.1;u=c.toDataURL("image/jpeg",q)}return{data:u,tipo:"image/jpeg"}}
+  const u=await new Promise((ok,ko)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=ko;r.readAsDataURL(f)});if(u.length>990000)throw new Error("El PDF pesa más de 700 KB. Comprímelo o súbelo como foto.");return{data:u,tipo:f.type||"application/pdf"}}
+async function sopAdd(id,i,f){const v=DB.ventas[id],r=v.recibos[i];if(!r)return;r.id=r.id||rid();const x=await fileToData(f);const sid=id+"_"+r.id+"_"+rid();
+  const doc={lote:String(id),recibo:r.id,nombre:f.name.slice(0,120),tipo:x.tipo,data:x.data,fecha:hoyStr()};
+  if(CLOUD)await CLOUD.doc("soportes/"+sid).set(doc);else{DB.soportes=DB.soportes||{};DB.soportes[sid]=doc}
+  r.sop=(r.sop||[]).concat({id:sid,n:f.name.slice(0,80)});guardarAbonos(id,"Comprobante adjuntado")}
+async function sopOpen(sid){const w=window.open("","_blank");try{let d;if(CLOUD){const x=await CLOUD.doc("soportes/"+sid).get();d=x.exists?x.data():null}else d=(DB.soportes||{})[sid];
+  if(!d){w&&w.close();toast("No se encontró el comprobante.");return}const b=await (await fetch(d.data)).blob();const u=URL.createObjectURL(b);if(w)w.location=u;else window.open(u,"_blank")}catch(e){w&&w.close();toast("No se pudo abrir el comprobante.")}}
+async function sopDel(id,i,sid){const r=DB.ventas[id].recibos[i];r.sop=(r.sop||[]).filter(x=>x.id!==sid);try{if(CLOUD)await CLOUD.doc("soportes/"+sid).delete();else delete (DB.soportes||{})[sid]}catch(e){}guardarAbonos(id,"Comprobante quitado")}
+// ---------- ajustar plan de pagos (conciliación) ----------
+function planSplit(l){const v=l.v,cs=(v.cuotas||[]).filter(c=>c.f&&+c.v>0).sort((a,b)=>a.f.localeCompare(b.f));let cum=0;const keep=[];for(const c of cs){if(cum+(+c.v)<=l.pagado+1){keep.push(c);cum+=+c.v}else break}return{keep,keptSum:cum}}
+function planPreview(box,l){const n=Math.max(1,+box.querySelector(".pjN").value||1),f0=box.querySelector(".pjF").value,saldo=Math.max(0,l.precio-l.pagado);
+  const vc=Math.round(saldo/n),o=box.querySelector(".pjOut");if(!f0){o.textContent="Elige la fecha de la primera cuota nueva.";return null}
+  const ult=saldo-vc*(n-1);o.innerHTML=`Quedarán <b>${n} cuotas</b> mensuales de <b>${fmt(vc)}</b>${ult!==vc?` (la última de ${fmt(ult)})`:""}, desde el <b>${dshow(f0)}</b>. Total a pagar: <b>${fmt(saldo)}</b> (el saldo de hoy).`;return{n,f0,vc,ult,saldo}}
+function planApply(id,P){const l=byId[id],v=DB.ventas[id],{keep,keptSum}=planSplit(l);const Q=keep.map(c=>({...c}));
+  const parcial=Math.round(l.pagado-keptSum);if(parcial>0)Q.push({f:hoyStr(),d:"Abonos anteriores (ajuste del plan)",v:parcial});
+  const d0=new Date(P.f0+"T00:00");for(let i=0;i<P.n;i++){const d=new Date(d0.getFullYear(),d0.getMonth()+i,Math.min(d0.getDate(),28));Q.push({f:d.toISOString().slice(0,10),d:"Cuota "+String(i+1).padStart(2,"0")+" (plan ajustado)",v:i===P.n-1?P.ult:P.vc})}
+  v.ajustes=(v.ajustes||[]).concat({f:hoyStr(),n:P.n,v:P.vc,desde:P.f0,saldo:P.saldo}).slice(-20);v.cuotas=Q;guardarAbonos(id,"Plan de pagos ajustado")}
 // ---------- comisiones ----------
 function comisiones(){
   const q=S.coQ.toLowerCase();
@@ -2744,8 +2920,8 @@ function politica(){
 // ---------- inicio de sesión (Firebase) ----------
 // Pega aquí la configuración de tu proyecto (Firebase Console → Configuración del proyecto → Tus apps → SDK, "Config").
 const FIREBASE_CONFIG = /*FIREBASE_CONFIG_START*/{apiKey:"AIzaSyC5gAbOk1E1ErxxKr9LntTOQUxa3rCJugc",authDomain:"vizcaya-230e8.firebaseapp.com",projectId:"vizcaya-230e8",storageBucket:"vizcaya-230e8.firebasestorage.app",messagingSenderId:"937250687707",appId:"1:937250687707:web:714dbb14354bb93e44dafe"}/*FIREBASE_CONFIG_END*/;
-const ROLN={admin:"Administrador",vendedor:"Vendedor",consulta:"Consulta",cartera:"Consulta"};
-const ROLSEL=[["admin","Administrador · ve y cambia todo"],["vendedor","Vendedor · ve sus clientes y registra abonos"]];
+const ROLN={admin:"Administrador",gerencia:"Gerencia (solo ver)",vendedor:"Vendedor",consulta:"Consulta",cartera:"Consulta"};
+const ROLSEL=[["admin","Administrador · ve y cambia todo"],["gerencia","Gerencia · ve todo, no cambia nada"],["vendedor","Vendedor · lotes disponibles, precios y comisiones"]];
 const vendList=()=>[...new Set([...Object.values(DB.asesores||{}).filter(a=>a.activo!==false).map(a=>a.nombre),...(typeof USERS!=="undefined"?USERS:[]).filter(u=>u.rol==="vendedor").map(u=>u.asesor||u.nombre)].filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es"));
 const aseOpts=sel=>`<option value="">— Elige el asesor —</option>`+vendList().sort((a,b)=>a.localeCompare(b,"es")).map(n=>`<option value="${esc(n)}"${normA(n)===normA(sel)?" selected":""}>${esc(n)}</option>`).join("")+(sel&&!vendList().some(a=>normA(a)===normA(sel))?`<option value="${esc(sel)}" selected>${esc(sel)}</option>`:"");
 const rolOpts=sel=>ROLSEL.map(([k,t])=>`<option value="${k}"${k===sel?" selected":""}>${t}</option>`).join("")+(sel==="consulta"||sel==="cartera"?`<option value="consulta" selected>Consulta (ya no se usa: elige otro)</option>`:"");
@@ -2780,10 +2956,21 @@ function gate(state,info){
   const lc=document.getElementById("gLocal");if(lc)lc.onclick=()=>{MODE="local";ROLE="admin";applyRole();gate(null);refresh()};
   if(state==="login")setTimeout(()=>document.getElementById("gEmail").focus(),50);
 }
+// ---------- Gerencia: todo inmóvil (solo buscar, filtrar y ver) ----------
+const GER_OK=new Set(["gq","cq","q","coQ","asgQ","rpQ","rlQ","rpDias","fMz","fMz2","fEst2","coF","smLot","prMz","prEst","asgV","rpTpl","lqTpl","rpAll","rlGen","gRem"]);
+function gerOk(el){return GER_OK.has(el.id)||el.type==="search"||!!el.closest("#gate,.login,[data-ro-ok]")||(el.type==="checkbox"&&!!el.closest("#rpBody,#lqBody,.rp-tbl,.rsel"))}
+function gerLock(root){if(!GER)return;(root||document).querySelectorAll("input,textarea,select").forEach(el=>{if(gerOk(el)||el.dataset.gl)return;el.dataset.gl="1";
+  if(el.tagName==="SELECT"||/^(checkbox|radio|file|color|range)$/.test(el.type))el.disabled=true;else{el.readOnly=true;el.tabIndex=-1}})}
+let GER_OBS=null;
+function gerGuard(){if(GER_OBS){if(!GER){GER_OBS.disconnect();GER_OBS=null}return}if(!GER)return;gerLock();
+  GER_OBS=new MutationObserver(ms=>{for(const m of ms)for(const n of m.addedNodes)if(n.nodeType===1)gerLock(n.parentNode||n)});GER_OBS.observe(document.body,{childList:true,subtree:true});
+  const stop=e=>{if(!GER)return;const t=e.target;if(t&&t.matches&&t.matches("input,textarea,select,[contenteditable]")&&!gerOk(t)){e.preventDefault();e.stopImmediatePropagation();if(e.type!=="focusin")toast("Modo Gerencia: solo puedes ver, no cambiar datos.");else t.blur()}};
+  ["beforeinput","paste","drop","cut","focusin"].forEach(t=>document.addEventListener(t,stop,true));
+  document.addEventListener("keydown",e=>{if(GER&&e.target.matches&&e.target.matches("input,textarea")&&!gerOk(e.target)&&(e.key.length===1||e.key==="Backspace"||e.key==="Delete")){e.preventDefault();e.stopImmediatePropagation()}},true)}
 function applyRole(){
-  document.body.classList.toggle("ro",!canEdit());
+  document.body.classList.toggle("ro",!canEdit());try{gerGuard()}catch(e){}
   document.body.classList.toggle("admin",ROLE==="admin");
-  document.body.classList.toggle("vend",ROLE==="vendedor");document.body.classList.toggle("cons",ROLE==="consulta");
+  document.body.classList.toggle("vend",ROLE==="vendedor");document.body.classList.toggle("cons",ROLE==="consulta");document.body.classList.toggle("ger",GER);document.body.classList.toggle("vview",VEND);
   try{document.getElementById("q").placeholder=ROLE==="consulta"?"Buscar lote…":"Buscar lote o cliente…"}catch(e){}
   try{document.getElementById("gq").placeholder=ROLE==="consulta"?"Buscar lote…":"Buscar lote, cliente, asesor…"}catch(e){}
   ESTS=ROLE==="consulta"?["disponible","separado","vendido"]:Object.keys(ESTN0);ESTN.vendido=ROLE==="consulta"?"Vendido":ESTN0.vendido;try{buildFilters()}catch(e){}
@@ -2795,7 +2982,7 @@ function applyRole(){
   document.getElementById("whoName").textContent=nm;document.getElementById("whoRol").textContent=ROLN[ROLE]||ROLE;
   document.getElementById("whoAv").textContent=initials(nm);
   document.getElementById("bLogout").hidden=MODE!=="firebase";document.getElementById("bLogout").textContent=VISIT?"Iniciar sesión (vendedor o administrador)":"Cerrar sesión";
-  if(VISIT){document.getElementById("whoRol").textContent="Solo ver lotes"}
+  if(VISIT){document.getElementById("whoRol").textContent="Ver lotes disponibles"}else if(GER){document.getElementById("whoRol").textContent="Gerencia · solo ver"}else if(VEND){document.getElementById("whoRol").textContent="Vendedor"}
   if(S.view==="config"&&ROLE!=="admin")setView("inicio");
   hello();
   if(!canEdit()){const r=document.getElementById("rcReg");if(r)r.checked=false}
@@ -2828,8 +3015,8 @@ async function routeUser(u){
       const em=(u.email||"").toLowerCase();
       if(SUPERADMINS[em]&&info.rol!=="admin"){info={nombre:info.nombre||SUPERADMINS[em],correo:em,rol:"admin"};try{await fs.doc("usuarios/"+u.uid).set(info)}catch(e){}}
       if(!ROLN[info.rol]){let pend=false;try{pend=(await fs.doc("solicitudes/"+u.uid).get()).exists}catch(e){}gate("norole",{email:u.email,pend});return}
-      USER={uid:u.uid,email:u.email,nombre:info.nombre||u.email,asesor:info.asesor||""};ROLE=info.rol==="cartera"?"consulta":info.rol;VISIT=false;try{localStorage.removeItem(KEY+"-visit")}catch(_){}
-      if(ROLE==="consulta"){publicMode(fs);return}
+      USER={uid:u.uid,email:u.email,nombre:info.nombre||u.email,asesor:info.asesor||""};GER=info.rol==="gerencia";VEND=info.rol==="vendedor";ROLE=GER?"admin":(VEND||info.rol==="cartera")?"consulta":info.rol;VISIT=false;try{localStorage.removeItem(KEY+"-visit")}catch(_){}
+      if(ROLE==="consulta"){publicMode(fs);COM_LISTEN=false;listenConfig(fs);return}
       let prevUid=null;try{prevUid=localStorage.getItem(KEY+"-uid");localStorage.setItem(KEY+"-uid",u.uid)}catch(_){}
       if(prevUid!==u.uid||ROLE!=="admin"){const base=fromExcel();DB.ventas=ROLE==="admin"?base.ventas:{};DB.lotes=base.lotes;if(ROLE!=="admin"){DB.presupuestos=[];DB.asesores={}}}
       applyRole();gate(null);attachStore(fs);if(ROLE==="admin"){listenUsers();listenContactos()}refresh();
@@ -2890,7 +3077,7 @@ function listenUsers(){
   FB.fs.collection("solicitudes").onSnapshot(s=>{SOLS=s.docs.map(d=>({uid:d.id,...d.data()}));tUsers();
     const n=SOLS.length,nav=document.getElementById("navCfg");nav.dataset.n=n||"";cfgAdmins();cfTabBadges();if(n&&!S.cfTabSet){S.cfTabSet=1;cfTab("acceso")}},()=>{});
   FB.fs.collection("usuarios").onSnapshot(s=>{USERS=s.docs.map(d=>({uid:d.id,...d.data()})).sort((a,b)=>(a.nombre||"").localeCompare(b.nombre||"","es"));
-    USERS.filter(u=>u.rol==="vendedor"&&!u.asesor&&(u.nombre||u.correo)).forEach(u=>{const a=u.nombre||u.correo;u.asesor=a;FB.fs.doc("usuarios/"+u.uid).set({nombre:u.nombre||"",correo:u.correo||"",rol:"vendedor",asesor:a}).catch(()=>{})});
+    if(canEdit())USERS.filter(u=>u.rol==="vendedor"&&!u.asesor&&(u.nombre||u.correo)).forEach(u=>{const a=u.nombre||u.correo;u.asesor=a;FB.fs.doc("usuarios/"+u.uid).set({nombre:u.nombre||"",correo:u.correo||"",rol:"vendedor",asesor:a}).catch(()=>{})});
     syncVendAse();
     tUsers();cfgAdmins();try{tAsig()}catch(e){}},()=>{});
 }
@@ -2912,7 +3099,7 @@ function tUsers(){
   up.innerHTML=avH+(SOLS.length?`<div class="cfsec" style="border-top:0;border-bottom:1px solid var(--line);background:var(--warn-soft)"><h3>Solicitudes de acceso (${SOLS.length})</h3>
     <div class="tbl"><table><thead><tr><th>Nombre</th><th>Correo</th><th>Fecha</th><th>Rol que le das</th><th>Asesor vinculado</th><th class="r"></th></tr></thead><tbody>
     ${SOLS.map(u=>{const sr=(S.solRol||{})[u.uid]||"";return`<tr data-s="${esc(u.uid)}" data-rol="${sr}"><td><b>${esc(u.nombre)}</b></td><td>${esc(u.correo)}</td><td class="n">${dshow(u.fecha)}</td>
-      <td><div class="rolpick" role="radiogroup" aria-label="Rol para ${esc(u.nombre)}">${[["admin","Administrador"],["vendedor","Vendedor"]].map(([k,t])=>`<button type="button" class="rp" data-rol="${k}" role="radio" aria-checked="${k===sr}">${t}</button>`).join("")}</div></td>
+      <td><div class="rolpick" role="radiogroup" aria-label="Rol para ${esc(u.nombre)}">${[["admin","Administrador"],["gerencia","Gerencia"],["vendedor","Vendedor"]].map(([k,t])=>`<button type="button" class="rp" data-rol="${k}" role="radio" aria-checked="${k===sr}">${t}</button>`).join("")}</div></td>
       <td><span class="sAw"${sr==="vendedor"?"":" hidden"}>${Object.keys(DB.asesores||{}).length?`<select class="sA" aria-label="Asesor para ${esc(u.nombre)}">${aseOpts("")}</select>`:`<span class="note" style="padding:0">Quedará con su propio nombre</span>`}</span><span class="sAn note" style="padding:0"${sr==="vendedor"?" hidden":""}>Solo para vendedores</span></td>
       <td class="act" style="text-align:right;white-space:nowrap"><button class="btn sm" data-sa="ok">Aprobar</button> <button class="btn sm danger" data-sa="no">Rechazar</button></td></tr>`}).join("")}
     </tbody></table></div></div>`:"");
@@ -2985,11 +3172,17 @@ const DEFAULT_CFG={
   proyecto:"Vizcaya etapa 2",elaboro:"Silvia Villadiego",
   colorPrimario:"",colorLateral:"",colorFondo:"",
   enlaceApp:"https://sites.google.com/view/vizcayalotes/vizcaya",
-  moraAsunto:"Aviso de cartera vencida · Lote {lote} · Vizcaya Lake House",
-  moraMensaje:"Estimado(a) {nombre}:\n\nLe informamos que su compra del lote {lote} en Vizcaya Lake House presenta {dias} días de mora.\n\nValor total de la cartera vencida: {vencido}\nSaldo total del lote: {saldo}\n\nLo invitamos a acercarse a nuestra oficina para conciliar y reajustar el plan de cuotas. Puede comunicarse al {telefono}.\n\nSi ya realizó el pago, por favor envíenos el soporte.\n\nCordialmente,\n{empresa}",
+  tplCarteraSu:"{nombre} · Estado de cuenta del lote {lote} · Vizcaya Lake House",
+  tplCarteraTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nQueremos recordarle que, según nuestros registros, su plan de pagos del lote {lote} presenta {dias} días de mora. Este es el estado de su cuenta:\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\n{estado}\n\nLe invitamos a ponerse al día lo antes posible. Así evita el cobro de intereses de mora y mantiene vigentes las condiciones de su promesa de compraventa.\n\nSi en este momento tiene alguna dificultad, comuníquese con nosotros. Con gusto revisamos alternativas para que pueda normalizar su plan de cuotas.\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nAgradecemos su atención y la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
+  tplGrSu:"{nombre} · Recibo de caja No. {recibo} · Gracias por su pago",
+  tplGrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que recibimos su pago por {valor} el {fechapago}, correspondiente al lote {lote}, registrado con el Recibo de caja No. {recibo}. ¡Muchas gracias por su pago y por estar al tanto de su plan de cuotas!\n\nAdjuntamos el recibo de caja en PDF. A continuación encuentra su estado de cuenta actualizado:\n\n{estado}\n\n📞 Línea de atención: 3126596675\n\nAgradecemos la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
+  tplPreSu:"{nombre} · Preaviso de liquidación del lote {lote} · Vizcaya Lake House",
+  tplPreTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nSu plan de pagos del lote {lote} completa {dias} días de mora, con un valor vencido de {vencido}. Pese a nuestros avisos anteriores, a la fecha no hemos recibido el pago ni un acuerdo para normalizar la cuenta.\n\nPor esta razón le informamos que, si en los próximos 10 días calendario no se pone al día o no se comunica con nosotros para acordar un nuevo plan de cuotas, iniciaremos el proceso de liquidación y cancelación de la venta, según lo establecido en su promesa de compraventa.\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nCordialmente,\n{empresa}",
+  moraAsunto:"{nombre} · Aviso de mora del lote {lote} · Vizcaya Lake House",
+  moraMensaje:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe recordamos que, según nuestros registros, su plan de pagos del lote {lote} presenta {dias} días de mora. Este es el estado de su cuenta:\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\nLe invitamos a ponerse al día lo antes posible. Así evita el cobro de intereses de mora y mantiene vigentes las condiciones de su promesa de compraventa.\n\nSi en este momento tiene alguna dificultad, comuníquese con nosotros. Con gusto revisamos alternativas para que pueda normalizar su plan de cuotas.\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nAgradecemos su atención y la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   moraMasivo:"Estimado(a) cliente:\n\nLe informamos que su compra en Vizcaya Lake House presenta cuotas vencidas con más de un mes de mora.\n\nLo invitamos a acercarse a nuestra oficina para conocer el valor total de su cartera vencida, conciliar y reajustar el plan de cuotas. Puede comunicarse al {telefono}.\n\nCordialmente,\n{empresa}",
-  liqAsunto:"Cancelación de la venta · Vizcaya Lake House",
-  liqMensaje:"Estimado(a) {nombre}:\n\nA causa de la mora en el pago de sus cuotas, se ha decidido cancelar la venta del lote {lote} en Vizcaya Lake House.\n\nPara conocer el proceso de liquidación de lo abonado, comuníquese con nosotros al {telefono} o acérquese a nuestra oficina.\n\nCordialmente,\n{empresa}",
+  liqAsunto:"{nombre} · Cancelación de la venta del lote {lote} por mora · Vizcaya Lake House",
+  liqMensaje:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe informamos que, a causa de la mora en el pago de sus cuotas del lote {lote} ({dias} días de mora, con un valor vencido de {vencido}), y luego de los avisos enviados sin obtener respuesta o acuerdo de pago, se ha decidido cancelar la venta y dar inicio al proceso de liquidación, según lo establecido en su promesa de compraventa.\n\nPara conocer el valor a liquidar de lo abonado y los pasos a seguir, por favor comuníquese con nosotros o acérquese a nuestra oficina.\n\n📞 Línea de atención: 3126596675\n\nCordialmente,\n{empresa}",
   waAsesores:"",waFijo:"",waMensaje:"Hola, vi en el plano de Vizcaya Lake House el lote {lote} (manzana {mz}, {area} m²) y quiero más información.",
   correoAsunto:"Ya tienes acceso a Vizcaya Lake House",
   correoAcceso:"Hola {nombre},\n\nYa te di acceso a la plataforma de Vizcaya Lake House como {rol}.\n\nEntra aquí: {enlace}\nUsa tu correo ({correo}) y tu contraseña.{extra}\n\nSaludos,\n{admin}\nPromotora Vizcaya Lake House S.A.S"
@@ -2998,6 +3191,7 @@ const CFG_FIELDS={
   cfLogin:[["loginTitulo","Título"],["loginSub","Subtítulo"],["heroFrase","Frase sobre la foto",1],["feat1","Rasgo 1 (abajo de la foto)"],["feat2","Rasgo 2"],["feat3","Rasgo 3"],["loginPie","Pie de la tarjeta"]],
   cfPanel:[["bienvenida","Saludo del inicio · {nombre} pone el nombre de quien entra"],["bienvenidaSub","Frase bajo el saludo",1],["lema","Frase de la barra lateral"],["marca","Nombre del proyecto"],["enlaceApp","Enlace de la app (va en el correo de acceso)"],["correoAsunto","Asunto del correo de acceso"],["correoAcceso","Mensaje del correo de acceso · usa {nombre} {rol} {correo} {enlace} {admin}",1],
     ["waMensaje","Mensaje de WhatsApp del cliente · usa {lote} {mz} {area}",1],
+    ["tplGrSu","Correo de gracias por el pago · asunto · usa {nombre} {recibo}"],["tplGrTx","Correo de gracias por el pago (sale al hacer un recibo de caja) · usa {nombre} {lote} {recibo} {valor} {fechapago} {estado}",1],
     ["moraAsunto","Reportes masivos · asunto del aviso de mora"],["moraMensaje","Aviso de mora a un cliente · usa {nombre} {lote} {dias} {vencido} {saldo} {telefono} {empresa}",1],["moraMasivo","Aviso de mora masivo (varios en copia oculta, sin valores)",1],
     ["liqAsunto","Asunto del correo de cancelación"],["liqMensaje","Correo de cancelación por mora · usa {nombre} {lote} {telefono} {empresa}",1]],
   cfEmpresa:[["empresa","Razón social"],["nit","NIT"],["direccion","Dirección"],["telefono","Teléfono"],["proyecto","Proyecto (recibo)"],["elaboro","Elaboró (recibo)"]]
@@ -3327,6 +3521,7 @@ function rcInit(){
   for(let i=0;i<5;i++)h+=`<div class="c nb"></div><div class="c in"><input class="rcC" data-i="${i}" aria-label="Concepto ${i+1}"></div><div class="c in"><input class="rcE" aria-label="Entidad ${i+1}"></div><div class="c in"><input class="m rcV" type="number" min="0" step="1" aria-label="Valor cuota ${i+1}"></div><div class="c in"><input class="m rcI" type="number" min="0" step="1" aria-label="Interés ${i+1}"></div><div class="c in"><input class="m rcD" type="number" min="0" step="1" aria-label="Descuento ${i+1}"></div><div class="c r rcT"></div>`;
   document.getElementById("rcMov").innerHTML=h;
   document.getElementById("sheet").addEventListener("input",rcCalc);
+  document.getElementById("rcNum").addEventListener("input",e=>{e.target.dataset.auto="0"});
   sel.addEventListener("change",()=>rcFill(sel.value));
   document.getElementById("rcFecha").value=hoyStr();
   document.getElementById("rcNum").value=nextRC();
@@ -3365,15 +3560,15 @@ function rcCheck(d){
   if(!d.fecha||!d.num){m.className="msg err";m.textContent="Falta la fecha o el número del recibo.";return false}
   return true;
 }
-function rcRegister(d){
-  if(!document.getElementById("rcReg").checked)return"";
+function rcRegister(d,force){
+  if(!force&&!document.getElementById("rcReg").checked)return"";
   const v=DB.ventas[d.lote];const n=+d.num;
-  if(v.recibos.some(r=>+r.n===n))return` El recibo No. ${n} ya estaba en el estado de cuenta del lote, no se duplicó.`;
+  if(v.recibos.some(r=>+r.n===n))return S.rcSaved===d.lote+":"+n?" El abono ya estaba guardado.":` El recibo No. ${n} ya estaba en el estado de cuenta del lote, no se duplicó.`;
   const m=d.rows.filter(r=>r.c||r.v!=null).map(r=>{const o={c:String(r.c||"").slice(0,120)};if(r.e)o.e=String(r.e).slice(0,60);if(r.v!=null)o.v=r.v;if(r.i)o.i=r.i;if(r.d)o.d=r.d;return o});
   v.recibos.push({f:d.fecha,d:`Recibo de Caja No. ${n}.`,v:d.t3,n,rc:1,m,el:String(d.elab||"").slice(0,80)});
   // guardar ciudad/barrio del cliente si se escribieron
   Object.assign(v,{ciudad:d.ciu||v.ciudad,barrio:d.bar||v.barrio});
-  guardarAbonos(d.lote);document.getElementById("rcNum").value=nextRC();try{rcList()}catch(e){}
+  if(force){S.rcSaved=d.lote+":"+n;document.getElementById("rcNum").dataset.auto="0"}guardarAbonos(d.lote);if(force){document.getElementById("rcNum").value=n}else document.getElementById("rcNum").value=nextRC();try{rcList()}catch(e){}
   return` Quedó registrado en el estado de cuenta del lote ${d.lote}.`;
 }
 async function download(blob,name){
@@ -3383,6 +3578,9 @@ async function download(blob,name){
 const fname=(d,ext)=>`Recibo de caja ${d.num} - Lote ${d.lote}.${ext}`;
 
 function exportLogo(){const I=(DB.imgs||{}).logo;if(I&&I.data)return{data:I.data,ext:/^data:image\/png/.test(I.data)?"png":"jpeg",w:I.w||400,h:I.h||300};return{data:LOGO,ext:"png",w:1110,h:1035}}
+function rcSaveAbono(){const d=rcData();if(!rcCheck(d))return;const m=document.getElementById("rcMsg");
+  const n=+d.num,v=DB.ventas[d.lote];if(v.recibos.some(r=>+r.n===n)&&S.rcSaved!==d.lote+":"+n){m.className="msg err";m.textContent=`El recibo No. ${n} ya existe en el lote ${d.lote}. Cambia el número o búscalo abajo para editarlo.`;return}
+  const extra=rcRegister(d,true);m.className="msg";m.textContent="✓ Abono de "+fmt(d.t3)+" guardado."+extra+" Ahora puedes descargar el PDF o el Excel.";rcOfferMail(d,null)}
 async function rcExcel(){
   const d=rcData();if(!rcCheck(d))return;
   if(!window.ExcelJS){const m=document.getElementById("rcMsg");m.className="msg err";m.textContent="No cargó la herramienta de Excel. Revisa la conexión a internet y recarga la página.";return}
@@ -3416,7 +3614,7 @@ async function rcExcel(){
   ws.pageSetup.printArea="A1:G31";
   const buf=await wb.xlsx.writeBuffer();
   if(!await download(new Blob([buf],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}),fname(d,"xlsx")))return;
-  const m=document.getElementById("rcMsg");const extra=rcRegister(d);m.className="msg";m.textContent="Se descargó "+fname(d,"xlsx")+"."+extra;
+  const m=document.getElementById("rcMsg");const extra=rcRegister(d);m.className="msg";m.textContent="Se descargó "+fname(d,"xlsx")+"."+extra;rcOfferMail(d,"xlsx");
 }
 async function rcPdf(){
   const d=rcData();if(!rcCheck(d))return;
@@ -3443,23 +3641,23 @@ async function rcPdf(){
   txt("TOTAL RECIBIDO:",4,27,{b:1,size:7.6});txt(fmt(d.t3),5,27,{right:1,b:1});
   txt(d.elab,1,30);txt("Firma y Sello",5,30);txt("Elaboró",1,31,{i:1,size:7.5});
   if(!await download(doc.output("blob"),fname(d,"pdf")))return;
-  const m=document.getElementById("rcMsg");const extra=rcRegister(d);m.className="msg";m.textContent="Se descargó "+fname(d,"pdf")+"."+extra;
+  const m=document.getElementById("rcMsg");const extra=rcRegister(d);m.className="msg";m.textContent="Se descargó "+fname(d,"pdf")+"."+extra;rcOfferMail(d,"pdf");
 }
 function rcClear(){
   document.querySelectorAll("#rcMov input").forEach(i=>i.value="");
   ["rcCiu","rcBar"].forEach(id=>document.getElementById(id).value="");
-  document.getElementById("rcFecha").value=hoyStr();document.getElementById("rcNum").value=nextRC();
+  document.getElementById("rcFecha").value=hoyStr();document.getElementById("rcNum").value=nextRC();document.getElementById("rcNum").dataset.auto="1";S.rcSaved=null;{const mb=document.getElementById("rcMail");if(mb)mb.hidden=true}
   rcFill(document.getElementById("rcLote").value);document.getElementById("rcMsg").textContent="";
 }
 
 // ---------- navegación ----------
-function refresh(){rebuild();try{tReportes()}catch(e){console.error(e)}try{tAsig()}catch(e){}try{if(!S.waDraft)waEd()}catch(e){}try{pubSync()}catch(e){}try{tContactos()}catch(e){}try{rcList()}catch(e){console.error(e)}try{admin()}catch(e){console.error(e)}kpis();paintMap();card();tLotes();tRecaudo();comisiones();clientList();clientDetail();stamp();tUsers();dashboard();
+function refresh(){rebuild();try{const rn=document.getElementById("rcNum");if(rn&&rn.dataset.auto!=="0"){const nx=nextRC();if(+rn.value<nx)rn.value=nx}}catch(e){}try{tReportes()}catch(e){console.error(e)}try{tAsig()}catch(e){}try{if(!S.waDraft)waEd()}catch(e){}try{pubSync()}catch(e){}try{tContactos()}catch(e){}try{rcList()}catch(e){console.error(e)}try{admin()}catch(e){console.error(e)}kpis();paintMap();card();tLotes();tRecaudo();comisiones();clientList();clientDetail();stamp();tUsers();dashboard();
   const sel=document.getElementById("rcLote"),cur=sel.value;
   sel.innerHTML=`<option value="">— Elige un lote —</option>`+LOTS.filter(l=>l.v).map(l=>`<option value="${l.id}">LOTE ${l.n}</option>`).join("");sel.value=cur;}
 const VIEWS=["inicio","plano","clientes","lotes","recaudo","comisiones","recibo","reportes","config"];
 function setView(v){try{setView0(v)}catch(e){console.error(e);S.view=VIEWS.includes(v)?v:"inicio";show()}}
 let POPPING=false;
-function setView0(v){const prevV=S.view;if(v==="usuarios"){v="config";try{cfTab("acceso")}catch(e){}setTimeout(()=>{const u=document.getElementById("cfUsersSec");if(u)u.scrollIntoView({behavior:"smooth",block:"start"})},80)}if(ROLE!=="admin"&&["config","comisiones","recaudo"].includes(v))v="inicio";if(ROLE==="consulta"&&["recibo","clientes","reportes"].includes(v))v="inicio";S.view=VIEWS.includes(v)?v:"inicio";if(S.view==="config"){cfgForm();setTimeout(()=>{try{admin()}catch(e){console.error(e)}},0)}try{if(!POPPING&&prevV!==S.view&&setView0.ready){try{history.pushState({v:S.view},"","#"+S.view)}catch(e1){history.pushState({v:S.view},"")}S.depth=(S.depth||0)+1}else{try{history.replaceState({v:S.view},"","#"+S.view)}catch(e2){history.replaceState({v:S.view},"")}}}catch(e){}
+function setView0(v){const prevV=S.view;if(v==="usuarios"){v="config";try{cfTab("acceso")}catch(e){}setTimeout(()=>{const u=document.getElementById("cfUsersSec");if(u)u.scrollIntoView({behavior:"smooth",block:"start"})},80)}if(ROLE!=="admin"&&["config","recaudo"].concat(VEND?[]:["comisiones"]).includes(v))v="inicio";if(ROLE==="consulta"&&["recibo","clientes","reportes"].includes(v))v="inicio";if(GER&&["recibo","reportes","config"].includes(v))v="inicio";S.view=VIEWS.includes(v)?v:"inicio";if(S.view==="config"){cfgForm();setTimeout(()=>{try{admin()}catch(e){console.error(e)}},0)}try{if(!POPPING&&prevV!==S.view&&setView0.ready){try{history.pushState({v:S.view},"","#"+S.view)}catch(e1){history.pushState({v:S.view},"")}S.depth=(S.depth||0)+1}else{try{history.replaceState({v:S.view},"","#"+S.view)}catch(e2){history.replaceState({v:S.view},"")}}}catch(e){}
   const bb=document.getElementById("bBack");if(bb)bb.hidden=!(S.depth>0);show()}
 function route(){let v="";try{v=(location.hash||"").slice(1)}catch(e){}if(VIEWS.includes(v)&&v!==S.view){POPPING=true;try{setView(v)}finally{POPPING=false}}}
 window.addEventListener("popstate",e=>{const v=e.state&&e.state.v;if(!v)return;S.depth=Math.max(0,(S.depth||0)-1);if(v!==S.view){POPPING=true;try{setView(v)}finally{POPPING=false}}const bb=document.getElementById("bBack");if(bb)bb.hidden=!(S.depth>0)});
@@ -3474,7 +3672,7 @@ function show(){
     comisiones:["Asesores y comisiones","Comisión de cada lote vendido, lo causado, lo pendiente y la política 2026.","pers"],recibo:["Recibo de caja","Elige el lote y llena las casillas en blanco; se descarga en Excel o PDF.","doc"],
     usuarios:["Usuarios","Quién entra a la app y qué puede hacer.","pers"],reportes:["Reportes masivos","Clientes con más de un mes de mora: avisos por correo, conciliación y cancelación de ventas.","doc"],config:["Configuración","Elige una sección en la barra: ingresos, vendedores, precios, comisiones, WhatsApp o apariencia.","graf"]};
   const ph=PH[S.view];document.getElementById("pageHead").hidden=!ph;
-  if(ph){document.getElementById("phT").textContent=ph[0];document.getElementById("phS").textContent=ROLE==="consulta"?({plano:"Toca un lote para ver su área y su estado. Si está disponible, contacta a una asesora por WhatsApp.",lotes:"Los 155 lotes con su manzana, área y estado."}[S.view]||ph[1]):ph[1];document.getElementById("phIc").innerHTML=(IC[ph[2]]||IC.casa)}
+  if(ph){document.getElementById("phT").textContent=ph[0];document.getElementById("phS").textContent=ROLE==="consulta"?({plano:"Toca un lote para ver su área y su estado. Si está disponible, contacta a una asesora por WhatsApp.",lotes:"Los lotes con su manzana, área, estado y precio de los disponibles.",comisiones:"Política de comisiones 2026, simulador y comisión de cada lote disponible."}[S.view]||ph[1]):ph[1];document.getElementById("phIc").innerHTML=(IC[ph[2]]||IC.casa)}
 }
 function select(id){S.sel=id;paintMap();card();tLotes();if(window.innerWidth<=1080&&S.view!=="clientes")document.getElementById("card").scrollIntoView({behavior:"smooth",block:"start"})}
 function go(where,id){
@@ -3492,7 +3690,7 @@ function init(){
   document.getElementById("fMz").innerHTML=opts;document.getElementById("fMz2").innerHTML=opts;
   buildFilters();
   politica();
-  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();cfTabEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
+  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
   document.getElementById("moraStrip").addEventListener("click",()=>setView("reportes"));
   const kt=e=>{const k=e.target.closest(".kpi.tg");if(!k)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();S.kpiFull[k.dataset.k]=!S.kpiFull[k.dataset.k];kpis();const n=document.querySelector(`.kpi.tg[data-k="${k.dataset.k}"]`);if(n&&e.type==="keydown")n.focus()};
   document.getElementById("kpis").addEventListener("click",kt);document.getElementById("kpis").addEventListener("keydown",kt);
@@ -3524,7 +3722,7 @@ function init(){
   document.getElementById("tEst").addEventListener("click",e=>{const r=e.target.closest("tr[data-e]");if(!r)return;S.estado=r.dataset.e;S.mode="estado";S.mz="";document.getElementById("fMz").value="";
     document.querySelectorAll("#fEstado .chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.e===S.estado));document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.mode==="estado"));setView("plano");paintMap()});
   document.getElementById("bSeed").addEventListener("click",seedAll);
-  document.getElementById("rcXls").addEventListener("click",rcExcel);
+  document.getElementById("rcXls").addEventListener("click",rcExcel);document.getElementById("rcSave").addEventListener("click",rcSaveAbono);
   document.getElementById("rcPdf").addEventListener("click",rcPdf);
   document.getElementById("rcClear").addEventListener("click",rcClear);
   const fm=t=>{const m=document.getElementById("footMsg");m.textContent=t;setTimeout(()=>m.textContent="",4000)};
