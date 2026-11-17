@@ -258,6 +258,7 @@ details.plan .tbl{max-height:260px;overflow:auto;margin-top:8px}
 .sh-sign small{font-style:italic;font-size:11px;padding-left:4px}
 .rlact{display:flex;gap:4px;justify-content:flex-end;flex-wrap:nowrap}.rc-list td:nth-child(6){max-width:240px;white-space:normal}.rc-list td{vertical-align:middle}.rlsop{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}.rledit input{padding:5px 7px}.btn.ok{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
 .pdfck{display:flex;gap:8px;align-items:flex-start;padding:10px 16px;margin:0 16px 8px;background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;font-size:13px}.pdfck input{margin-top:3px}
+.btn.warnb{background:#c2410c;border-color:#c2410c;color:#fff}.trgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start;padding:14px 16px}.trarrow{font-size:28px;color:var(--muted);padding-top:28px}.trbox{display:flex;flex-direction:column;gap:8px}.trinfo{background:var(--surface-2,#f4f6f5);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;min-height:64px}.trinfo dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0}.trinfo dt{color:var(--muted)}.trinfo dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}.trh{margin:0 0 8px;font-size:14px}.trprev{margin-top:10px;font-size:13px}.trprev .sum{background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;padding:10px 12px;margin-bottom:8px;line-height:1.55}.trprev .warn{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:10px 12px;margin-bottom:8px}.trprev table{width:100%;font-size:12.5px}.trprev .tbl{max-height:260px;overflow:auto}.trtpl summary{cursor:pointer}@media(max-width:760px){.trgrid{grid-template-columns:1fr}.trarrow{display:none}}
 .rc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
 .rc-bar label.ck{display:flex;gap:7px;align-items:center;font-size:13px;margin-right:auto}
 
@@ -606,7 +607,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
 .rpqueue>div{display:flex;flex-direction:column;margin-right:auto} .rpqueue>div span{font-size:12.5px;color:var(--muted)} .rpqueue small{flex-basis:100%;color:var(--muted)} .rpqueue a.btn{text-decoration:none}
 body.vview .side-nav .vshow{display:flex!important}
 body.vview .nvd,body.vview .wabar{display:none!important}
-body.ger [data-go="recibo"],body.ger .side-nav [data-v="recibo"],body.ger .side-nav [data-v="reportes"],body.ger .side-nav [data-v="config"],body.ger [data-go="config"],body.ger #moraStrip,body.ger [data-rpgo],body.ger #rcSend,body.ger [data-rp="one"],body.ger [data-rp="oneLiq"],body.ger #cSave,body.ger #rcXls,body.ger #rcSave,body.ger #rcPdf,body.ger #rcClear,body.ger #rcReg,body.ger label[for=rcReg],body.ger .rc-bar .ck,body.ger #rpTplSave,body.ger #rpTplReset,body.ger #lqTplSave,body.ger #lqTplReset,body.ger #pAddBtn,body.ger #pAuto,body.ger [data-pa="edit"],body.ger [data-pa="del"],body.ger #prSave,body.ger #prApply,body.ger #prPct,body.ger #comSave,body.ger #comDef,body.ger #aForm,body.ger #uForm,body.ger [data-ua],body.ger [data-aa],body.ger [data-sa],body.ger #waAdd,body.ger #waSave,body.ger [data-wd],body.ger #asgSave,body.ger #asgAll,body.ger #cfSave,body.ger #cfReset,body.ger #cfProy .drop,body.ger #pyTpl~*,body.ger #bImport,body.ger #bReset,body.ger [data-rp="liq"],body.ger [data-rp="liqSel"],body.ger [data-rp="unliq"],body.ger [data-rp="cancel"],body.ger #ctDelAll,body.ger [data-ctdel],body.ger [data-pd="add"],body.ger [data-pd="edit"],body.ger [data-pd="del"],body.ger #pdDrop,body.ger .rptpl .adm,body.ger [data-esc]{display:none!important}
+body.ger [data-go="recibo"],body.ger .side-nav [data-v="traslados"],body.ger .side-nav [data-v="recibo"],body.ger .side-nav [data-v="reportes"],body.ger .side-nav [data-v="config"],body.ger [data-go="config"],body.ger #moraStrip,body.ger [data-rpgo],body.ger #rcSend,body.ger [data-rp="one"],body.ger [data-rp="oneLiq"],body.ger #cSave,body.ger #rcXls,body.ger #rcSave,body.ger #rcPdf,body.ger #rcClear,body.ger #rcReg,body.ger label[for=rcReg],body.ger .rc-bar .ck,body.ger #rpTplSave,body.ger #rpTplReset,body.ger #lqTplSave,body.ger #lqTplReset,body.ger #pAddBtn,body.ger #pAuto,body.ger [data-pa="edit"],body.ger [data-pa="del"],body.ger #prSave,body.ger #prApply,body.ger #prPct,body.ger #comSave,body.ger #comDef,body.ger #aForm,body.ger #uForm,body.ger [data-ua],body.ger [data-aa],body.ger [data-sa],body.ger #waAdd,body.ger #waSave,body.ger [data-wd],body.ger #asgSave,body.ger #asgAll,body.ger #cfSave,body.ger #cfReset,body.ger #cfProy .drop,body.ger #pyTpl~*,body.ger #bImport,body.ger #bReset,body.ger [data-rp="liq"],body.ger [data-rp="liqSel"],body.ger [data-rp="unliq"],body.ger [data-rp="cancel"],body.ger #ctDelAll,body.ger [data-ctdel],body.ger [data-pd="add"],body.ger [data-pd="edit"],body.ger [data-pd="del"],body.ger #pdDrop,body.ger .rptpl .adm,body.ger [data-esc]{display:none!important}
 body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rpDias):not(#asgQ),body.ger textarea{pointer-events:none;background:var(--surface-2)!important}
 .gerbadge{display:none}body.ger .gerbadge{display:block;background:#fff3e6;border:1px solid #f3b36b;color:#7a3e00;border-radius:10px;padding:8px 14px;font-size:13px;margin-bottom:10px}
 .subh{font-size:13.5px;margin:14px 0 6px;color:var(--fg)}
@@ -688,6 +689,7 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
       <button type="button" draggable="false" data-v="recaudo" class="adm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg>Pagos y cartera</button>
       <button type="button" draggable="false" data-v="comisiones" class="adm vshow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg>Asesores y comisiones</button>
       <button type="button" draggable="false" data-v="recibo" class="noc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>Recibo de caja</button>
+      <button type="button" draggable="false" data-v="traslados" class="adm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/></svg>Traslados de lote</button>
       <button type="button" draggable="false" data-v="reportes" class="noc" id="navRep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Reportes masivos</button>
       <button type="button" draggable="false" data-v="usuarios" id="navUsers" hidden style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Usuarios</button>
       <button type="button" draggable="false" data-v="config" class="adm" id="navCfg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Configuración</button>
@@ -1074,6 +1076,47 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
         </section>
 
         <!-- REPORTES MASIVOS -->
+        <section id="v-traslados" hidden class="stack">
+          <div class="panel">
+            <div class="panel-h"><h2>Traslado de lote</h2><span class="hint2">Pasa todos los pagos de un lote a otro lote disponible y arma el plan de pagos nuevo</span></div>
+            <div class="trgrid">
+              <div class="trbox">
+                <label class="fl">1. Lote de origen (el que deja el cliente)<select id="trA"></select></label>
+                <div class="trinfo" id="trAinfo"><p class="note" style="padding:0">Elige el lote que tiene hoy el cliente.</p></div>
+              </div>
+              <div class="trarrow" aria-hidden="true">→</div>
+              <div class="trbox">
+                <label class="fl">2. Lote de destino (solo lotes disponibles)<select id="trB"></select></label>
+                <div class="trinfo" id="trBinfo"><p class="note" style="padding:0">Elige el lote nuevo.</p></div>
+              </div>
+            </div>
+            <div class="cfsec">
+              <h3 class="trh">3. Precio y plan de pagos en el lote nuevo</h3>
+              <div class="cform" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
+                <label class="fl">Precio de venta del lote nuevo<input type="number" id="trPrecio" min="0" step="1000"></label>
+                <label class="fl">Cuotas mensuales para el saldo<input type="number" id="trN" min="1" max="120" value="12"></label>
+                <label class="fl">Fecha de la primera cuota<input type="date" id="trF"></label>
+                <label class="fl">Fecha del traslado<input type="date" id="trHoy"></label>
+              </div>
+              <div class="trprev" id="trPrev"></div>
+              <div class="btns" style="margin-top:10px;align-items:center"><button type="button" class="btn" id="trGo" disabled>Hacer el traslado</button><span class="msg" id="trMsg"></span></div>
+              <div class="rcmail" id="trMail" hidden></div>
+            </div>
+            <details class="cfsec trtpl"><summary><b>Mensaje del correo de traslado</b> (puedes cambiarlo)</summary>
+              <div class="cform" style="grid-template-columns:1fr;margin-top:8px">
+                <label class="fl">Asunto<input id="trSu" maxlength="200"></label>
+                <label class="fl">Mensaje<textarea id="trTx" rows="12"></textarea></label>
+              </div>
+              <p class="note" style="padding:4px 0">Puedes usar: {nombre} {loteanterior} {lote} {fecha} {pagado} {precio} {saldo} {cuotasn} {valorcuota} {primera} {estado}. Con el PDF activado, {estado} dice que el estado de cuenta va adjunto.</p>
+              <div class="btns"><button type="button" class="btn sm" id="trTplSave">Guardar mensaje</button><button type="button" class="btn sm ghost" id="trTplReset">Volver al original</button><span class="msg" id="trTplMsg"></span></div>
+            </details>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Traslados hechos</h2><span class="hint2" id="trCount"></span></div>
+            <div class="tbl"><table><thead><tr><th>Fecha</th><th>Cliente</th><th>De lote</th><th>A lote</th><th class="r">Pagos trasladados</th><th class="r">Precio nuevo</th><th class="r">Saldo hoy</th><th class="r">Correo</th></tr></thead><tbody id="tTr"></tbody></table></div>
+          </div>
+        </section>
+
         <section id="v-reportes" hidden class="stack">
           <div class="moraband" id="rpBand"></div>
           <div class="panel">
@@ -2153,7 +2196,7 @@ function clientDetail(){
         ${recs.map(r=>S.editRow===l.id+":"+r.i
           ?`<tr><td><input type="date" class="eF" value="${r.f||""}"></td><td><input type="number" class="eN" value="${r.n??""}" placeholder="No." style="width:90px"></td><td><input class="eD" value="${esc(r.d)}"></td><td><input type="number" class="eV" value="${r.v}" style="text-align:right"></td><td></td>
              <td class="act"><button class="btn sm" data-act="ok" data-i="${r.i}">Guardar</button> <button class="btn sm ghost" data-act="cancel">Cancelar</button></td></tr>`
-          :`<tr><td class="n">${dshow(r.f)}</td><td class="n">${r.n?"<b>No. "+r.n+"</b>":'<span class="tag late wr">Sin número</span>'}</td><td>${esc(r.d)}</td><td class="r n">${fmt(r.v)}</td>
+          :`<tr><td class="n">${dshow(r.f)}</td><td class="n">${r.n?"<b>No. "+r.n+"</b>":'<span class="tag late wr">Sin número</span>'}</td><td>${esc(r.d)}${r.tr?` <span class="tag">trasladado del lote ${esc(r.tr)}</span>`:""}</td><td class="r n">${fmt(r.v)}</td>
              <td>${(r.sop||[]).map(x=>`<span class="sopc"><button type="button" class="lnk3" data-sop="${esc(x.id)}" title="${esc(x.n)}">📎 ${esc(x.n.length>16?x.n.slice(0,14)+"…":x.n)}</button><button type="button" class="iconb wr" data-sopdel="${esc(x.id)}" data-i="${r.i}" title="Quitar">✕</button></span>`).join("")}<label class="btn sm ghost wr sopadd">Adjuntar<input type="file" accept="image/*,application/pdf" data-sopi="${r.i}" hidden></label></td>
              <td class="act wr"><button class="iconb" data-act="edit" data-i="${r.i}" title="Editar" aria-label="Editar recibo">✎</button><button class="iconb" data-act="del" data-i="${r.i}" title="Eliminar" aria-label="Eliminar recibo">✕</button></td></tr>`).join("")
           ||`<tr><td colspan="6" style="color:var(--muted)">Todavía no hay recibos.</td></tr>`}
@@ -2816,7 +2859,7 @@ function pyEvents(){const $=id=>document.getElementById(id);if(!$("cfProy"))retu
 }
 
 // ---------- plantillas de correo (estado de cuenta, mora, preaviso, liquidación) ----------
-const TPL={gracias:["Gracias por su pago (recibo de caja)","tplGrSu","tplGrTx"],cartera:["Estado de cuenta (cartera)","tplCarteraSu","tplCarteraTx"],mora:["Aviso de mora","moraAsunto","moraMensaje"],preaviso:["Preaviso de liquidación","tplPreSu","tplPreTx"],liq:["Liquidación (cancelación de la venta)","liqAsunto","liqMensaje"]};
+const TPL={gracias:["Gracias por su pago (recibo de caja)","tplGrSu","tplGrTx"],cartera:["Estado de cuenta (cartera)","tplCarteraSu","tplCarteraTx"],mora:["Aviso de mora","moraAsunto","moraMensaje"],preaviso:["Preaviso de liquidación","tplPreSu","tplPreTx"],traslado:["Traslado de lote","tplTrSu","tplTrTx"],liq:["Liquidación (cancelación de la venta)","liqAsunto","liqMensaje"]};
 function tplOf(k){const C=CFG(),t=TPL[k]||TPL.cartera;return{su:C[t[1]],tx:C[t[2]]}}
 function tplObj(lots,nombre,dias){const due=l=>(l.v&&l.v.cuotas||[]).filter(c=>c.f&&new Date(c.f+"T00:00")<=HOY&&+c.v>0).length;
   return{nombre:title(nombre||""),lote:lots.map(l=>l.n).join(", "),dias:dias??Math.max(0,...lots.map(l=>l.plan&&l.plan.days||0)),
@@ -2838,7 +2881,7 @@ function estadoTxt(l,lvl){lvl=lvl||0;const v=l.v||{},p=l.plan||{},L=[];const sd=
   L.push("",atr.length?"CUOTAS ATRASADAS: "+atr.length+" (las marcadas VENCIDA), total "+fmt(atr.reduce((s,x)=>s+x.debe,0)):"CUOTAS ATRASADAS: ninguna, está al día.");
   const rc=(v.recibos||[]).filter(r=>r.f).sort((a,b)=>a.f.localeCompare(b.f));
   if(rc.length){if(lvl>=1)L.push("","PAGOS RECIBIDOS: "+rc.length+" pagos por "+fmt(l.pagado)+" (último: "+sd(rc[rc.length-1].f)+", "+fmt(+rc[rc.length-1].v||0)+")");
-    else{L.push("","PAGOS RECIBIDOS ("+rc.length+", total "+fmt(l.pagado)+")");rc.forEach(r=>L.push(sd(r.f)+" "+(r.n?"Recibo "+r.n:(r.d||"Abono"))+" "+fmt(+r.v||0)))}}
+    else{L.push("","PAGOS RECIBIDOS ("+rc.length+", total "+fmt(l.pagado)+")");rc.forEach(r=>L.push(sd(r.f)+" "+(r.n?"Recibo "+r.n:(r.d||"Abono"))+" "+fmt(+r.v||0)+(r.tr?" (del lote "+r.tr+")":"")))}}
   L.push("FIN DEL ESTADO DE CUENTA");return L.join("\n")}
 function tplMail(k,mail,o){const t=tplOf(k);return gmailUrl(mail,fillTpl(t.su,o),fillTpl(t.tx,o))}
 const MAILMAX=8000;
@@ -2928,13 +2971,78 @@ function estadoPdf(lots,nombre){const {jsPDF}=window.jspdf,doc=new jsPDF({unit:"
     need(8);T(atr.length?`Cuotas vencidas: ${atr.length} · total vencido ${fmt(p.late||0)}`:"Cuotas vencidas: ninguna. Está al día.",M,y+3,{b:1,s:9.5,c:atr.length?RED:GREEN});y+=8;
     const rc=(v.recibos||[]).filter(r=>r.f).sort((a,b)=>a.f.localeCompare(b.f));
     if(rc.length){T("PAGOS RECIBIDOS ("+rc.length+")",M,y+3,{b:1,s:10,c:NAVY});y+=6;
-      table([{t:"Fecha",w:26},{t:"Recibo",w:26},{t:"Descripción",w:103.9},{t:"Valor",w:32,a:"right"}],rc.map(r=>({0:dshow(r.f),1:r.n?"No. "+r.n:"—",2:String(r.d||"Abono").slice(0,70),3:fmt(+r.v||0)})).concat([{0:"",1:"",2:"Total pagado",3:fmt(l.pagado),_b:1,_fill:[225,233,229]}]))}
+      table([{t:"Fecha",w:26},{t:"Recibo",w:26},{t:"Descripción",w:103.9},{t:"Valor",w:32,a:"right"}],rc.map(r=>({0:dshow(r.f),1:r.n?"No. "+r.n:"—",2:(String(r.d||"Abono").slice(0,r.tr?52:70)+(r.tr?" · del lote "+r.tr:"")),3:fmt(+r.v||0)})).concat([{0:"",1:"",2:"Total pagado",3:fmt(l.pagado),_b:1,_fill:[225,233,229]}]))}
     y+=3});
   need(14);T("Si ya realizó un pago que no aparece aquí, envíenos el soporte para actualizar su estado de cuenta. Línea de atención: "+(C.telefono||""),M,y+3,{s:8.5,c:GRAY,w:PW-2*M});
   const n=doc.getNumberOfPages();for(let i=1;i<=n;i++){doc.setPage(i);T(C.empresa+" · Estado de cuenta de "+title(nombre||"")+" · Página "+i+" de "+n,PW/2,PH-8,{a:"center",s:7.5,c:GRAY})}
   return doc}
 async function ecDownload(lots,nombre){if(!window.jspdf){toast("No cargó la herramienta de PDF. Revisa la conexión y recarga.");return false}if(!lots.length){toast("Este cliente no tiene lotes con plan de pagos.");return false}
   const doc=estadoPdf(lots,nombre);return download(doc.output("blob"),ecName(nombre,lots))}
+// ---------- traslados de lote ----------
+function trPagado(id){return ((DB.ventas[id]||{}).recibos||[]).reduce((s,r)=>s+(+r.v||0),0)}
+function trDefaults(){const h=document.getElementById("trHoy");if(h&&!h.value)h.value=hoyStr();const f=document.getElementById("trF");if(f&&!f.value){const d=new Date();const x=new Date(d.getFullYear(),d.getMonth()+1,Math.min(d.getDate(),28));f.value=x.toISOString().slice(0,10)}}
+function trFill(){const A=document.getElementById("trA"),B=document.getElementById("trB");if(!A)return;const a=A.value,b=B.value;
+  A.innerHTML=`<option value="">— Elige el lote de origen —</option>`+LOTS.filter(l=>l.v).map(l=>`<option value="${l.id}">Lote ${l.n} · ${esc(title(l.v.cliente||""))}</option>`).join("");
+  B.innerHTML=`<option value="">— Elige el lote de destino —</option>`+LOTS.filter(l=>l.estado==="disponible"&&!DB.ventas[l.id]).map(l=>`<option value="${l.id}">Lote ${l.n} · Mz ${l.mz} · ${l.area.toLocaleString("es-CO")} m² · ${fmt(l.valor)}</option>`).join("");
+  A.value=byId[a]&&byId[a].v?a:"";B.value=byId[b]&&byId[b].estado==="disponible"&&!DB.ventas[b]?b:"";trDefaults();trInfo()}
+function trPlan(){const a=document.getElementById("trA").value,b=document.getElementById("trB").value;if(!a||!b)return null;
+  const pag=Math.round(trPagado(a)),precio=Math.round(+document.getElementById("trPrecio").value||0),n=Math.max(1,Math.min(120,Math.round(+document.getElementById("trN").value||1))),f0=document.getElementById("trF").value,hoy=document.getElementById("trHoy").value||hoyStr();
+  const saldo=precio-pag;const Q=[];if(pag>0)Q.push({f:hoy,d:"Pagos trasladados del lote "+a,v:pag});
+  let vc=0,ult=0;if(saldo>0&&f0){vc=Math.round(saldo/n);ult=saldo-vc*(n-1);const d0=new Date(f0+"T00:00");for(let i=0;i<n;i++){const d=new Date(d0.getFullYear(),d0.getMonth()+i,Math.min(d0.getDate(),28));Q.push({f:d.toISOString().slice(0,10),d:"Cuota "+String(i+1).padStart(2,"0"),v:i===n-1?ult:vc})}}
+  return{a,b,pag,precio,n:saldo>0?n:0,f0,hoy,saldo,vc,ult,Q}}
+function trInfo(){const a=document.getElementById("trA").value,b=document.getElementById("trB").value,A=byId[a],B=byId[b];
+  document.getElementById("trAinfo").innerHTML=A?`<dl><dt>Cliente</dt><dd><b>${esc(title(A.v.cliente||""))}</b></dd><dt>Estado</dt><dd>${ESTN[A.estado]}</dd><dt>Precio</dt><dd>${fmt(A.precio)}</dd><dt>Pagado (${(A.v.recibos||[]).length} pagos)</dt><dd><b style="color:var(--ok)">${fmt(trPagado(a))}</b></dd><dt>Saldo</dt><dd>${fmt(A.saldo)}</dd>${A.v.asesor?`<dt>Vendedor</dt><dd>${esc(title(A.v.asesor))}</dd>`:""}</dl>`:`<p class="note" style="padding:0">Elige el lote que tiene hoy el cliente.</p>`;
+  document.getElementById("trBinfo").innerHTML=B?`<dl><dt>Manzana</dt><dd>${B.mz}</dd><dt>Área</dt><dd>${B.area.toLocaleString("es-CO")} m²</dd><dt>Valor de lista</dt><dd><b>${fmt(B.valor)}</b></dd><dt>Valor m²</dt><dd>${fmt(B.area?B.valor/B.area:0)}</dd><dt>Folio</dt><dd>${esc(B.L.folio||"—")}</dd></dl>`:`<p class="note" style="padding:0">Elige el lote nuevo.</p>`;
+  const pi=document.getElementById("trPrecio");if(B&&pi.dataset.for!==b){pi.value=Math.round(B.valor||0);pi.dataset.for=b}
+  if(A&&document.getElementById("trN").dataset.for!==a){const pend=(A.v.cuotas||[]).filter(c=>c.f&&c.f>hoyStr()).length;document.getElementById("trN").value=Math.max(1,Math.min(120,pend||12));document.getElementById("trN").dataset.for=a}
+  trPreview()}
+function trPreview(){const o=document.getElementById("trPrev"),go=document.getElementById("trGo"),P=trPlan();go.disabled=true;go.dataset.sure="";go.textContent="Hacer el traslado";
+  if(!P){o.innerHTML="";return}
+  if(!(P.precio>0)){o.innerHTML=`<div class="warn">Escribe el precio de venta del lote ${esc(P.b)}.</div>`;return}
+  if(P.saldo>0&&!P.f0){o.innerHTML=`<div class="warn">Elige la fecha de la primera cuota.</div>`;return}
+  const A=byId[P.a];let h=`<div class="sum"><b>${esc(title(A.v.cliente||""))}</b> pasa del <b>lote ${esc(P.a)}</b> al <b>lote ${esc(P.b)}</b>.<br>
+    Se trasladan <b>${(A.v.recibos||[]).length} pagos por ${fmt(P.pag)}</b> (conservan su número de recibo). Precio del lote ${esc(P.b)}: <b>${fmt(P.precio)}</b> → saldo <b>${fmt(Math.max(0,P.saldo))}</b>.<br>
+    ${P.saldo>0?`Plan nuevo: <b>${P.n} cuotas</b> mensuales de <b>${fmt(P.vc)}</b>${P.ult!==P.vc?` (la última de ${fmt(P.ult)})`:""} desde el <b>${dshow(P.f0)}</b>.`:"El lote queda pagado completo."}<br>
+    El lote ${esc(P.a)} queda <b>disponible</b> y la venta anterior se guarda en el archivo de ventas canceladas.</div>`;
+  if(P.saldo<0)h+=`<div class="warn">Ojo: lo pagado (${fmt(P.pag)}) es mayor que el precio del lote nuevo. Quedaría un saldo a favor del cliente de <b>${fmt(-P.saldo)}</b>.</div>`;
+  h+=`<div class="tbl"><table><thead><tr><th>Fecha</th><th>Cuota</th><th class="r">Valor</th><th>Estado</th></tr></thead><tbody>${P.Q.map((c,i)=>`<tr><td>${dshow(c.f)}</td><td>${esc(c.d)}</td><td class="r">${fmt(c.v)}</td><td>${i===0&&P.pag>0?'<span class="pill pagado">Pagada</span>':'<span class="pill">Pendiente</span>'}</td></tr>`).join("")}</tbody></table></div>`;
+  o.innerHTML=h;go.disabled=!canEdit()}
+async function trDo(){const go=document.getElementById("trGo"),P=trPlan();if(!P||!canEdit())return;const m=document.getElementById("trMsg");
+  if(DB.ventas[P.b]||(byId[P.b]&&byId[P.b].estado!=="disponible")){m.className="msg err";m.textContent="El lote de destino ya no está disponible.";trFill();return}
+  if(go.dataset.sure!=="1"){go.dataset.sure="1";go.textContent=`Sí, trasladar ${P.a} → ${P.b}`;go.classList.add("warnb");setTimeout(()=>{if(go.isConnected&&go.dataset.sure==="1"){go.dataset.sure="";go.textContent="Hacer el traslado";go.classList.remove("warnb")}},5000);return}
+  go.disabled=true;const va=DB.ventas[P.a];
+  const arc={...va,lote:P.a,canceladaEn:P.hoy,motivo:"Traslado al lote "+P.b};delete arc.actualizadoPor;delete arc.actualizadoEn;
+  try{if(CLOUD)await CLOUD.doc("canceladas/"+P.a+"-"+Date.now()).set(clean(arc));else{DB.canceladas=DB.canceladas||[];DB.canceladas.push(arc)}}catch(err){m.className="msg err";m.textContent="No se pudo archivar la venta anterior: "+authErr(err);go.disabled=false;return}
+  const vb={};["cliente","cc","dir","tel","mail","ciudad","barrio","asesor","fechaVenta","politica","fechaEC"].forEach(k=>{if(va[k]!==undefined)vb[k]=va[k]});
+  vb.precio=P.precio;if(va.politica==="2026")vb.lista=Math.round(byId[P.b].valor||P.precio);
+  vb.recibos=(va.recibos||[]).map(r=>({...r,tr:r.tr||P.a}));vb.cuotas=P.Q;
+  vb.traslado=(va.traslado||[]).concat({de:P.a,a:P.b,f:P.hoy,pagado:P.pag,precioAnt:Math.round(+va.precio||0),precio:P.precio,n:P.n,vc:P.vc,desde:P.f0||""}).slice(-10);
+  DB.ventas[P.b]=vb;DB.lotes[P.b]={...(DB.lotes[P.b]||{}),estado:"separado"};autoEstado(P.b);
+  delete DB.ventas[P.a];DB.lotes[P.a]={...(DB.lotes[P.a]||{}),estado:"disponible",cliente:"",pagRes:0};delete DB.lotes[P.a].escrito;
+  if(!save({v:[P.b],vd:[P.a],l:[P.a,P.b]})){go.disabled=false;return}
+  refresh();S.trLast=P.b;m.className="msg";m.textContent=`✓ Traslado hecho: el lote ${P.b} quedó «${ESTN[byId[P.b].estado]}» con ${fmt(P.pag)} abonados. El lote ${P.a} quedó disponible.`;toast("Traslado del lote "+P.a+" al "+P.b+" hecho.");
+  document.getElementById("trA").value="";document.getElementById("trB").value="";go.classList.remove("warnb");trInfo();trMailBox(P.b)}
+function trObj(b){const l=byId[b],v=DB.ventas[b],t=(v.traslado||[]).slice(-1)[0]||{};const o=tplObj([l],v.cliente);
+  return Object.assign(o,{lote:b,loteanterior:t.de||"",fecha:dshow(t.f||hoyStr()),pagado:fmt(t.pagado??l.pagado),precio:fmt(l.precio),saldo:fmt(l.saldo),cuotasn:String(t.n||0),valorcuota:fmt(t.vc||0),primera:t.desde?dshow(t.desde):"—"})}
+function trMailBox(b){const box=document.getElementById("trMail"),v=DB.ventas[b];if(!box||!v)return;const mail=(v.mail||"").trim(),l=byId[b];
+  box.hidden=false;box.innerHTML=mail?`<span class="mi ok">✓</span><div><b>Avísale a ${esc(title(v.cliente))} que su traslado quedó hecho</b><span>Se abre Gmail con el mensaje y se descarga su <b>estado de cuenta del lote ${esc(b)} en PDF</b> (plan nuevo y todos sus pagos). Adjúntalo con el clip 📎 y dale «Enviar».</span>
+    <label class="ck" style="margin-top:6px"><input type="checkbox" id="trPdf" checked> Enviar el estado de cuenta en PDF (si lo quitas, va escrito dentro del correo)</label></div><button type="button" class="btn" id="trSend">✉️ Enviar correo de traslado</button>`
+    :`<span class="mi">!</span><div><b>${esc(title(v.cliente))} no tiene correo registrado.</b><span>Agrégalo en Clientes → Datos del cliente y envíale el aviso desde «Traslados hechos».</span></div>`;
+  const s=document.getElementById("trSend");if(s)s.onclick=()=>trSend(b,document.getElementById("trPdf").checked)}
+function trSend(b,pdf){const v=DB.ventas[b];if(!v||!v.mail){toast("Este cliente no tiene correo.");return}const l=byId[b];const it=mailItem("traslado",v.mail.trim(),trObj(b),title(v.cliente),pdf);openMailItem(it)}
+function trList(){const tb=document.getElementById("tTr");if(!tb)return;const R=[];for(const [b,v] of Object.entries(DB.ventas||{}))(v.traslado||[]).forEach(t=>R.push({b,v,t}));R.sort((x,y)=>(y.t.f||"").localeCompare(x.t.f||""));
+  document.getElementById("trCount").textContent=R.length?R.length+(R.length>1?" traslados":" traslado"):"";
+  tb.innerHTML=R.map(({b,v,t})=>{const l=byId[b];const last=t===(v.traslado||[]).slice(-1)[0]&&t.a===b;return`<tr data-b="${esc(b)}"><td>${dshow(t.f)}</td><td>${esc(title(v.cliente||""))}</td><td><b>${esc(t.de)}</b></td><td><b>${esc(t.a)}</b></td><td class="r">${fmt(t.pagado)}</td><td class="r">${fmt(t.precio)}</td><td class="r">${last&&l?fmt(l.saldo):"—"}</td>
+    <td class="r">${last?(v.mail?`<button type="button" class="btn sm ghost wr" data-tr="mail">Enviar correo</button> `:'<span class="note">Sin correo</span> ')+`<button type="button" class="btn sm ghost" data-tr="pdf" title="Estado de cuenta en PDF">PDF</button>`:""}</td></tr>`}).join("")||`<tr><td colspan="8" class="note">Todavía no se ha hecho ningún traslado.</td></tr>`}
+function trTplLoad(){const C=CFG();const su=document.getElementById("trSu"),tx=document.getElementById("trTx");if(!su||document.activeElement===su||document.activeElement===tx)return;su.value=C.tplTrSu||DEFAULT_CFG.tplTrSu;tx.value=String(C.tplTrTx||DEFAULT_CFG.tplTrTx).replace(/\\n/g,"\n")}
+function trEvents(){const $=id=>document.getElementById(id);if(!$("trA"))return;
+  $("trA").addEventListener("change",trInfo);$("trB").addEventListener("change",trInfo);["trPrecio","trN","trF","trHoy"].forEach(id=>$(id).addEventListener("input",trPreview));
+  $("trGo").addEventListener("click",trDo);
+  $("tTr").addEventListener("click",e=>{const b=e.target.closest("[data-tr]");if(!b)return;const id=b.closest("tr").dataset.b;if(b.dataset.tr==="mail")trSend(id,true);else{const c=CLIENTES.find(c=>c.lots.some(x=>x.id===id));ecDownload([byId[id]],(DB.ventas[id]||{}).cliente)}});
+  $("trTplSave").addEventListener("click",()=>{if(!canEdit())return;const c={...(DB.config||{})};const su=$("trSu").value.trim(),tx=$("trTx").value.trim();
+    if(su&&su!==DEFAULT_CFG.tplTrSu)c.tplTrSu=su;else delete c.tplTrSu;if(tx&&tx!==DEFAULT_CFG.tplTrTx.replace(/\\n/g,"\n"))c.tplTrTx=tx;else delete c.tplTrTx;DB.config=c;if(save({cfg:true})){$("trTplMsg").className="msg";$("trTplMsg").textContent="✓ Mensaje guardado."}});
+  $("trTplReset").addEventListener("click",()=>{$("trSu").value=DEFAULT_CFG.tplTrSu;$("trTx").value=DEFAULT_CFG.tplTrTx.replace(/\\n/g,"\n");$("trTplMsg").textContent="Toca «Guardar mensaje» para dejar el original."});
+  trFill();trTplLoad()}
 // ---------- comprobantes de pago (imagen o PDF) de cada abono ----------
 const rid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 async function fileToData(f){if(/^image\//.test(f.type)){const img=await new Promise((ok,ko)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=ko;i.src=URL.createObjectURL(f)});
@@ -3285,6 +3393,8 @@ const DEFAULT_CFG={
   enlaceApp:"https://sites.google.com/view/vizcayalotes/vizcaya",
   tplCarteraSu:"{nombre} · Estado de cuenta del lote {lote} · Vizcaya Lake House",
   tplCarteraTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nQueremos recordarle que, según nuestros registros, su plan de pagos del lote {lote} presenta {dias} días de mora. Este es el estado de su cuenta:\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\n{estado}\n\nLe invitamos a ponerse al día lo antes posible. Así evita el cobro de intereses de mora y mantiene vigentes las condiciones de su promesa de compraventa.\n\nSi en este momento tiene alguna dificultad, comuníquese con nosotros. Con gusto revisamos alternativas para que pueda normalizar su plan de cuotas.\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nAgradecemos su atención y la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
+  tplTrSu:"{nombre} · Traslado al lote {lote} realizado · Vizcaya Lake House",
+  tplTrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que el {fecha} quedó hecho su traslado del lote {loteanterior} al lote {lote}.\n\nTodos los pagos que había hecho al lote {loteanterior}, por un total de {pagado}, quedaron abonados al lote {lote}. Los números de sus recibos de caja se conservan.\n\n* Precio del lote {lote}: {precio}\n* Pagado a la fecha: {pagado}\n* Saldo por pagar: {saldo}\n* Nuevo plan: {cuotasn} cuotas mensuales de {valorcuota}, desde el {primera}\n\n{estado}\n\nA partir de ahora sus pagos se registran en el lote {lote}.\n\n📞 Línea de atención: {telefono}\n\nCordialmente,\n{empresa}",
   tplGrSu:"{nombre} · Recibo de caja No. {recibo} · Gracias por su pago",
   tplGrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que recibimos su pago por {valor} el {fechapago}, correspondiente al lote {lote}, registrado con el Recibo de caja No. {recibo}. ¡Muchas gracias por su pago y por estar al tanto de su plan de cuotas!\n\nAdjuntamos el recibo de caja en PDF.\n\n{estado}\n\n📞 Línea de atención: 3126596675\n\nAgradecemos la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplPreSu:"{nombre} · Preaviso de liquidación del lote {lote} · Vizcaya Lake House",
@@ -3790,13 +3900,13 @@ function rcClear(){
 }
 
 // ---------- navegación ----------
-function refresh(){rebuild();try{const rn=document.getElementById("rcNum");if(rn&&rn.dataset.auto!=="0"){const nx=nextRC();if(+rn.value<nx)rn.value=nx}}catch(e){}try{tReportes()}catch(e){console.error(e)}try{tAsig()}catch(e){}try{if(!S.waDraft)waEd()}catch(e){}try{pubSync()}catch(e){}try{tContactos()}catch(e){}try{rcList()}catch(e){console.error(e)}try{admin()}catch(e){console.error(e)}kpis();paintMap();card();tLotes();tRecaudo();comisiones();clientList();clientDetail();stamp();tUsers();dashboard();
+function refresh(){rebuild();try{const rn=document.getElementById("rcNum");if(rn&&rn.dataset.auto!=="0"){const nx=nextRC();if(+rn.value<nx)rn.value=nx}}catch(e){}try{tReportes()}catch(e){console.error(e)}try{tAsig()}catch(e){}try{if(!S.waDraft)waEd()}catch(e){}try{pubSync()}catch(e){}try{tContactos()}catch(e){}try{rcList()}catch(e){console.error(e)}try{trFill();trList();trTplLoad()}catch(e){console.error(e)}try{admin()}catch(e){console.error(e)}kpis();paintMap();card();tLotes();tRecaudo();comisiones();clientList();clientDetail();stamp();tUsers();dashboard();
   const sel=document.getElementById("rcLote"),cur=sel.value;
   sel.innerHTML=`<option value="">— Elige un lote —</option>`+LOTS.filter(l=>l.v).map(l=>`<option value="${l.id}">LOTE ${l.n}</option>`).join("");sel.value=cur;}
-const VIEWS=["inicio","plano","clientes","lotes","recaudo","comisiones","recibo","reportes","config"];
+const VIEWS=["inicio","plano","clientes","lotes","recaudo","comisiones","recibo","traslados","reportes","config"];
 function setView(v){try{setView0(v)}catch(e){console.error(e);S.view=VIEWS.includes(v)?v:"inicio";show()}}
 let POPPING=false;
-function setView0(v){const prevV=S.view;if(v==="usuarios"){v="config";try{cfTab("acceso")}catch(e){}setTimeout(()=>{const u=document.getElementById("cfUsersSec");if(u)u.scrollIntoView({behavior:"smooth",block:"start"})},80)}if(ROLE!=="admin"&&["config","recaudo"].concat(VEND?[]:["comisiones"]).includes(v))v="inicio";if(ROLE==="consulta"&&["recibo","clientes","reportes"].includes(v))v="inicio";if(GER&&["recibo","reportes","config"].includes(v))v="inicio";S.view=VIEWS.includes(v)?v:"inicio";if(S.view==="config"){cfgForm();setTimeout(()=>{try{admin()}catch(e){console.error(e)}},0)}try{if(!POPPING&&prevV!==S.view&&setView0.ready){try{history.pushState({v:S.view},"","#"+S.view)}catch(e1){history.pushState({v:S.view},"")}S.depth=(S.depth||0)+1}else{try{history.replaceState({v:S.view},"","#"+S.view)}catch(e2){history.replaceState({v:S.view},"")}}}catch(e){}
+function setView0(v){const prevV=S.view;if(v==="usuarios"){v="config";try{cfTab("acceso")}catch(e){}setTimeout(()=>{const u=document.getElementById("cfUsersSec");if(u)u.scrollIntoView({behavior:"smooth",block:"start"})},80)}if(ROLE!=="admin"&&["config","recaudo"].concat(VEND?[]:["comisiones"]).includes(v))v="inicio";if(ROLE==="consulta"&&["recibo","clientes","reportes"].includes(v))v="inicio";if(GER&&["recibo","reportes","config","traslados"].includes(v))v="inicio";if(ROLE!=="admin"&&v==="traslados")v="inicio";S.view=VIEWS.includes(v)?v:"inicio";if(S.view==="config"){cfgForm();setTimeout(()=>{try{admin()}catch(e){console.error(e)}},0)}try{if(!POPPING&&prevV!==S.view&&setView0.ready){try{history.pushState({v:S.view},"","#"+S.view)}catch(e1){history.pushState({v:S.view},"")}S.depth=(S.depth||0)+1}else{try{history.replaceState({v:S.view},"","#"+S.view)}catch(e2){history.replaceState({v:S.view},"")}}}catch(e){}
   const bb=document.getElementById("bBack");if(bb)bb.hidden=!(S.depth>0);show()}
 function route(){let v="";try{v=(location.hash||"").slice(1)}catch(e){}if(VIEWS.includes(v)&&v!==S.view){POPPING=true;try{setView(v)}finally{POPPING=false}}}
 window.addEventListener("popstate",e=>{const v=e.state&&e.state.v;if(!v)return;S.depth=Math.max(0,(S.depth||0)-1);if(v!==S.view){POPPING=true;try{setView(v)}finally{POPPING=false}}const bb=document.getElementById("bBack");if(bb)bb.hidden=!(S.depth>0)});
@@ -3829,7 +3939,7 @@ function init(){
   document.getElementById("fMz").innerHTML=opts;document.getElementById("fMz2").innerHTML=opts;
   buildFilters();
   politica();
-  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
+  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
   document.getElementById("moraStrip").addEventListener("click",()=>setView("reportes"));
   const kt=e=>{const k=e.target.closest(".kpi.tg");if(!k)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();S.kpiFull[k.dataset.k]=!S.kpiFull[k.dataset.k];kpis();const n=document.querySelector(`.kpi.tg[data-k="${k.dataset.k}"]`);if(n&&e.type==="keydown")n.focus()};
   document.getElementById("kpis").addEventListener("click",kt);document.getElementById("kpis").addEventListener("keydown",kt);
