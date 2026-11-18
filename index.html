@@ -259,6 +259,7 @@ details.plan .tbl{max-height:260px;overflow:auto;margin-top:8px}
 .rlact{display:flex;gap:4px;justify-content:flex-end;flex-wrap:nowrap}.rc-list td:nth-child(6){max-width:240px;white-space:normal}.rc-list td{vertical-align:middle}.rlsop{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}.rledit input{padding:5px 7px}.btn.ok{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
 .pdfck{display:flex;gap:8px;align-items:flex-start;padding:10px 16px;margin:0 16px 8px;background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;font-size:13px}.pdfck input{margin-top:3px}
 .trlist{max-height:210px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.trlist label{display:flex;gap:9px;align-items:center;padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;cursor:pointer}.trlist label:last-child{border-bottom:0}.trlist label.on{background:#eef6f1}.trlist label small{margin-left:auto;color:var(--muted);white-space:nowrap}.trlist .same{font-size:11px;color:#1f7a4d;font-weight:600}.trinfo table{width:100%;font-size:12.5px}.trinfo td,.trinfo th{padding:3px 4px}
+.mvt{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#e8f0f6;color:#1e5b86;white-space:nowrap}.mvt.deshecho{background:#fdf0e3;color:#a1500c}.mvt.borrado{background:#eee;color:#555}
 .btn.warnb{background:#c2410c;border-color:#c2410c;color:#fff}.trgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start;padding:14px 16px}.trarrow{font-size:28px;color:var(--muted);padding-top:28px}.trbox{display:flex;flex-direction:column;gap:8px}.trinfo{background:var(--surface-2,#f4f6f5);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;min-height:64px}.trinfo dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0}.trinfo dt{color:var(--muted)}.trinfo dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}.trh{margin:0 0 8px;font-size:14px}.trprev{margin-top:10px;font-size:13px}.trprev .sum{background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;padding:10px 12px;margin-bottom:8px;line-height:1.55}.trprev .warn{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:10px 12px;margin-bottom:8px}.trprev table{width:100%;font-size:12.5px}.trprev .tbl{max-height:260px;overflow:auto}.trtpl summary{cursor:pointer}@media(max-width:760px){.trgrid{grid-template-columns:1fr}.trarrow{display:none}}
 .rc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
 .rc-bar label.ck{display:flex;gap:7px;align-items:center;font-size:13px;margin-right:auto}
@@ -1088,7 +1089,7 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
               </div>
               <div class="trarrow" aria-hidden="true">→</div>
               <div class="trbox">
-                <label class="fl">2. Lote de destino (un lote disponible o uno que ya tenga el cliente)<select id="trB"></select></label>
+                <label class="fl">2. Lote de destino (todos los lotes, con su dueño)<select id="trB"></select></label>
                 <div class="trinfo" id="trBinfo"><p class="note" style="padding:0">Elige el lote nuevo.</p></div>
               </div>
             </div>
@@ -1109,13 +1110,18 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
                 <label class="fl">Asunto<input id="trSu" maxlength="200"></label>
                 <label class="fl">Mensaje<textarea id="trTx" rows="12"></textarea></label>
               </div>
-              <p class="note" style="padding:4px 0">Puedes usar: {nombre} {origen} {loteanterior} {lote} {trasladado} {fecha} {pagado} {precio} {saldo} {cuotasn} {valorcuota} {primera} {estado}. Con el PDF activado, {estado} dice que el estado de cuenta va adjunto.</p>
+              <p class="note" style="padding:4px 0">Puedes usar: {nombre} {delorigen} {alorigen} {loteanterior} {lote} {trasladado} {fecha} {pagado} {precio} {saldo} {cuotasn} {valorcuota} {primera} {estado}. Con el PDF activado, {estado} dice que el estado de cuenta va adjunto.</p>
               <div class="btns"><button type="button" class="btn sm" id="trTplSave">Guardar mensaje</button><button type="button" class="btn sm ghost" id="trTplReset">Volver al original</button><span class="msg" id="trTplMsg"></span></div>
             </details>
           </div>
           <div class="panel">
             <div class="panel-h"><h2>Traslados hechos</h2><span class="hint2" id="trCount"></span></div>
-            <div class="tbl"><table><thead><tr><th>Fecha</th><th>Cliente</th><th>De lote</th><th>A lote</th><th class="r">Pagos trasladados</th><th class="r">Precio nuevo</th><th class="r">Saldo hoy</th><th class="r">Correo</th></tr></thead><tbody id="tTr"></tbody></table></div>
+            <p class="note" style="padding:8px 16px 0">«↩ Deshacer» devuelve los pagos al lote o lotes de origen tal como estaban. Si después del traslado se registraron abonos nuevos en el lote de destino, esos abonos no se pierden. «✕» solo quita la fila de esta lista y no mueve plata.</p>
+            <div class="tbl"><table><thead><tr><th>Fecha</th><th>Cliente</th><th>De lote</th><th>A lote</th><th class="r">Pagos trasladados</th><th class="r">Precio nuevo</th><th class="r">Saldo hoy</th><th class="r">Acciones</th></tr></thead><tbody id="tTr"></tbody></table></div>
+          </div>
+          <div class="panel" id="movPanel">
+            <div class="panel-h"><h2>Movimientos</h2><span class="hint2" id="movCount"></span><button type="button" class="btn sm ghost wr" id="movClear" hidden style="margin-left:auto">Borrar todos</button></div>
+            <div class="tbl" style="max-height:360px;overflow:auto"><table><thead><tr><th>Fecha y hora</th><th>Tipo</th><th>Detalle</th><th>Hecho por</th><th></th></tr></thead><tbody id="tMov"></tbody></table></div>
           </div>
         </section>
 
@@ -1833,6 +1839,7 @@ function attachStore(db){
     live();remoteRefresh();
   },onErr);
   if(ROLE!=="admin")return;
+  db.doc("config/movimientos").onSnapshot(d=>{MOVS=d.exists?((d.data()||{}).log||[]):[];try{trMovs();bell()}catch(e){}},()=>{});
   db.collection("asesores").onSnapshot(snap=>{const A={};snap.docs.forEach(d=>{const{actualizadoPor,actualizadoEn,...x}=d.data();A[d.id]=x});DB.asesores=A;ASE_OK=true;persist();syncVendAse();remoteRefresh()},()=>{});
   db.collection("presupuestos").onSnapshot(snap=>{
     SEEN.presupuestos=new Set(snap.docs.map(d=>d.id));EMPTY.presupuestos=snap.empty;
@@ -2986,19 +2993,18 @@ function trDefaults(){const h=document.getElementById("trHoy");if(h&&!h.value)h.
 S.trA=S.trA||[];
 const trKey=v=>String((v&&v.cc)||"").replace(/\D/g,"")||String((v&&v.cliente)||"").trim().toLowerCase();
 const trJoin=a=>a.length<=1?(a[0]||""):a.slice(0,-1).join(", ")+" y "+a[a.length-1];
-const trOrigen=a=>a.length>1?"los lotes "+trJoin(a):"el lote "+(a[0]||"");
+const trOrigen=a=>a.length>1?"los lotes "+trJoin(a):"el lote "+(a[0]||"");const trDe=a=>a.length>1?"de los lotes "+trJoin(a):"del lote "+(a[0]||"");const trAl=a=>a.length>1?"a los lotes "+trJoin(a):"al lote "+(a[0]||"");
 function trFill(){const box=document.getElementById("trAlist"),B=document.getElementById("trB");if(!box)return;
   S.trA=S.trA.filter(id=>byId[id]&&byId[id].v);const b=B.value;const q=(document.getElementById("trAq").value||"").trim().toLowerCase();
   const sel=S.trA.map(id=>byId[id]),keys=new Set(sel.map(l=>trKey(l.v)));
   let L=LOTS.filter(l=>l.v&&(!q||S.trA.includes(l.id)||l.n.toLowerCase().includes(q)||String(l.v.cliente||"").toLowerCase().includes(q)));
   const rank=l=>S.trA.includes(l.id)?0:keys.has(trKey(l.v))?1:2;L.sort((x,y)=>rank(x)-rank(y));
   box.innerHTML=L.map(l=>{const on=S.trA.includes(l.id),same=!on&&keys.has(trKey(l.v));return`<label class="${on?"on":""}"><input type="checkbox" data-a="${l.id}"${on?" checked":""}><span><b>Lote ${l.n}</b> · ${esc(title(l.v.cliente||""))}${same?' <span class="same">mismo cliente</span>':""}</span><small>pagado ${fmt(trPagado(l.id))}</small></label>`}).join("")||`<p class="note" style="padding:8px 10px">No hay lotes con ese nombre o número.</p>`;
-  const okB=l=>!S.trA.includes(l.id)&&(l.v||(l.estado==="disponible"&&!DB.ventas[l.id]));
-  const mine=LOTS.filter(l=>okB(l)&&l.v&&keys.has(trKey(l.v))),otros=LOTS.filter(l=>okB(l)&&l.v&&!keys.has(trKey(l.v))),disp=LOTS.filter(l=>okB(l)&&!l.v);
-  const opV=l=>`<option value="${l.id}">Lote ${l.n} · ${esc(title(l.v.cliente||""))} · pagado ${fmt(l.pagado)}${(l.v.traslado||[]).length?" · ya recibió traslado":""}</option>`;
-  B.innerHTML=`<option value="">— Elige el lote de destino —</option>`+(mine.length?`<optgroup label="Lotes del mismo cliente (los pagos se suman a lo que ya tiene)">${mine.map(opV).join("")}</optgroup>`:"")
-    +`<optgroup label="Lotes disponibles">${disp.map(l=>`<option value="${l.id}">Lote ${l.n} · Mz ${l.mz} · ${l.area.toLocaleString("es-CO")} m² · ${fmt(l.valor)}</option>`).join("")}</optgroup>`
-    +(otros.length?`<optgroup label="Otros lotes con venta">${otros.map(opV).join("")}</optgroup>`:"");
+  const okB=l=>!S.trA.includes(l.id);
+  B.innerHTML=`<option value="">— Elige el lote de destino —</option>`+LOTS.map(l=>{const ok=okB(l);
+    const t=l.v?`Lote ${l.n} · Mz ${l.mz} · ${esc(title(l.v.cliente||""))} · pagado ${fmt(l.pagado)}${(l.v.traslado||[]).length?" · ya recibió traslado":""}`
+      :l.estado==="disponible"?`Lote ${l.n} · Mz ${l.mz} · Disponible · ${l.area.toLocaleString("es-CO")} m² · ${fmt(l.valor)}`:`Lote ${l.n} · Mz ${l.mz} · ${ESTN[l.estado]} (sin datos de venta)`;
+    return`<option value="${l.id}"${ok?"":" disabled"}>${t}${S.trA.includes(l.id)?" · (marcado como origen)":""}</option>`}).join("");
   B.value=byId[b]&&okB(byId[b])?b:"";trDefaults();trInfo()}
 function trPlan(){const As=S.trA.filter(id=>DB.ventas[id]),b=document.getElementById("trB").value;if(!As.length||!b)return null;
   const per=As.map(id=>({id,p:Math.round(trPagado(id))})),pag=per.reduce((s,x)=>s+x.p,0),precio=Math.round(+document.getElementById("trPrecio").value||0),n=Math.max(1,Math.min(120,Math.round(+document.getElementById("trN").value||1))),f0=document.getElementById("trF").value,hoy=document.getElementById("trHoy").value||hoyStr();
@@ -3021,7 +3027,7 @@ function trPreview(){const o=document.getElementById("trPrev"),go=document.getEl
   if(!(P.precio>0)){o.innerHTML=`<div class="warn">Escribe el precio de venta del lote ${esc(P.b)}.</div>`;return}
   if(P.saldo>0&&!P.f0){o.innerHTML=`<div class="warn">Elige la fecha de la primera cuota.</div>`;return}
   const v0=DB.ventas[P.As[0]],nrec=P.As.reduce((s,id)=>s+((DB.ventas[id].recibos||[]).length),0);
-  let h=`<div class="sum"><b>${esc(title(v0.cliente||""))}</b> pasa de <b>${esc(trOrigen(P.As))}</b> al <b>lote ${esc(P.b)}</b>.<br>
+  let h=`<div class="sum"><b>${esc(title(v0.cliente||""))}</b> pasa <b>${esc(trDe(P.As))}</b> al <b>lote ${esc(P.b)}</b>.<br>
     Se trasladan <b>${nrec} pagos por ${fmt(P.pag)}</b>${P.As.length>1?" ("+P.per.map(x=>esc(x.id)+": "+fmt(x.p)).join(" + ")+")":""}, con su mismo número de recibo. ${P.hasV?`El lote ${esc(P.b)} ya tenía <b>${fmt(P.pagB)}</b> pagados → total pagado <b>${fmt(P.tot)}</b>. `:""}Precio del lote ${esc(P.b)}: <b>${fmt(P.precio)}</b> → saldo <b>${fmt(Math.max(0,P.saldo))}</b>.<br>
     ${P.saldo>0?`Plan nuevo: <b>${P.n} cuotas</b> mensuales de <b>${fmt(P.vc)}</b>${P.ult!==P.vc?` (la última de ${fmt(P.ult)})`:""} desde el <b>${dshow(P.f0)}</b>.`:"El lote queda pagado completo."}<br>
     ${P.As.length>1?"Los lotes "+esc(trJoin(P.As))+" quedan":"El lote "+esc(P.a)+" queda"} <b>disponible${P.As.length>1?"s":""}</b> y la venta anterior se guarda en el archivo de ventas canceladas.</div>`;
@@ -3029,42 +3035,81 @@ function trPreview(){const o=document.getElementById("trPrev"),go=document.getEl
   h+=`<div class="tbl"><table><thead><tr><th>Fecha</th><th>Cuota</th><th class="r">Valor</th><th>Estado</th></tr></thead><tbody>${P.Q.map((c,i)=>`<tr><td>${dshow(c.f)}</td><td>${esc(c.d)}</td><td class="r">${fmt(c.v)}</td><td>${i<P.paidN?'<span class="pill pagado">Pagada</span>':'<span class="pill">Pendiente</span>'}</td></tr>`).join("")}</tbody></table></div>`;
   o.innerHTML=h;go.disabled=!canEdit()}
 async function trDo(){const go=document.getElementById("trGo"),P=trPlan();if(!P||!canEdit())return;const m=document.getElementById("trMsg");
-  if(P.As.includes(P.b)||(!DB.ventas[P.b]&&byId[P.b]&&byId[P.b].estado!=="disponible")){m.className="msg err";m.textContent="El lote de destino ya no se puede usar.";trFill();return}
+  if(P.As.includes(P.b)||!byId[P.b]){m.className="msg err";m.textContent="El lote de destino no puede ser uno de los lotes de origen.";trFill();return}
   if(go.dataset.sure!=="1"){go.dataset.sure="1";go.textContent=`Sí, trasladar ${P.a} → ${P.b}`;go.classList.add("warnb");setTimeout(()=>{if(go.isConnected&&go.dataset.sure==="1"){go.dataset.sure="";go.textContent="Hacer el traslado";go.classList.remove("warnb")}},5000);return}
-  go.disabled=true;
-  for(const id of P.As){const arc={...DB.ventas[id],lote:id,canceladaEn:P.hoy,motivo:"Traslado al lote "+P.b};delete arc.actualizadoPor;delete arc.actualizadoEn;
-    try{if(CLOUD)await CLOUD.doc("canceladas/"+id+"-"+Date.now()).set(clean(arc));else{DB.canceladas=DB.canceladas||[];DB.canceladas.push(arc)}}catch(err){m.className="msg err";m.textContent="No se pudo archivar la venta del lote "+id+": "+authErr(err);go.disabled=false;return}}
+  go.disabled=true;const arch=[];
+  for(const id of P.As){const arc={...DB.ventas[id],lote:id,canceladaEn:P.hoy,motivo:"Traslado al lote "+P.b};delete arc.actualizadoPor;delete arc.actualizadoEn;delete arc.traslado;const aid=id+"-"+Date.now();
+    try{if(CLOUD)await CLOUD.doc("canceladas/"+aid).set(clean(arc));else{DB.canceladas=DB.canceladas||[];DB.canceladas.push({...arc,_id:aid})}arch.push(aid)}catch(err){m.className="msg err";m.textContent="No se pudo archivar la venta del lote "+id+": "+authErr(err);go.disabled=false;return}}
+  const snapV=v=>{const x=JSON.parse(JSON.stringify(v||{}));delete x.actualizadoPor;delete x.actualizadoEn;return x};
+  const orig=Object.fromEntries(P.As.map(id=>[id,snapV(DB.ventas[id])])),lotesA=Object.fromEntries(P.As.map(id=>[id,snapV(DB.lotes[id])]));
+  const antesV=DB.ventas[P.b]?snapV(DB.ventas[P.b]):null;if(antesV)delete antesV.traslado;const antesL=snapV(DB.lotes[P.b]);
   const va=DB.ventas[P.As[0]],old=DB.ventas[P.b]||null,vb=old?{...old}:{};if(!old)["cliente","cc","dir","tel","mail","ciudad","barrio","asesor","fechaVenta","politica","fechaEC"].forEach(k=>{const x=P.As.map(id=>DB.ventas[id][k]).find(z=>z!==undefined&&z!=="");if(x!==undefined)vb[k]=x});
   vb.precio=P.precio;if(!old&&va.politica==="2026")vb.lista=Math.round(byId[P.b].valor||P.precio);
   vb.recibos=((old&&old.recibos)||[]).concat(P.As.flatMap(id=>(DB.ventas[id].recibos||[]).map(r=>({...r,tr:r.tr||id})))).sort((x,y)=>String(x.f||"").localeCompare(String(y.f||"")));vb.cuotas=P.Q;
-  const prev=((old&&old.traslado)||[]).concat(P.As.flatMap(id=>DB.ventas[id].traslado||[]));
-  vb.traslado=prev.concat({de:P.a,a:P.b,f:P.hoy,pagado:P.pag,antes:P.pagB||0,per:Object.fromEntries(P.per.map(x=>[x.id,x.p])),precioAnt:P.As.reduce((s,id)=>s+Math.round(+DB.ventas[id].precio||0),0),precio:P.precio,n:P.n,vc:P.vc,desde:P.f0||""}).slice(-10);
-  DB.ventas[P.b]=vb;if(!old||DB.lotes[P.b].estado==="disponible")DB.lotes[P.b]={...(DB.lotes[P.b]||{}),estado:"separado"};autoEstado(P.b);
+  const strip=t=>{const {orig,lotesA,antesV,antesL,arch,...r}=t;return r};
+  const prev=((old&&old.traslado)||[]).concat(P.As.flatMap(id=>(DB.ventas[id].traslado||[]).map(strip)));
+  const tid="t"+Date.now().toString(36);
+  vb.traslado=prev.concat({id:tid,de:P.a,a:P.b,f:P.hoy,orig,lotesA,antesV,antesL,arch,pagado:P.pag,antes:P.pagB||0,per:Object.fromEntries(P.per.map(x=>[x.id,x.p])),precioAnt:P.As.reduce((s,id)=>s+Math.round(+DB.ventas[id].precio||0),0),precio:P.precio,n:P.n,vc:P.vc,desde:P.f0||""}).slice(-12).map((t,i,a)=>i<a.length-3?strip(t):t);
+  DB.ventas[P.b]=vb;if(!DB.lotes[P.b]||DB.lotes[P.b].estado==="disponible"||!DB.lotes[P.b].estado)DB.lotes[P.b]={...(DB.lotes[P.b]||{}),estado:"separado"};autoEstado(P.b);
   for(const id of P.As){delete DB.ventas[id];DB.lotes[id]={...(DB.lotes[id]||{}),estado:"disponible",cliente:"",pagRes:0};delete DB.lotes[id].escrito}
   if(!save({v:[P.b],vd:P.As,l:P.As.concat(P.b)})){go.disabled=false;return}
-  S.trA=[];document.getElementById("trAq").value="";refresh();S.trLast=P.b;m.className="msg";m.textContent=`✓ Traslado hecho: el lote ${P.b} quedó «${ESTN[byId[P.b].estado]}» con ${fmt(P.pag)} trasladados${P.hasV?" (total pagado "+fmt(P.tot)+")":""}. ${P.As.length>1?"Los lotes "+trJoin(P.As)+" quedaron disponibles.":"El lote "+P.a+" quedó disponible."}`;toast("Traslado de "+trOrigen(P.As)+" al lote "+P.b+" hecho.");
+  movAdd("traslado",`Traslado ${trDe(P.As)} al lote ${P.b} · ${title(vb.cliente||"")} · ${fmt(P.pag)} trasladados`);
+  S.trA=[];document.getElementById("trAq").value="";refresh();S.trLast=P.b;m.className="msg";m.textContent=`✓ Traslado hecho: el lote ${P.b} quedó «${ESTN[byId[P.b].estado]}» con ${fmt(P.pag)} trasladados${P.hasV?" (total pagado "+fmt(P.tot)+")":""}. ${P.As.length>1?"Los lotes "+trJoin(P.As)+" quedaron disponibles.":"El lote "+P.a+" quedó disponible."}`;toast("Traslado "+trDe(P.As)+" al lote "+P.b+" hecho.");
   document.getElementById("trB").value="";go.classList.remove("warnb");trFill();trMailBox(P.b)}
 function trObj(b){const l=byId[b],v=DB.ventas[b],t=(v.traslado||[]).slice(-1)[0]||{};const o=tplObj([l],v.cliente);const As=String(t.de||"").split(/,\s*/).filter(Boolean);
-  return Object.assign(o,{lote:b,loteanterior:trJoin(As),origen:trOrigen(As),fecha:dshow(t.f||hoyStr()),pagado:fmt(l.pagado),trasladado:fmt(t.pagado??l.pagado),precio:fmt(l.precio),saldo:fmt(l.saldo),cuotasn:String(t.n||0),valorcuota:fmt(t.vc||0),primera:t.desde?dshow(t.desde):"—"})}
+  return Object.assign(o,{lote:b,loteanterior:trJoin(As),origen:trOrigen(As),delorigen:trDe(As),alorigen:trAl(As),fecha:dshow(t.f||hoyStr()),pagado:fmt(l.pagado),trasladado:fmt(t.pagado??l.pagado),precio:fmt(l.precio),saldo:fmt(l.saldo),cuotasn:String(t.n||0),valorcuota:fmt(t.vc||0),primera:t.desde?dshow(t.desde):"—"})}
 function trMailBox(b){const box=document.getElementById("trMail"),v=DB.ventas[b];if(!box||!v)return;const mail=(v.mail||"").trim(),l=byId[b];
   box.hidden=false;box.innerHTML=mail?`<span class="mi ok">✓</span><div><b>Avísale a ${esc(title(v.cliente))} que su traslado quedó hecho</b><span>Se abre Gmail con el mensaje y se descarga su <b>estado de cuenta del lote ${esc(b)} en PDF</b> (plan nuevo y todos sus pagos). Adjúntalo con el clip 📎 y dale «Enviar».</span>
     <label class="ck" style="margin-top:6px"><input type="checkbox" id="trPdf" checked> Enviar el estado de cuenta en PDF (si lo quitas, va escrito dentro del correo)</label></div><button type="button" class="btn" id="trSend">✉️ Enviar correo de traslado</button>`
     :`<span class="mi">!</span><div><b>${esc(title(v.cliente))} no tiene correo registrado.</b><span>Agrégalo en Clientes → Datos del cliente y envíale el aviso desde «Traslados hechos».</span></div>`;
   const s=document.getElementById("trSend");if(s)s.onclick=()=>trSend(b,document.getElementById("trPdf").checked)}
 function trSend(b,pdf){const v=DB.ventas[b];if(!v||!v.mail){toast("Este cliente no tiene correo.");return}const l=byId[b];const it=mailItem("traslado",v.mail.trim(),trObj(b),title(v.cliente),pdf);openMailItem(it)}
-function trList(){const tb=document.getElementById("tTr");if(!tb)return;const R=[];for(const [b,v] of Object.entries(DB.ventas||{}))(v.traslado||[]).forEach(t=>R.push({b,v,t}));R.sort((x,y)=>(y.t.f||"").localeCompare(x.t.f||""));
+// ---------- deshacer traslado ----------
+const recKey=r=>[r.f||"",+r.v||0,r.n??"",String(r.d||"").slice(0,40)].join("|");
+function trCanUndo(b,t){const v=DB.ventas[b];if(!v||!t||!t.orig)return"Este traslado es antiguo y no guardó los datos para deshacerlo.";const last=(v.traslado||[]).slice(-1)[0];if(last!==t)return"Primero deshaz el traslado más reciente de este lote.";
+  for(const a of Object.keys(t.orig)){if(DB.ventas[a])return"El lote "+a+" ya tiene otra venta; no se puede devolver.";if(byId[a]&&byId[a].estado!=="disponible")return"El lote "+a+" ya no está disponible."}return""}
+async function trUndo(b){const v=DB.ventas[b],t=(v&&v.traslado||[]).slice(-1)[0],why=trCanUndo(b,t);if(why){toast(why,7000);return false}
+  const As=Object.keys(t.orig),known=new Set();(t.antesV&&t.antesV.recibos||[]).forEach(r=>known.add(recKey(r)));As.forEach(a=>(t.orig[a].recibos||[]).forEach(r=>known.add(recKey({...r}))));
+  const nuevos=(v.recibos||[]).filter(r=>{const {tr,...x}=r;return !known.has(recKey(x))&&!known.has(recKey(r))});
+  for(const a of As){DB.ventas[a]=JSON.parse(JSON.stringify(t.orig[a]));DB.lotes[a]={...(t.lotesA[a]||{}),estado:(t.lotesA[a]||{}).estado||"vendido"}}
+  const rest=(v.traslado||[]).slice(0,-1);let vd=[];
+  if(t.antesV){const nv=JSON.parse(JSON.stringify(t.antesV));nv.recibos=(nv.recibos||[]).concat(nuevos);if(rest.length)nv.traslado=rest;DB.ventas[b]=nv;DB.lotes[b]={...(DB.lotes[b]||{}),...(t.antesL||{})};autoEstado(b)}
+  else{delete DB.ventas[b];vd=[b];DB.lotes[b]={...(t.antesL||{}),estado:(t.antesL&&t.antesL.estado)||"disponible"};if(nuevos.length){const a0=As[0];DB.ventas[a0].recibos=(DB.ventas[a0].recibos||[]).concat(nuevos);autoEstado(a0)}}
+  As.forEach(a=>autoEstado(a));
+  for(const aid of (t.arch||[])){try{if(CLOUD)await CLOUD.doc("canceladas/"+aid).delete();else DB.canceladas=(DB.canceladas||[]).filter(x=>x._id!==aid)}catch(e){}}
+  if(!save({v:As.concat(vd.length?[]:[b]),vd,l:As.concat(b)}))return false;
+  movAdd("deshecho",`Traslado deshecho: los pagos volvieron del lote ${b} ${trAl(As)}${nuevos.length?" · "+nuevos.length+" abono(s) hechos después quedaron en "+(t.antesV?"el lote "+b:"el lote "+As[0]):""}`);
+  {const mb=document.getElementById("trMail");if(mb)mb.hidden=true;const mm=document.getElementById("trMsg");if(mm){mm.className="msg";mm.textContent=`↩ Traslado deshecho: los pagos volvieron ${trAl(As)}.`}}
+  refresh();toast(`Traslado deshecho. Los pagos volvieron ${trAl(As)}.`,6000);return true}
+// ---------- movimientos ----------
+let MOVS=[];
+function movSave(){if(CLOUD){const d=CLOUD.doc("config/movimientos");(MOVS.length?d.set({log:MOVS.slice(-400)}):d.delete()).catch(e=>toast("No se pudo guardar el movimiento: "+authErr(e)))}else{DB.movs=MOVS;persist()}}
+function movAdd(tipo,txt){MOVS=MOVS.concat({id:"m"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:new Date().toISOString(),tipo,txt,por:(USER&&(USER.displayName||USER.email))||"Administración"}).slice(-400);movSave();trMovs();try{bell()}catch(e){}}
+function trMovs(){const tb=document.getElementById("tMov");if(!tb)return;const L=MOVS.slice().reverse();document.getElementById("movCount").textContent=L.length?L.length+" movimiento"+(L.length>1?"s":""):"";document.getElementById("movClear").hidden=!L.length||!canEdit();
+  const ic={traslado:"⇄",deshecho:"↩",borrado:"✕"};
+  tb.innerHTML=L.map(m=>`<tr data-m="${esc(m.id)}"><td class="n">${new Date(m.t).toLocaleString("es-CO",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}</td><td><span class="mvt ${esc(m.tipo)}">${ic[m.tipo]||"•"} ${m.tipo==="traslado"?"Traslado":m.tipo==="deshecho"?"Deshecho":"Borrado"}</span></td><td>${esc(m.txt)}</td><td>${esc(m.por||"")}</td><td class="r"><button type="button" class="iconb wr" data-mdel="1" title="Borrar este movimiento">✕</button></td></tr>`).join("")||`<tr><td colspan="5" class="note">No hay movimientos.</td></tr>`}
+function trList(){const tb=document.getElementById("tTr");if(!tb)return;const R=[];for(const [b,v] of Object.entries(DB.ventas||{}))(v.traslado||[]).forEach((t,i)=>R.push({b,v,t,i}));R.sort((x,y)=>(y.t.f||"").localeCompare(x.t.f||"")||String(y.t.id||"").localeCompare(String(x.t.id||""))||y.i-x.i);
   document.getElementById("trCount").textContent=R.length?R.length+(R.length>1?" traslados":" traslado"):"";
   tb.innerHTML=R.map(({b,v,t})=>{const l=byId[b];const last=t===(v.traslado||[]).slice(-1)[0]&&t.a===b;return`<tr data-b="${esc(b)}"><td>${dshow(t.f)}</td><td>${esc(title(v.cliente||""))}</td><td><b>${esc(t.de)}</b></td><td><b>${esc(t.a)}</b></td><td class="r">${fmt(t.pagado)}</td><td class="r">${fmt(t.precio)}</td><td class="r">${last&&l?fmt(l.saldo):"—"}</td>
-    <td class="r">${last?(v.mail?`<button type="button" class="btn sm ghost wr" data-tr="mail">Enviar correo</button> `:'<span class="note">Sin correo</span> ')+`<button type="button" class="btn sm ghost" data-tr="pdf" title="Estado de cuenta en PDF">PDF</button>`:""}</td></tr>`}).join("")||`<tr><td colspan="8" class="note">Todavía no se ha hecho ningún traslado.</td></tr>`}
+    <td class="r"><div class="rlact">${last?(v.mail?`<button type="button" class="btn sm ghost wr" data-tr="mail">Correo</button>`:"")+`<button type="button" class="btn sm ghost" data-tr="pdf" title="Estado de cuenta en PDF">PDF</button>`:""}${last&&t.orig?`<button type="button" class="btn sm ghost wr" data-tr="undo" title="Devolver los pagos al lote o lotes de origen">↩ Deshacer</button>`:""}<button type="button" class="iconb wr" data-tr="del" data-tid="${esc(t.id||"")}" data-f="${esc(t.f||"")}" data-de="${esc(t.de||"")}" title="Quitar de la lista">✕</button></div></td></tr>`}).join("")||`<tr><td colspan="8" class="note">Todavía no se ha hecho ningún traslado.</td></tr>`}
 function trTplLoad(){const C=CFG();const su=document.getElementById("trSu"),tx=document.getElementById("trTx");if(!su||document.activeElement===su||document.activeElement===tx)return;su.value=C.tplTrSu||DEFAULT_CFG.tplTrSu;tx.value=String(C.tplTrTx||DEFAULT_CFG.tplTrTx).replace(/\\n/g,"\n")}
 function trEvents(){const $=id=>document.getElementById(id);if(!$("trAlist"))return;
   $("trAq").addEventListener("input",trFill);$("trAlist").addEventListener("change",e=>{const c=e.target.closest("input[data-a]");if(!c)return;const id=c.dataset.a;S.trA=c.checked?S.trA.concat(id).filter((x,i,a)=>a.indexOf(x)===i):S.trA.filter(x=>x!==id);trFill()});$("trB").addEventListener("change",trInfo);["trPrecio","trN","trF","trHoy"].forEach(id=>$(id).addEventListener("input",trPreview));
   $("trGo").addEventListener("click",trDo);
-  $("tTr").addEventListener("click",e=>{const b=e.target.closest("[data-tr]");if(!b)return;const id=b.closest("tr").dataset.b;if(b.dataset.tr==="mail")trSend(id,true);else{const c=CLIENTES.find(c=>c.lots.some(x=>x.id===id));ecDownload([byId[id]],(DB.ventas[id]||{}).cliente)}});
+  $("tTr").addEventListener("click",async e=>{const b=e.target.closest("[data-tr]");if(!b)return;const id=b.closest("tr").dataset.b;
+    if(b.dataset.tr==="undo"){if(!canEdit())return;const t=(DB.ventas[id].traslado||[]).slice(-1)[0];const why=trCanUndo(id,t);if(why){toast(why,7000);return}
+      if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Seguro? Toca otra vez";b.classList.add("warnb");setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="↩ Deshacer";b.classList.remove("warnb")}},5000);return}
+      b.disabled=true;await trUndo(id);return}
+    if(b.dataset.tr==="del"){if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Quitar?";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕"}},4000);return}
+      const v=DB.ventas[id];const L=v.traslado||[];const k=L.findIndex(t=>(b.dataset.tid&&t.id===b.dataset.tid)||(!b.dataset.tid&&t.f===b.dataset.f&&t.de===b.dataset.de));if(k<0)return;const t=L[k];
+      v.traslado=L.filter((_,i)=>i!==k);if(!v.traslado.length)delete v.traslado;if(save({v:[id]})){movAdd("borrado",`Se quitó de la lista el traslado ${trDe(String(t.de).split(/,\s*/))} al lote ${id} (los pagos siguen en el lote ${id})`);refresh()}return}
+    if(b.dataset.tr==="mail")trSend(id,true);else{const c=CLIENTES.find(c=>c.lots.some(x=>x.id===id));ecDownload([byId[id]],(DB.ventas[id]||{}).cliente)}});
   $("trTplSave").addEventListener("click",()=>{if(!canEdit())return;const c={...(DB.config||{})};const su=$("trSu").value.trim(),tx=$("trTx").value.trim();
     if(su&&su!==DEFAULT_CFG.tplTrSu)c.tplTrSu=su;else delete c.tplTrSu;if(tx&&tx!==DEFAULT_CFG.tplTrTx.replace(/\\n/g,"\n"))c.tplTrTx=tx;else delete c.tplTrTx;DB.config=c;if(save({cfg:true})){$("trTplMsg").className="msg";$("trTplMsg").textContent="✓ Mensaje guardado."}});
   $("trTplReset").addEventListener("click",()=>{$("trSu").value=DEFAULT_CFG.tplTrSu;$("trTx").value=DEFAULT_CFG.tplTrTx.replace(/\\n/g,"\n");$("trTplMsg").textContent="Toca «Guardar mensaje» para dejar el original."});
-  trFill();trTplLoad()}
+  $("tMov").addEventListener("click",e=>{const b=e.target.closest("[data-mdel]");if(!b||!canEdit())return;const id=b.closest("tr").dataset.m;MOVS=MOVS.filter(m=>m.id!==id);movSave();trMovs();try{bell()}catch(e){}});
+  $("movClear").addEventListener("click",e=>{const b=e.currentTarget;if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Borrar todos? Toca otra vez";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Borrar todos"}},4000);return}b.dataset.sure="";b.textContent="Borrar todos";MOVS=[];movSave();trMovs();try{bell()}catch(e){}});
+  if(!CLOUD&&Array.isArray(DB.movs))MOVS=DB.movs;trFill();trTplLoad();trMovs()}
 // ---------- comprobantes de pago (imagen o PDF) de cada abono ----------
 const rid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 async function fileToData(f){if(/^image\//.test(f.type)){const img=await new Promise((ok,ko)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=ko;i.src=URL.createObjectURL(f)});
@@ -3416,7 +3461,7 @@ const DEFAULT_CFG={
   tplCarteraSu:"{nombre} · Estado de cuenta del lote {lote} · Vizcaya Lake House",
   tplCarteraTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nQueremos recordarle que, según nuestros registros, su plan de pagos del lote {lote} presenta {dias} días de mora. Este es el estado de su cuenta:\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\n{estado}\n\nLe invitamos a ponerse al día lo antes posible. Así evita el cobro de intereses de mora y mantiene vigentes las condiciones de su promesa de compraventa.\n\nSi en este momento tiene alguna dificultad, comuníquese con nosotros. Con gusto revisamos alternativas para que pueda normalizar su plan de cuotas.\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nAgradecemos su atención y la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplTrSu:"{nombre} · Traslado al lote {lote} realizado · Vizcaya Lake House",
-  tplTrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que el {fecha} quedó hecho su traslado de {origen} al lote {lote}.\n\nTodos los pagos que había hecho a {origen}, por un total de {trasladado}, quedaron abonados al lote {lote}. Los números de sus recibos de caja se conservan.\n\n* Precio del lote {lote}: {precio}\n* Pagado a la fecha: {pagado}\n* Saldo por pagar: {saldo}\n* Nuevo plan: {cuotasn} cuotas mensuales de {valorcuota}, desde el {primera}\n\n{estado}\n\nA partir de ahora sus pagos se registran en el lote {lote}.\n\n📞 Línea de atención: {telefono}\n\nCordialmente,\n{empresa}",
+  tplTrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que el {fecha} quedó hecho su traslado {delorigen} al lote {lote}.\n\nTodos los pagos que había hecho {alorigen}, por un total de {trasladado}, quedaron abonados al lote {lote}. Los números de sus recibos de caja se conservan.\n\n* Precio del lote {lote}: {precio}\n* Pagado a la fecha: {pagado}\n* Saldo por pagar: {saldo}\n* Nuevo plan: {cuotasn} cuotas mensuales de {valorcuota}, desde el {primera}\n\n{estado}\n\nA partir de ahora sus pagos se registran en el lote {lote}.\n\n📞 Línea de atención: {telefono}\n\nCordialmente,\n{empresa}",
   tplGrSu:"{nombre} · Recibo de caja No. {recibo} · Gracias por su pago",
   tplGrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que recibimos su pago por {valor} el {fechapago}, correspondiente al lote {lote}, registrado con el Recibo de caja No. {recibo}. ¡Muchas gracias por su pago y por estar al tanto de su plan de cuotas!\n\nAdjuntamos el recibo de caja en PDF.\n\n{estado}\n\n📞 Línea de atención: 3126596675\n\nAgradecemos la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplPreSu:"{nombre} · Preaviso de liquidación del lote {lote} · Vizcaya Lake House",
@@ -3594,7 +3639,8 @@ function bell(){
   const hoy7=new Date(Date.now()-7*864e5).toISOString().slice(0,10),ct=ROLE==="admin"?CONTACTOS.filter(c=>(c.fecha||"")>=hoy7):[];
   const m30=ROLE==="consulta"?[]:moraRows(30);
   const bd=document.getElementById("bDot");bd.hidden=!mora.length&&!nv.length&&!m30.length;bd.classList.toggle("or",m30.length>0);
-  document.getElementById("bellPop").innerHTML=(m30.length?`<h4 class="or">⚠ ${m30.length} ${m30.length===1?"cliente":"clientes"} con más de un mes de mora</h4><button type="button" data-rpgo="1" class="or">Ver reportes masivos y enviar avisos<small>${esc(m30.slice(0,3).map(r=>title(r.c.nombre)+" · "+r.dias+" días").join(" · "))}</small></button>`:"")+(nv.length?`<h4>${nv.length} ${nv.length===1?"separación nueva":"separaciones nuevas"} de vendedores</h4>`+nv.map(l=>`<button type="button" data-nv="${l.id}">Lote ${esc(l.n)} · ${esc(title(l.v.cliente))}<small>Vendedor: ${esc(title(l.v.asesor||"—"))} · ${ESTN[l.estado]}</small></button>`).join(""):"")
+  const h7=new Date(Date.now()-7*864e5).toISOString(),mv=ROLE==="admin"&&!GER?MOVS.filter(m=>(m.t||"")>=h7).slice().reverse():[];
+  document.getElementById("bellPop").innerHTML=(mv.length?`<h4>${mv.length} ${mv.length===1?"movimiento":"movimientos"} de traslados esta semana</h4><button type="button" data-movgo="1">Ver todos los movimientos<small>${esc(mv.slice(0,3).map(m=>m.txt).join(" · "))}</small></button>`:"")+(m30.length?`<h4 class="or">⚠ ${m30.length} ${m30.length===1?"cliente":"clientes"} con más de un mes de mora</h4><button type="button" data-rpgo="1" class="or">Ver reportes masivos y enviar avisos<small>${esc(m30.slice(0,3).map(r=>title(r.c.nombre)+" · "+r.dias+" días").join(" · "))}</small></button>`:"")+(nv.length?`<h4>${nv.length} ${nv.length===1?"separación nueva":"separaciones nuevas"} de vendedores</h4>`+nv.map(l=>`<button type="button" data-nv="${l.id}">Lote ${esc(l.n)} · ${esc(title(l.v.cliente))}<small>Vendedor: ${esc(title(l.v.asesor||"—"))} · ${ESTN[l.estado]}</small></button>`).join(""):"")
     +(ct.length?`<h4>${ct.length} contactos por WhatsApp esta semana</h4><button type="button" data-ct="1">Ver a quién le tocó cada uno<small>${esc(ct.slice(0,3).map(c=>"Lote "+c.lote+" → "+c.asesor).join(" · "))}</small></button>`:"")+`<h4>${mora.length?mora.length+" clientes con cuotas atrasadas":"No hay cuotas atrasadas"}</h4>`+mora.slice(0,8).map(c=>`<button type="button" data-k="${esc(c.key)}">${esc(title(c.nombre))} · ${c.lots.map(l=>"Lote "+l.n).join(", ")}<small>${fmt(c.atraso)} en atraso</small></button>`).join("")+(mora.length>8?`<button type="button" data-k="*">Ver todos</button>`:"");
 }
 function searchAll(q){
@@ -3618,7 +3664,7 @@ function shellEvents(){
   const pops=[["bBell","bellPop"],["bWho","whoPop"]];
   pops.forEach(([b,p])=>document.getElementById(b).addEventListener("click",e=>{e.stopPropagation();const el=document.getElementById(p),o=el.hidden;pops.forEach(([,q])=>document.getElementById(q).hidden=true);el.hidden=!o}));
   document.addEventListener("click",e=>{if(!e.target.closest(".pop,.gsearch"))pops.forEach(([,q])=>document.getElementById(q).hidden=true);if(!e.target.closest(".gsearch"))gres.hidden=true});
-  document.getElementById("bellPop").addEventListener("click",e=>{if(e.target.closest("[data-rpgo]")){document.getElementById("bellPop").hidden=true;setView("reportes");return}const n=e.target.closest("button[data-nv],button[data-ct]");
+  document.getElementById("bellPop").addEventListener("click",e=>{if(e.target.closest("[data-movgo]")){document.getElementById("bellPop").hidden=true;setView("traslados");setTimeout(()=>{const m=document.getElementById("movPanel");if(m)m.scrollIntoView({behavior:"smooth",block:"start"})},80);return}if(e.target.closest("[data-rpgo]")){document.getElementById("bellPop").hidden=true;setView("reportes");return}const n=e.target.closest("button[data-nv],button[data-ct]");
     if(n){document.getElementById("bellPop").hidden=true;if(n.dataset.ct){setView("config");cfTab("whatsapp");setTimeout(()=>document.getElementById("cfCont").scrollIntoView({behavior:"smooth",block:"start"}),80);return}
       const id=n.dataset.nv,v=DB.ventas[id];if(v){v.nuevo=false;save({v:[id]})}S.cli=null;go("cliente",id);return}
     const b=e.target.closest("button[data-k]");if(!b)return;document.getElementById("bellPop").hidden=true;
