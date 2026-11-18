@@ -1088,7 +1088,7 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
               </div>
               <div class="trarrow" aria-hidden="true">→</div>
               <div class="trbox">
-                <label class="fl">2. Lote de destino (solo lotes disponibles)<select id="trB"></select></label>
+                <label class="fl">2. Lote de destino (un lote disponible o uno que ya tenga el cliente)<select id="trB"></select></label>
                 <div class="trinfo" id="trBinfo"><p class="note" style="padding:0">Elige el lote nuevo.</p></div>
               </div>
             </div>
@@ -1109,7 +1109,7 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
                 <label class="fl">Asunto<input id="trSu" maxlength="200"></label>
                 <label class="fl">Mensaje<textarea id="trTx" rows="12"></textarea></label>
               </div>
-              <p class="note" style="padding:4px 0">Puedes usar: {nombre} {origen} {loteanterior} {lote} {fecha} {pagado} {precio} {saldo} {cuotasn} {valorcuota} {primera} {estado}. Con el PDF activado, {estado} dice que el estado de cuenta va adjunto.</p>
+              <p class="note" style="padding:4px 0">Puedes usar: {nombre} {origen} {loteanterior} {lote} {trasladado} {fecha} {pagado} {precio} {saldo} {cuotasn} {valorcuota} {primera} {estado}. Con el PDF activado, {estado} dice que el estado de cuenta va adjunto.</p>
               <div class="btns"><button type="button" class="btn sm" id="trTplSave">Guardar mensaje</button><button type="button" class="btn sm ghost" id="trTplReset">Volver al original</button><span class="msg" id="trTplMsg"></span></div>
             </details>
           </div>
@@ -2993,20 +2993,27 @@ function trFill(){const box=document.getElementById("trAlist"),B=document.getEle
   let L=LOTS.filter(l=>l.v&&(!q||S.trA.includes(l.id)||l.n.toLowerCase().includes(q)||String(l.v.cliente||"").toLowerCase().includes(q)));
   const rank=l=>S.trA.includes(l.id)?0:keys.has(trKey(l.v))?1:2;L.sort((x,y)=>rank(x)-rank(y));
   box.innerHTML=L.map(l=>{const on=S.trA.includes(l.id),same=!on&&keys.has(trKey(l.v));return`<label class="${on?"on":""}"><input type="checkbox" data-a="${l.id}"${on?" checked":""}><span><b>Lote ${l.n}</b> · ${esc(title(l.v.cliente||""))}${same?' <span class="same">mismo cliente</span>':""}</span><small>pagado ${fmt(trPagado(l.id))}</small></label>`}).join("")||`<p class="note" style="padding:8px 10px">No hay lotes con ese nombre o número.</p>`;
-  B.innerHTML=`<option value="">— Elige el lote de destino —</option>`+LOTS.filter(l=>l.estado==="disponible"&&!DB.ventas[l.id]).map(l=>`<option value="${l.id}">Lote ${l.n} · Mz ${l.mz} · ${l.area.toLocaleString("es-CO")} m² · ${fmt(l.valor)}</option>`).join("");
-  B.value=byId[b]&&byId[b].estado==="disponible"&&!DB.ventas[b]?b:"";trDefaults();trInfo()}
+  const okB=l=>!S.trA.includes(l.id)&&(l.v||(l.estado==="disponible"&&!DB.ventas[l.id]));
+  const mine=LOTS.filter(l=>okB(l)&&l.v&&keys.has(trKey(l.v))),otros=LOTS.filter(l=>okB(l)&&l.v&&!keys.has(trKey(l.v))),disp=LOTS.filter(l=>okB(l)&&!l.v);
+  const opV=l=>`<option value="${l.id}">Lote ${l.n} · ${esc(title(l.v.cliente||""))} · pagado ${fmt(l.pagado)}${(l.v.traslado||[]).length?" · ya recibió traslado":""}</option>`;
+  B.innerHTML=`<option value="">— Elige el lote de destino —</option>`+(mine.length?`<optgroup label="Lotes del mismo cliente (los pagos se suman a lo que ya tiene)">${mine.map(opV).join("")}</optgroup>`:"")
+    +`<optgroup label="Lotes disponibles">${disp.map(l=>`<option value="${l.id}">Lote ${l.n} · Mz ${l.mz} · ${l.area.toLocaleString("es-CO")} m² · ${fmt(l.valor)}</option>`).join("")}</optgroup>`
+    +(otros.length?`<optgroup label="Otros lotes con venta">${otros.map(opV).join("")}</optgroup>`:"");
+  B.value=byId[b]&&okB(byId[b])?b:"";trDefaults();trInfo()}
 function trPlan(){const As=S.trA.filter(id=>DB.ventas[id]),b=document.getElementById("trB").value;if(!As.length||!b)return null;
   const per=As.map(id=>({id,p:Math.round(trPagado(id))})),pag=per.reduce((s,x)=>s+x.p,0),precio=Math.round(+document.getElementById("trPrecio").value||0),n=Math.max(1,Math.min(120,Math.round(+document.getElementById("trN").value||1))),f0=document.getElementById("trF").value,hoy=document.getElementById("trHoy").value||hoyStr();
-  const saldo=precio-pag;const Q=per.filter(x=>x.p>0).map(x=>({f:hoy,d:"Pagos trasladados del lote "+x.id,v:x.p}));const paidN=Q.length;
+  const lb=byId[b],hasV=!!(lb&&lb.v);let Q=[],pagB=0;
+  if(hasV){const {keep,keptSum}=planSplit(lb);Q=keep.map(c=>({...c}));pagB=Math.round(lb.pagado);const parcial=Math.round(lb.pagado-keptSum);if(parcial>0)Q.push({f:hoy,d:"Abonos anteriores del lote "+b,v:parcial})}
+  const tot=pag+pagB,saldo=precio-tot;Q=Q.concat(per.filter(x=>x.p>0).map(x=>({f:hoy,d:"Pagos trasladados del lote "+x.id,v:x.p})));const paidN=Q.length;
   let vc=0,ult=0;if(saldo>0&&f0){vc=Math.round(saldo/n);ult=saldo-vc*(n-1);const d0=new Date(f0+"T00:00");for(let i=0;i<n;i++){const d=new Date(d0.getFullYear(),d0.getMonth()+i,Math.min(d0.getDate(),28));Q.push({f:d.toISOString().slice(0,10),d:"Cuota "+String(i+1).padStart(2,"0"),v:i===n-1?ult:vc})}}
-  return{As,a:As.join(", "),per,b,pag,precio,n:saldo>0?n:0,f0,hoy,saldo,vc,ult,Q,paidN}}
+  return{As,a:As.join(", "),per,b,pag,pagB,tot,hasV,precio,n:saldo>0?n:0,f0,hoy,saldo,vc,ult,Q,paidN}}
 function trInfo(){const As=S.trA.filter(id=>byId[id]&&byId[id].v),b=document.getElementById("trB").value,B=byId[b];
   const names=[...new Set(As.map(id=>title(byId[id].v.cliente||"")))];
   document.getElementById("trAinfo").innerHTML=As.length?`<table><thead><tr><th>Lote</th><th>Cliente</th><th class="r">Pagos</th><th class="r">Pagado</th></tr></thead><tbody>${As.map(id=>{const l=byId[id];return`<tr><td><b>${esc(id)}</b></td><td>${esc(title(l.v.cliente||""))}</td><td class="r">${(l.v.recibos||[]).length}</td><td class="r">${fmt(trPagado(id))}</td></tr>`}).join("")}
     ${As.length>1?`<tr><td colspan="3"><b>Total a trasladar</b></td><td class="r"><b style="color:var(--ok)">${fmt(As.reduce((s,id)=>s+trPagado(id),0))}</b></td></tr>`:""}</tbody></table>${names.length>1?`<p class="note" style="padding:6px 0 0;color:#b45309">Ojo: marcaste lotes de clientes distintos (${esc(names.join(", "))}). El lote nuevo quedará a nombre de <b>${esc(names[0])}</b>.</p>`:""}`
     :`<p class="note" style="padding:0">Marca el lote o los lotes que deja el cliente. Todos sus pagos se suman en el lote nuevo.</p>`;
-  document.getElementById("trBinfo").innerHTML=B?`<dl><dt>Manzana</dt><dd>${B.mz}</dd><dt>Área</dt><dd>${B.area.toLocaleString("es-CO")} m²</dd><dt>Valor de lista</dt><dd><b>${fmt(B.valor)}</b></dd><dt>Valor m²</dt><dd>${fmt(B.area?B.valor/B.area:0)}</dd><dt>Folio</dt><dd>${esc(B.L.folio||"—")}</dd></dl>`:`<p class="note" style="padding:0">Elige el lote nuevo.</p>`;
-  const pi=document.getElementById("trPrecio");if(B&&pi.dataset.for!==b){pi.value=Math.round(B.valor||0);pi.dataset.for=b}
+  document.getElementById("trBinfo").innerHTML=B&&B.v?`<dl><dt>Cliente</dt><dd><b>${esc(title(B.v.cliente||""))}</b></dd><dt>Estado</dt><dd>${ESTN[B.estado]}</dd><dt>Precio</dt><dd>${fmt(B.precio)}</dd><dt>Ya pagado en este lote</dt><dd><b style="color:var(--ok)">${fmt(B.pagado)}</b></dd><dt>Área</dt><dd>${B.area.toLocaleString("es-CO")} m²</dd>${(B.v.traslado||[]).length?`<dt>Traslados recibidos</dt><dd>${(B.v.traslado||[]).length}</dd>`:""}</dl>${As.length&&trKey(B.v)!==trKey(byId[As[0]].v)?`<p class="note" style="padding:6px 0 0;color:#b45309">Este lote es de otro cliente. Se le suman los pagos y sigue a nombre de <b>${esc(title(B.v.cliente||""))}</b>.</p>`:""}`:B?`<dl><dt>Manzana</dt><dd>${B.mz}</dd><dt>Área</dt><dd>${B.area.toLocaleString("es-CO")} m²</dd><dt>Valor de lista</dt><dd><b>${fmt(B.valor)}</b></dd><dt>Valor m²</dt><dd>${fmt(B.area?B.valor/B.area:0)}</dd><dt>Folio</dt><dd>${esc(B.L.folio||"—")}</dd></dl>`:`<p class="note" style="padding:0">Elige el lote nuevo.</p>`;
+  const pi=document.getElementById("trPrecio");if(B&&pi.dataset.for!==b){pi.value=Math.round(B.v?B.precio:(B.valor||0));pi.dataset.for=b}
   const key=As.join(",");const nI=document.getElementById("trN");if(As.length&&nI.dataset.for!==key){const pend=Math.max(...As.map(id=>(byId[id].v.cuotas||[]).filter(c=>c.f&&c.f>hoyStr()).length));nI.value=Math.max(1,Math.min(120,pend||12));nI.dataset.for=key}
   trPreview()}
 function trPreview(){const o=document.getElementById("trPrev"),go=document.getElementById("trGo"),P=trPlan();go.disabled=true;go.dataset.sure="";go.textContent="Hacer el traslado";go.classList.remove("warnb");
@@ -3015,30 +3022,30 @@ function trPreview(){const o=document.getElementById("trPrev"),go=document.getEl
   if(P.saldo>0&&!P.f0){o.innerHTML=`<div class="warn">Elige la fecha de la primera cuota.</div>`;return}
   const v0=DB.ventas[P.As[0]],nrec=P.As.reduce((s,id)=>s+((DB.ventas[id].recibos||[]).length),0);
   let h=`<div class="sum"><b>${esc(title(v0.cliente||""))}</b> pasa de <b>${esc(trOrigen(P.As))}</b> al <b>lote ${esc(P.b)}</b>.<br>
-    Se trasladan <b>${nrec} pagos por ${fmt(P.pag)}</b>${P.As.length>1?" ("+P.per.map(x=>esc(x.id)+": "+fmt(x.p)).join(" + ")+")":""}, con su mismo número de recibo. Precio del lote ${esc(P.b)}: <b>${fmt(P.precio)}</b> → saldo <b>${fmt(Math.max(0,P.saldo))}</b>.<br>
+    Se trasladan <b>${nrec} pagos por ${fmt(P.pag)}</b>${P.As.length>1?" ("+P.per.map(x=>esc(x.id)+": "+fmt(x.p)).join(" + ")+")":""}, con su mismo número de recibo. ${P.hasV?`El lote ${esc(P.b)} ya tenía <b>${fmt(P.pagB)}</b> pagados → total pagado <b>${fmt(P.tot)}</b>. `:""}Precio del lote ${esc(P.b)}: <b>${fmt(P.precio)}</b> → saldo <b>${fmt(Math.max(0,P.saldo))}</b>.<br>
     ${P.saldo>0?`Plan nuevo: <b>${P.n} cuotas</b> mensuales de <b>${fmt(P.vc)}</b>${P.ult!==P.vc?` (la última de ${fmt(P.ult)})`:""} desde el <b>${dshow(P.f0)}</b>.`:"El lote queda pagado completo."}<br>
     ${P.As.length>1?"Los lotes "+esc(trJoin(P.As))+" quedan":"El lote "+esc(P.a)+" queda"} <b>disponible${P.As.length>1?"s":""}</b> y la venta anterior se guarda en el archivo de ventas canceladas.</div>`;
-  if(P.saldo<0)h+=`<div class="warn">Ojo: lo pagado (${fmt(P.pag)}) es mayor que el precio del lote nuevo. Quedaría un saldo a favor del cliente de <b>${fmt(-P.saldo)}</b>.</div>`;
+  if(P.saldo<0)h+=`<div class="warn">Ojo: lo pagado (${fmt(P.tot)}) es mayor que el precio del lote nuevo. Quedaría un saldo a favor del cliente de <b>${fmt(-P.saldo)}</b>.</div>`;
   h+=`<div class="tbl"><table><thead><tr><th>Fecha</th><th>Cuota</th><th class="r">Valor</th><th>Estado</th></tr></thead><tbody>${P.Q.map((c,i)=>`<tr><td>${dshow(c.f)}</td><td>${esc(c.d)}</td><td class="r">${fmt(c.v)}</td><td>${i<P.paidN?'<span class="pill pagado">Pagada</span>':'<span class="pill">Pendiente</span>'}</td></tr>`).join("")}</tbody></table></div>`;
   o.innerHTML=h;go.disabled=!canEdit()}
 async function trDo(){const go=document.getElementById("trGo"),P=trPlan();if(!P||!canEdit())return;const m=document.getElementById("trMsg");
-  if(DB.ventas[P.b]||(byId[P.b]&&byId[P.b].estado!=="disponible")){m.className="msg err";m.textContent="El lote de destino ya no está disponible.";trFill();return}
+  if(P.As.includes(P.b)||(!DB.ventas[P.b]&&byId[P.b]&&byId[P.b].estado!=="disponible")){m.className="msg err";m.textContent="El lote de destino ya no se puede usar.";trFill();return}
   if(go.dataset.sure!=="1"){go.dataset.sure="1";go.textContent=`Sí, trasladar ${P.a} → ${P.b}`;go.classList.add("warnb");setTimeout(()=>{if(go.isConnected&&go.dataset.sure==="1"){go.dataset.sure="";go.textContent="Hacer el traslado";go.classList.remove("warnb")}},5000);return}
   go.disabled=true;
   for(const id of P.As){const arc={...DB.ventas[id],lote:id,canceladaEn:P.hoy,motivo:"Traslado al lote "+P.b};delete arc.actualizadoPor;delete arc.actualizadoEn;
     try{if(CLOUD)await CLOUD.doc("canceladas/"+id+"-"+Date.now()).set(clean(arc));else{DB.canceladas=DB.canceladas||[];DB.canceladas.push(arc)}}catch(err){m.className="msg err";m.textContent="No se pudo archivar la venta del lote "+id+": "+authErr(err);go.disabled=false;return}}
-  const va=DB.ventas[P.As[0]],vb={};["cliente","cc","dir","tel","mail","ciudad","barrio","asesor","fechaVenta","politica","fechaEC"].forEach(k=>{const x=P.As.map(id=>DB.ventas[id][k]).find(z=>z!==undefined&&z!=="");if(x!==undefined)vb[k]=x});
-  vb.precio=P.precio;if(va.politica==="2026")vb.lista=Math.round(byId[P.b].valor||P.precio);
-  vb.recibos=P.As.flatMap(id=>(DB.ventas[id].recibos||[]).map(r=>({...r,tr:r.tr||id}))).sort((x,y)=>String(x.f||"").localeCompare(String(y.f||"")));vb.cuotas=P.Q;
-  const prev=P.As.flatMap(id=>DB.ventas[id].traslado||[]);
-  vb.traslado=prev.concat({de:P.a,a:P.b,f:P.hoy,pagado:P.pag,per:Object.fromEntries(P.per.map(x=>[x.id,x.p])),precioAnt:P.As.reduce((s,id)=>s+Math.round(+DB.ventas[id].precio||0),0),precio:P.precio,n:P.n,vc:P.vc,desde:P.f0||""}).slice(-10);
-  DB.ventas[P.b]=vb;DB.lotes[P.b]={...(DB.lotes[P.b]||{}),estado:"separado"};autoEstado(P.b);
+  const va=DB.ventas[P.As[0]],old=DB.ventas[P.b]||null,vb=old?{...old}:{};if(!old)["cliente","cc","dir","tel","mail","ciudad","barrio","asesor","fechaVenta","politica","fechaEC"].forEach(k=>{const x=P.As.map(id=>DB.ventas[id][k]).find(z=>z!==undefined&&z!=="");if(x!==undefined)vb[k]=x});
+  vb.precio=P.precio;if(!old&&va.politica==="2026")vb.lista=Math.round(byId[P.b].valor||P.precio);
+  vb.recibos=((old&&old.recibos)||[]).concat(P.As.flatMap(id=>(DB.ventas[id].recibos||[]).map(r=>({...r,tr:r.tr||id})))).sort((x,y)=>String(x.f||"").localeCompare(String(y.f||"")));vb.cuotas=P.Q;
+  const prev=((old&&old.traslado)||[]).concat(P.As.flatMap(id=>DB.ventas[id].traslado||[]));
+  vb.traslado=prev.concat({de:P.a,a:P.b,f:P.hoy,pagado:P.pag,antes:P.pagB||0,per:Object.fromEntries(P.per.map(x=>[x.id,x.p])),precioAnt:P.As.reduce((s,id)=>s+Math.round(+DB.ventas[id].precio||0),0),precio:P.precio,n:P.n,vc:P.vc,desde:P.f0||""}).slice(-10);
+  DB.ventas[P.b]=vb;if(!old||DB.lotes[P.b].estado==="disponible")DB.lotes[P.b]={...(DB.lotes[P.b]||{}),estado:"separado"};autoEstado(P.b);
   for(const id of P.As){delete DB.ventas[id];DB.lotes[id]={...(DB.lotes[id]||{}),estado:"disponible",cliente:"",pagRes:0};delete DB.lotes[id].escrito}
   if(!save({v:[P.b],vd:P.As,l:P.As.concat(P.b)})){go.disabled=false;return}
-  S.trA=[];document.getElementById("trAq").value="";refresh();S.trLast=P.b;m.className="msg";m.textContent=`✓ Traslado hecho: el lote ${P.b} quedó «${ESTN[byId[P.b].estado]}» con ${fmt(P.pag)} abonados. ${P.As.length>1?"Los lotes "+trJoin(P.As)+" quedaron disponibles.":"El lote "+P.a+" quedó disponible."}`;toast("Traslado de "+trOrigen(P.As)+" al lote "+P.b+" hecho.");
+  S.trA=[];document.getElementById("trAq").value="";refresh();S.trLast=P.b;m.className="msg";m.textContent=`✓ Traslado hecho: el lote ${P.b} quedó «${ESTN[byId[P.b].estado]}» con ${fmt(P.pag)} trasladados${P.hasV?" (total pagado "+fmt(P.tot)+")":""}. ${P.As.length>1?"Los lotes "+trJoin(P.As)+" quedaron disponibles.":"El lote "+P.a+" quedó disponible."}`;toast("Traslado de "+trOrigen(P.As)+" al lote "+P.b+" hecho.");
   document.getElementById("trB").value="";go.classList.remove("warnb");trFill();trMailBox(P.b)}
 function trObj(b){const l=byId[b],v=DB.ventas[b],t=(v.traslado||[]).slice(-1)[0]||{};const o=tplObj([l],v.cliente);const As=String(t.de||"").split(/,\s*/).filter(Boolean);
-  return Object.assign(o,{lote:b,loteanterior:trJoin(As),origen:trOrigen(As),fecha:dshow(t.f||hoyStr()),pagado:fmt(t.pagado??l.pagado),precio:fmt(l.precio),saldo:fmt(l.saldo),cuotasn:String(t.n||0),valorcuota:fmt(t.vc||0),primera:t.desde?dshow(t.desde):"—"})}
+  return Object.assign(o,{lote:b,loteanterior:trJoin(As),origen:trOrigen(As),fecha:dshow(t.f||hoyStr()),pagado:fmt(l.pagado),trasladado:fmt(t.pagado??l.pagado),precio:fmt(l.precio),saldo:fmt(l.saldo),cuotasn:String(t.n||0),valorcuota:fmt(t.vc||0),primera:t.desde?dshow(t.desde):"—"})}
 function trMailBox(b){const box=document.getElementById("trMail"),v=DB.ventas[b];if(!box||!v)return;const mail=(v.mail||"").trim(),l=byId[b];
   box.hidden=false;box.innerHTML=mail?`<span class="mi ok">✓</span><div><b>Avísale a ${esc(title(v.cliente))} que su traslado quedó hecho</b><span>Se abre Gmail con el mensaje y se descarga su <b>estado de cuenta del lote ${esc(b)} en PDF</b> (plan nuevo y todos sus pagos). Adjúntalo con el clip 📎 y dale «Enviar».</span>
     <label class="ck" style="margin-top:6px"><input type="checkbox" id="trPdf" checked> Enviar el estado de cuenta en PDF (si lo quitas, va escrito dentro del correo)</label></div><button type="button" class="btn" id="trSend">✉️ Enviar correo de traslado</button>`
@@ -3409,7 +3416,7 @@ const DEFAULT_CFG={
   tplCarteraSu:"{nombre} · Estado de cuenta del lote {lote} · Vizcaya Lake House",
   tplCarteraTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nQueremos recordarle que, según nuestros registros, su plan de pagos del lote {lote} presenta {dias} días de mora. Este es el estado de su cuenta:\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\n{estado}\n\nLe invitamos a ponerse al día lo antes posible. Así evita el cobro de intereses de mora y mantiene vigentes las condiciones de su promesa de compraventa.\n\nSi en este momento tiene alguna dificultad, comuníquese con nosotros. Con gusto revisamos alternativas para que pueda normalizar su plan de cuotas.\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nAgradecemos su atención y la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplTrSu:"{nombre} · Traslado al lote {lote} realizado · Vizcaya Lake House",
-  tplTrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que el {fecha} quedó hecho su traslado de {origen} al lote {lote}.\n\nTodos los pagos que había hecho a {origen}, por un total de {pagado}, quedaron abonados al lote {lote}. Los números de sus recibos de caja se conservan.\n\n* Precio del lote {lote}: {precio}\n* Pagado a la fecha: {pagado}\n* Saldo por pagar: {saldo}\n* Nuevo plan: {cuotasn} cuotas mensuales de {valorcuota}, desde el {primera}\n\n{estado}\n\nA partir de ahora sus pagos se registran en el lote {lote}.\n\n📞 Línea de atención: {telefono}\n\nCordialmente,\n{empresa}",
+  tplTrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que el {fecha} quedó hecho su traslado de {origen} al lote {lote}.\n\nTodos los pagos que había hecho a {origen}, por un total de {trasladado}, quedaron abonados al lote {lote}. Los números de sus recibos de caja se conservan.\n\n* Precio del lote {lote}: {precio}\n* Pagado a la fecha: {pagado}\n* Saldo por pagar: {saldo}\n* Nuevo plan: {cuotasn} cuotas mensuales de {valorcuota}, desde el {primera}\n\n{estado}\n\nA partir de ahora sus pagos se registran en el lote {lote}.\n\n📞 Línea de atención: {telefono}\n\nCordialmente,\n{empresa}",
   tplGrSu:"{nombre} · Recibo de caja No. {recibo} · Gracias por su pago",
   tplGrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que recibimos su pago por {valor} el {fechapago}, correspondiente al lote {lote}, registrado con el Recibo de caja No. {recibo}. ¡Muchas gracias por su pago y por estar al tanto de su plan de cuotas!\n\nAdjuntamos el recibo de caja en PDF.\n\n{estado}\n\n📞 Línea de atención: 3126596675\n\nAgradecemos la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplPreSu:"{nombre} · Preaviso de liquidación del lote {lote} · Vizcaya Lake House",
