@@ -260,6 +260,7 @@ details.plan .tbl{max-height:260px;overflow:auto;margin-top:8px}
 .pdfck{display:flex;gap:8px;align-items:flex-start;padding:10px 16px;margin:0 16px 8px;background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;font-size:13px}.pdfck input{margin-top:3px}
 .trlist{max-height:210px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.trlist label{display:flex;gap:9px;align-items:center;padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;cursor:pointer}.trlist label:last-child{border-bottom:0}.trlist label.on{background:#eef6f1}.trlist label small{margin-left:auto;color:var(--muted);white-space:nowrap}.trlist .same{font-size:11px;color:#1f7a4d;font-weight:600}.trinfo table{width:100%;font-size:12.5px}.trinfo td,.trinfo th{padding:3px 4px}
 .mvt{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#e8f0f6;color:#1e5b86;white-space:nowrap}.mvt.deshecho{background:#fdf0e3;color:#a1500c}.mvt.borrado{background:#eee;color:#555}
+.pendrow td{background:#fff8db}.pendpill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:#fde68a;color:#7a5200;white-space:nowrap}.pendpanel{border:1px solid #f3d36b}.pendpanel .panel-h{background:#fff4c4}
 .btn.warnb{background:#c2410c;border-color:#c2410c;color:#fff}.trgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start;padding:14px 16px}.trarrow{font-size:28px;color:var(--muted);padding-top:28px}.trbox{display:flex;flex-direction:column;gap:8px}.trinfo{background:var(--surface-2,#f4f6f5);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;min-height:64px}.trinfo dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0}.trinfo dt{color:var(--muted)}.trinfo dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}.trh{margin:0 0 8px;font-size:14px}.trprev{margin-top:10px;font-size:13px}.trprev .sum{background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;padding:10px 12px;margin-bottom:8px;line-height:1.55}.trprev .warn{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:10px 12px;margin-bottom:8px}.trprev table{width:100%;font-size:12.5px}.trprev .tbl{max-height:260px;overflow:auto}.trtpl summary{cursor:pointer}@media(max-width:760px){.trgrid{grid-template-columns:1fr}.trarrow{display:none}}
 .rc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
 .rc-bar label.ck{display:flex;gap:7px;align-items:center;font-size:13px;margin-right:auto}
@@ -587,6 +588,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
 .dpill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:700;font-family:var(--f-body)} .dpill.d1{background:#fff0dd;color:#b85c00} .dpill.d2{background:#ffe1c4;color:#a34700} .dpill.d3{background:var(--bad);color:#fff}
 .liqp{border-color:color-mix(in srgb,var(--bad) 35%,var(--line))} .liqp .panel-h{background:color-mix(in srgb,var(--bad) 6%,var(--surface))}
 .bdot.or{background:#ea7a10} #bellPop h4.or{color:#b85c00} #bellPop button.or{background:#fff3e6}
+.side-nav .navbadge{margin-left:auto;background:#7a8a86;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px}
 #navRep[data-n]:not([data-n=""])::after{content:attr(data-n);margin-left:auto;background:#ea7a10;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px}
 #v-reportes a.btn{text-decoration:none}
 .rpact{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;min-width:120px}
@@ -609,7 +611,7 @@ body.cons #v-lotes th:nth-child(n+7):nth-child(-n+11),body.cons #v-lotes td:nth-
 .rpqueue>div{display:flex;flex-direction:column;margin-right:auto} .rpqueue>div span{font-size:12.5px;color:var(--muted)} .rpqueue small{flex-basis:100%;color:var(--muted)} .rpqueue a.btn{text-decoration:none}
 body.vview .side-nav .vshow{display:flex!important}
 body.vview .nvd,body.vview .wabar{display:none!important}
-body.ger [data-go="recibo"],body.ger .side-nav [data-v="traslados"],body.ger .side-nav [data-v="recibo"],body.ger .side-nav [data-v="reportes"],body.ger .side-nav [data-v="config"],body.ger [data-go="config"],body.ger #moraStrip,body.ger [data-rpgo],body.ger #rcSend,body.ger [data-rp="one"],body.ger [data-rp="oneLiq"],body.ger #cSave,body.ger #rcXls,body.ger #rcSave,body.ger #rcPdf,body.ger #rcClear,body.ger #rcReg,body.ger label[for=rcReg],body.ger .rc-bar .ck,body.ger #rpTplSave,body.ger #rpTplReset,body.ger #lqTplSave,body.ger #lqTplReset,body.ger #pAddBtn,body.ger #pAuto,body.ger [data-pa="edit"],body.ger [data-pa="del"],body.ger #prSave,body.ger #prApply,body.ger #prPct,body.ger #comSave,body.ger #comDef,body.ger #aForm,body.ger #uForm,body.ger [data-ua],body.ger [data-aa],body.ger [data-sa],body.ger #waAdd,body.ger #waSave,body.ger [data-wd],body.ger #asgSave,body.ger #asgAll,body.ger #cfSave,body.ger #cfReset,body.ger #cfProy .drop,body.ger #pyTpl~*,body.ger #bImport,body.ger #bReset,body.ger [data-rp="liq"],body.ger [data-rp="liqSel"],body.ger [data-rp="unliq"],body.ger [data-rp="cancel"],body.ger #ctDelAll,body.ger [data-ctdel],body.ger [data-pd="add"],body.ger [data-pd="edit"],body.ger [data-pd="del"],body.ger #pdDrop,body.ger .rptpl .adm,body.ger [data-esc]{display:none!important}
+body.ger [data-go="recibo"],body.ger .side-nav [data-v="papelera"],body.ger .side-nav [data-v="traslados"],body.ger .side-nav [data-v="recibo"],body.ger .side-nav [data-v="reportes"],body.ger .side-nav [data-v="config"],body.ger [data-go="config"],body.ger #moraStrip,body.ger [data-rpgo],body.ger #rcSend,body.ger [data-rp="one"],body.ger [data-rp="oneLiq"],body.ger #cSave,body.ger #rcXls,body.ger #rcSave,body.ger #rcPdf,body.ger #rcClear,body.ger #rcReg,body.ger label[for=rcReg],body.ger .rc-bar .ck,body.ger #rpTplSave,body.ger #rpTplReset,body.ger #lqTplSave,body.ger #lqTplReset,body.ger #pAddBtn,body.ger #pAuto,body.ger [data-pa="edit"],body.ger [data-pa="del"],body.ger #prSave,body.ger #prApply,body.ger #prPct,body.ger #comSave,body.ger #comDef,body.ger #aForm,body.ger #uForm,body.ger [data-ua],body.ger [data-aa],body.ger [data-sa],body.ger #waAdd,body.ger #waSave,body.ger [data-wd],body.ger #asgSave,body.ger #asgAll,body.ger #cfSave,body.ger #cfReset,body.ger #cfProy .drop,body.ger #pyTpl~*,body.ger #bImport,body.ger #bReset,body.ger [data-rp="liq"],body.ger [data-rp="liqSel"],body.ger [data-rp="unliq"],body.ger [data-rp="cancel"],body.ger #ctDelAll,body.ger [data-ctdel],body.ger [data-pd="add"],body.ger [data-pd="edit"],body.ger [data-pd="del"],body.ger #pdDrop,body.ger .rptpl .adm,body.ger [data-esc]{display:none!important}
 body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rpDias):not(#asgQ),body.ger textarea{pointer-events:none;background:var(--surface-2)!important}
 .gerbadge{display:none}body.ger .gerbadge{display:block;background:#fff3e6;border:1px solid #f3b36b;color:#7a3e00;border-radius:10px;padding:8px 14px;font-size:13px;margin-bottom:10px}
 .subh{font-size:13.5px;margin:14px 0 6px;color:var(--fg)}
@@ -692,6 +694,7 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
       <button type="button" draggable="false" data-v="comisiones" class="adm vshow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.2-6 8-6s7 2 8 6"/></svg>Asesores y comisiones</button>
       <button type="button" draggable="false" data-v="recibo" class="noc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>Recibo de caja</button>
       <button type="button" draggable="false" data-v="traslados" class="adm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/></svg>Traslados de lote</button>
+      <button type="button" draggable="false" data-v="papelera" class="adm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>Papelera<span class="navbadge" id="papN" hidden></span></button>
       <button type="button" draggable="false" data-v="reportes" class="noc" id="navRep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Reportes masivos</button>
       <button type="button" draggable="false" data-v="usuarios" id="navUsers" hidden style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Usuarios</button>
       <button type="button" draggable="false" data-v="config" class="adm" id="navCfg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Configuración</button>
@@ -1131,11 +1134,24 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
           </div>
         </section>
 
+        <section id="v-papelera" hidden class="stack">
+          <div class="panel">
+            <div class="panel-h"><h2>Papelera</h2><span class="hint2" id="papCount"></span><button type="button" class="btn sm ghost wr" id="papEmpty" hidden style="margin-left:auto">Vaciar papelera</button></div>
+            <p class="note" style="padding:8px 16px 0">Todo lo que borras en la app llega aquí: abonos, cuotas, comprobantes, ventas canceladas, presupuestos, contactos, vendedores, accesos, imágenes y movimientos. Lo puedes <b>recuperar</b> durante <b>20 días</b>; después se borra definitivamente.</p>
+            <div class="tbl" style="max-height:560px;overflow:auto"><table><thead><tr><th>Qué era</th><th>Detalle</th><th>Borrado el</th><th>Se borra en</th><th class="r">Acciones</th></tr></thead><tbody id="tPap"></tbody></table></div>
+          </div>
+        </section>
+
         <section id="v-reportes" hidden class="stack">
           <div class="moraband" id="rpBand"></div>
+          <div class="panel pendpanel" id="pdPanel" hidden>
+            <div class="panel-h"><h2>✉ Correos pendientes por enviar</h2><span class="hint2" id="pdCount"></span><button type="button" class="btn sm ghost wr" id="pdAllDone" style="margin-left:auto">Marcar todos como enviados</button></div>
+            <p class="note" style="padding:8px 16px 0">Clientes en mora a los que no se les ha enviado correo este mes, lotes en cancelación (liquidación) sin aviso y traslados sin confirmar. Al enviarle el correo desde la app, la fila se quita sola.</p>
+            <div class="tbl" style="max-height:340px;overflow:auto"><table><thead><tr><th>Motivo</th><th>Cliente</th><th>Detalle</th><th>Último correo</th><th class="r">Acciones</th></tr></thead><tbody id="pdBody"></tbody></table></div>
+          </div>
           <div class="panel">
-            <div class="panel-h"><h2>Clientes en mora</h2>
-              <label class="fl" style="flex-direction:row;align-items:center;gap:8px">Mora de<select id="rpDias"><option value="30">1 mes o más</option><option value="60">2 meses o más</option><option value="90">3 meses o más</option><option value="9">Toda la mora (más de 8 días)</option></select></label>
+            <div class="panel-h"><h2 id="rpTitle">Clientes en mora</h2>
+              <label class="fl" style="flex-direction:row;align-items:center;gap:8px">Mostrar<select id="rpDias"><option value="0">Todos los clientes (al día y en mora)</option><option value="30" selected>1 mes o más</option><option value="60">2 meses o más</option><option value="90">3 meses o más</option><option value="9">Toda la mora (más de 8 días)</option></select></label>
               <input id="rpQ" type="search" placeholder="Buscar cliente, lote o vendedor" style="min-width:min(260px,100%)"></div>
             <div class="rptpl">
               <label class="fl rptpl-sel">Correo que vas a enviar<select id="rpTpl"><option value="cartera">Estado de cuenta (cartera, con todas las cuotas)</option><option value="mora">Aviso de mora</option></select></label>
@@ -1845,6 +1861,7 @@ function attachStore(db){
     live();remoteRefresh();
   },onErr);
   if(ROLE!=="admin")return;
+  db.collection("papelera").onSnapshot(sn=>{PAP=sn.docs.map(d=>({id:d.id,...d.data()}));try{tPap();papPurge()}catch(e){}},()=>{});
   db.doc("config/movimientos").onSnapshot(d=>{MOVS=d.exists?((d.data()||{}).log||[]):[];try{trMovs();bell()}catch(e){}},()=>{});
   db.collection("asesores").onSnapshot(snap=>{const A={};snap.docs.forEach(d=>{const{actualizadoPor,actualizadoEn,...x}=d.data();A[d.id]=x});DB.asesores=A;ASE_OK=true;persist();syncVendAse();remoteRefresh()},()=>{});
   db.collection("presupuestos").onSnapshot(snap=>{
@@ -2253,13 +2270,15 @@ function clientEvents(){
       recEdit(r,{f:box.querySelector(".eF").value,n:box.querySelector(".eN").value.trim(),d:box.querySelector(".eD").value.trim(),v:val});
       S.editRow=null;guardarAbonos(id,"Abono corregido");return}
     if(act==="del"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Eliminar?";b.style.color="var(--bad)";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕";b.style.color=""}},3000);return}
-      v.recibos.splice(+b.dataset.i,1);guardarAbonos(id,"Abono eliminado");return}
+      {const r=v.recibos[+b.dataset.i];trash("abono",`Abono de ${fmt(+r.v||0)} del lote ${id}${r.n?" (recibo No. "+r.n+")":""} · ${title(v.cliente||"")}`,{lote:id,r})}
+      v.recibos.splice(+b.dataset.i,1);guardarAbonos(id,"Abono eliminado · está en la papelera");return}
     if(act==="qedit"){S.editQ=id+":"+b.dataset.i;S.planOpen=id;clientDetail();return}
     if(act==="qcancel"){S.editQ=null;clientDetail();return}
     if(act==="qok"){const q=v.cuotas[+b.dataset.i],val=+box.querySelector(".qV").value;if(!(val>0)){msg.className="msg err";msg.textContent="El valor de la cuota debe ser mayor que cero.";return}
       Object.assign(q,{f:box.querySelector(".qF").value||q.f,d:box.querySelector(".qD").value.trim()||q.d,v:val});S.editQ=null;S.planOpen=id;guardarAbonos(id,"Cuota actualizada");return}
     if(act==="qdel"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Eliminar?";b.style.color="var(--bad)";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕";b.style.color=""}},3000);return}
-      v.cuotas.splice(+b.dataset.i,1);S.planOpen=id;guardarAbonos(id,"Cuota eliminada");return}
+      {const q=v.cuotas[+b.dataset.i];trash("cuota",`${q.d||"Cuota"} de ${fmt(+q.v||0)} (${dshow(q.f)}) del lote ${id} · ${title(v.cliente||"")}`,{lote:id,q})}
+      v.cuotas.splice(+b.dataset.i,1);S.planOpen=id;guardarAbonos(id,"Cuota eliminada · está en la papelera");return}
     if(act==="qadd"){const last=(v.cuotas||[]).map(q=>q.f).sort().pop()||hoyStr();const d=new Date(last+"T00:00");d.setMonth(d.getMonth()+1);v.cuotas=(v.cuotas||[]).concat({f:d.toISOString().slice(0,10),d:"Cuota "+String((v.cuotas||[]).length+1).padStart(2,"0"),v:0.01});S.editQ=id+":"+(v.cuotas.length-1);S.planOpen=id;clientDetail();return}
     if(act==="pjok"){const P=planPreview(box,byId[id]);if(!P)return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Sí, aplicar este plan";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Aplicar nuevo plan"}},5000);return}
       S.planOpen=id;planApply(id,P);return}
@@ -2355,6 +2374,7 @@ function presEvents(){
     if(a==="edit"){S.editPres=id;presupuestos();return}
     if(a==="cancel"){S.editPres=null;presupuestos();return}
     if(a==="del"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Eliminar?";b.style.color="var(--bad)";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕";b.style.color=""}},3000);return}
+      {const pp=DB.presupuestos.find(p=>p.id===id);if(pp)trash("presupuesto",`Presupuesto «${pp.nombre||pp.concepto||id}»`,{p:pp})}
       DB.presupuestos=DB.presupuestos.filter(p=>p.id!==id);save({pd:[id]});refresh();return}
     if(a==="ok"){const n=tr.querySelector(".eN").value.trim(),pr=+tr.querySelector(".eP").value,as=+tr.querySelector(".eA").value||0;
       if(!n||!(pr>0)){tr.querySelector(".eN").style.borderColor=n?"":"var(--bad)";tr.querySelector(".eP").style.borderColor=pr>0?"":"var(--bad)";return}
@@ -2520,6 +2540,7 @@ function presDetEvents(){
     if(a==="edit"){S.presEdit=+tr.dataset.i;presDet();return}
     if(a==="cancel"){S.presEdit=null;presDet();return}
     if(a==="del"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Eliminar?";b.style.color="var(--bad)";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕";b.style.color=""}},3000);return}
+      {const it=p.items[+tr.dataset.i];trash("item",`Ítem «${(it&&it.n)||"sin nombre"}» del presupuesto «${p.nombre||p.concepto||p.id}»`,{pid:p.id,i:+tr.dataset.i,item:it})}
       p.items.splice(+tr.dataset.i,1);presSave(p);presDet();presupuestos();return}
     if(a==="ok"){const g=c=>tr.querySelector(c).value.trim(),n=g(".iN"),c=+g(".iC")||null,vu=+g(".iVu")||null,v=+g(".iV")||null;
       if(!n||!((c&&vu)||v)){tr.querySelector(".iN").style.borderColor=n?"":"var(--bad)";tr.querySelector(".iV").style.borderColor="var(--bad)";return}
@@ -2629,10 +2650,10 @@ async function vendorSep(l,venta,est){
 let CONTACTOS=[];
 function listenContactos(){try{FB.fs.collection("contactos").onSnapshot(s=>{CONTACTOS=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.fecha||"").localeCompare(a.fecha||""));tContactos();bell()},()=>{})}catch(e){}}
 function contEvents(){const c=document.getElementById("cfCont");if(!c)return;c.addEventListener("click",async e=>{
-  const d=e.target.closest("[data-ctdel]");if(d){e.stopPropagation();const id=d.dataset.ctdel;CONTACTOS=CONTACTOS.filter(x=>x.id!==id);tContactos();try{if(FB)await FB.fs.doc("contactos/"+id).delete()}catch(err){toast(authErr(err))}return}
+  const d=e.target.closest("[data-ctdel]");if(d){e.stopPropagation();const id=d.dataset.ctdel;{const c=CONTACTOS.find(x=>x.id===id);if(c)trash("contactos",`Contacto por WhatsApp · lote ${c.lote} · ${c.asesor}`,{list:[c]})}CONTACTOS=CONTACTOS.filter(x=>x.id!==id);tContactos();try{if(FB)await FB.fs.doc("contactos/"+id).delete()}catch(err){toast(authErr(err))}return}
   const da=e.target.closest("#ctDelAll");if(da){const q=S.ctQ||"";const L=CONTACTOS.filter(x=>!q||normA(x.asesor)===normA(q));if(!L.length)return;
     if(da.dataset.sure!=="1"){da.dataset.sure="1";da.textContent=`¿Borrar ${L.length}?`;setTimeout(()=>{if(da.isConnected){da.dataset.sure="";da.textContent="Borrar todos"}},3500);return}
-    da.dataset.sure="";da.textContent="Borrar todos";const ids=new Set(L.map(x=>x.id));CONTACTOS=CONTACTOS.filter(x=>!ids.has(x.id));S.ctQ="";tContactos();
+    da.dataset.sure="";da.textContent="Borrar todos";trash("contactos",`${L.length} contactos por WhatsApp`,{list:L});const ids=new Set(L.map(x=>x.id));CONTACTOS=CONTACTOS.filter(x=>!ids.has(x.id));S.ctQ="";tContactos();
     try{if(FB){for(let i=0;i<L.length;i+=400){const b=FB.fs.batch();L.slice(i,i+400).forEach(x=>b.delete(FB.fs.doc("contactos/"+x.id)));await b.commit()}}toast(L.length+" contactos borrados")}catch(err){toast(authErr(err))}return}const b=e.target.closest("[data-ct]");if(b){S.ctQ=normA(S.ctQ||"")===normA(b.dataset.ct)?"":b.dataset.ct;tContactos();return}
   const tr=e.target.closest("tr[data-id]");if(tr&&byId[tr.dataset.id])go("plano",tr.dataset.id)})}
 function tContactos(){const tb=document.getElementById("tCont");if(!tb)return;const q=(S.ctQ||"");
@@ -2686,6 +2707,67 @@ function aiEvents(){const $=id=>document.getElementById(id);if(!$("aiFile"))retu
     for(const x of P){const v=DB.ventas[x.lote];if(!v)continue;v.asesor=x.nombre;if(x.obs){const line=`[${hoy} · ${x.nombre}] ${x.obs}`;if(!String(v.obs||"").includes(x.obs))v.obs=(v.obs?v.obs+"\n":"")+line;v.obs=v.obs.slice(-3000)}ids.push(x.lote);newAse[normA(x.nombre)]={n:x.nombre,tel:x.tel}}
     for(const a of Object.values(newAse)){ensureAsesor(a.n);if(a.tel){const e=Object.entries(DB.asesores||{}).find(([,z])=>normA(z.nombre)===normA(a.n));if(e&&!e[1].tel){e[1].tel=a.tel;save({ase:[e[0]]})}}}
     if(save({v:ids})){refresh();$("aiMsg").className="msg";$("aiMsg").textContent=`✓ Listo: ${ids.length} lotes asignados y con su observación.`;toast("Asignaciones aplicadas.");S.aiPlan=[];aiShow()}})}
+// ---------- correos pendientes ----------
+const MESINI=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),1).toISOString().slice(0,10)};
+function pendList(){const out=[],m0=MESINI();
+  for(const c of CLIENTES){const Ls=c.lots.filter(l=>l.v);if(!Ls.length)continue;const env=k=>Ls.map(l=>(l.v.env||{})[k]||"").sort().pop()||"";
+    const mora=Ls.filter(l=>!l.v.liq&&l.vendido&&l.plan&&l.plan.venc&&(l.plan.days||0)>8);
+    if(mora.length){const last=[env("cartera"),env("mora")].sort().pop();if(!last||last<m0)out.push({c,tipo:"mora",k:"cartera",L:ecLots(c).length?ecLots(c):mora,lots:mora,det:`${Math.max(...mora.map(l=>l.plan.days||0))} días de mora · lote ${mora.map(l=>l.n).join(", ")}`,last})}
+    for(const l of Ls.filter(l=>l.v.liq)){const e=l.v.env||{},f=(l.v.liq&&l.v.liq.f)||"",last=[e.preaviso||"",e.liq||""].sort().pop();if(!last||last<f)out.push({c,tipo:"cancel",k:"preaviso",L:[l],lots:[l],det:`Lote ${l.n} en liquidación desde ${f?dshow(f):"—"}`,last})}
+    for(const l of Ls){const t=(l.v.traslado||[]).slice(-1)[0];if(t&&t.a===l.id&&(!(l.v.env||{}).traslado||(l.v.env||{}).traslado<t.f))out.push({c,tipo:"traslado",k:"traslado",L:[l],lots:[l],det:`Traslado ${t.de?(String(t.de).includes(",")?"de los lotes ":"del lote ")+t.de:""} al lote ${l.n} (${dshow(t.f)})`,last:(l.v.env||{}).traslado||""})}}
+  return out}
+function pendKeys(){return new Set(pendList().map(p=>p.c.key))}
+function pendItem(p){const mail=(p.c.mail||"").trim();if(p.tipo==="traslado"){const it=mailItem("traslado",mail,trObj(p.lots[0].id),title(p.c.nombre),true);it.lots=[p.lots[0].id];return it}
+  return mailItem(p.k,mail,tplObj(p.L,p.c.nombre,Math.max(0,...p.L.map(l=>(l.plan&&l.plan.days)||0))),title(p.c.nombre),true)}
+function tPend(){const b=document.getElementById("pdBody");if(!b)return;const P=pendList();S.pend=P;const box=document.getElementById("pdPanel");box.hidden=!P.length;if(!P.length)return;
+  const lab={mora:"Mora",cancel:"Cancelación",traslado:"Traslado"};document.getElementById("pdCount").textContent=`${P.length} ${P.length===1?"correo sin enviar":"correos sin enviar"}`;
+  b.innerHTML=P.map((p,i)=>`<tr class="pendrow" data-i="${i}"><td><span class="pendpill">${lab[p.tipo]}</span></td><td><b>${esc(title(p.c.nombre))}</b><div class="pdet">${p.c.mail?esc(p.c.mail):'<span style="color:var(--warn)">Sin correo</span>'}</div></td><td>${esc(p.det)}</td><td class="n">${p.last?dshow(p.last):"Nunca"}</td>
+    <td class="act r"><div class="rpact">${p.c.mail?`<button type="button" class="btn sm" data-pd="send">Enviar correo</button>`:`<button type="button" class="btn sm ghost" data-pd="cli">Agregar correo</button>`}<button type="button" class="btn sm ghost wr" data-pd="done" title="Si ya se lo enviaste por otro medio">Ya se envió</button></div></td></tr>`).join("")}
+function pdEvents(){const b=document.getElementById("pdBody");if(!b)return;b.addEventListener("click",e=>{const x=e.target.closest("[data-pd]");if(!x)return;const p=(S.pend||[])[+x.closest("tr").dataset.i];if(!p)return;
+  if(x.dataset.pd==="send"){if(p.tipo==="cancel"){S.lqTpl="preaviso"}openMailItem(pendItem(p));setTimeout(tPend,400);return}
+  if(x.dataset.pd==="cli"){S.cli=p.c.key;go("cliente",p.lots[0].id);return}
+  if(x.dataset.pd==="done"){markSent(p.lots.map(l=>l.id),p.k);tPend()}});
+  document.getElementById("pdAllDone").addEventListener("click",e=>{const btn=e.currentTarget;if(btn.dataset.sure!=="1"){btn.dataset.sure="1";btn.textContent="¿Seguro? Toca otra vez";setTimeout(()=>{if(btn.isConnected){btn.dataset.sure="";btn.textContent="Marcar todos como enviados"}},4000);return}
+    btn.dataset.sure="";btn.textContent="Marcar todos como enviados";(S.pend||[]).forEach(p=>markSent(p.lots.map(l=>l.id),p.k));tPend()})}
+// ---------- papelera (20 días) ----------
+let PAP=[];const PAPDIAS=20;
+const PAPN={abono:"Abono",cuota:"Cuota",comprobante:"Comprobante",presupuesto:"Presupuesto",item:"Ítem de presupuesto",contactos:"Contactos",venta:"Venta cancelada",usuario:"Acceso de usuario",asesor:"Asesor(a)",imagen:"Imagen",traslado:"Fila de traslado",movimientos:"Movimientos"};
+async function trash(tipo,desc,data){if(!canEdit())return;let js=JSON.stringify(data);if(js.length>950000&&data&&data.doc){data={...data,doc:null,sinArchivo:true};js=JSON.stringify(data)}
+  const it={tipo,desc:String(desc).slice(0,300),data:js,f:new Date().toISOString(),por:quien()||"Administración"},id="p"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  if(CLOUD){try{await CLOUD.doc("papelera/"+id).set(it)}catch(e){toast("No se pudo guardar en la papelera: "+authErr(e))}}else{DB.papelera=(DB.papelera||[]).concat({...it,id});persist();PAP=DB.papelera;tPap()}}
+async function papDel(ids){if(CLOUD){for(const id of ids){try{await CLOUD.doc("papelera/"+id).delete()}catch(e){}}}else{DB.papelera=(DB.papelera||[]).filter(x=>!ids.includes(x.id));persist();PAP=DB.papelera;tPap()}}
+function papPurge(){if(!canEdit())return;const lim=new Date(Date.now()-PAPDIAS*864e5).toISOString();const old=PAP.filter(x=>(x.f||"")<lim).map(x=>x.id);if(old.length)papDel(old)}
+async function papRestore(id){const it=PAP.find(x=>x.id===id);if(!it||!canEdit())return false;let d;try{d=JSON.parse(it.data)}catch(e){toast("Este elemento está dañado y no se puede recuperar.");return false}
+  const fail=t=>{toast(t,7000);return false};
+  switch(it.tipo){
+    case"abono":{const v=DB.ventas[d.lote];if(!v)return fail(`El lote ${d.lote} ya no tiene venta: no se puede devolver el abono.`);v.recibos=(v.recibos||[]).concat(d.r);guardarAbonos(d.lote,"Abono recuperado de la papelera");break}
+    case"cuota":{const v=DB.ventas[d.lote];if(!v)return fail(`El lote ${d.lote} ya no tiene venta.`);v.cuotas=(v.cuotas||[]).concat(d.q).sort((a,b)=>String(a.f).localeCompare(String(b.f)));guardarAbonos(d.lote,"Cuota recuperada de la papelera");break}
+    case"comprobante":{const v=DB.ventas[d.lote];if(!v)return fail(`El lote ${d.lote} ya no tiene venta.`);if(!d.doc)return fail("El archivo era muy grande y no quedó guardado en la papelera.");const r=(v.recibos||[]).find(x=>recKey(x)===d.rk);if(!r)return fail("Ese abono ya no existe; primero recupera el abono.");
+      try{if(CLOUD)await CLOUD.doc("soportes/"+d.sid).set(d.doc);else{DB.soportes=DB.soportes||{};DB.soportes[d.sid]=d.doc}}catch(e){return fail("No se pudo devolver el archivo: "+authErr(e))}r.sop=(r.sop||[]).concat(d.meta);guardarAbonos(d.lote,"Comprobante recuperado");break}
+    case"presupuesto":{if(DB.presupuestos.some(p=>p.id===d.p.id))return fail("Ese presupuesto ya existe.");DB.presupuestos.push(d.p);if(!save({p:[d.p.id]}))return false;refresh();break}
+    case"item":{const p=DB.presupuestos.find(x=>x.id===d.pid);if(!p)return fail("El presupuesto ya no existe; recupéralo primero.");p.items=p.items||[];p.items.splice(Math.min(d.i,p.items.length),0,d.item);presSave(p);try{presDet();presupuestos()}catch(e){}break}
+    case"contactos":{try{for(const c of d.list){const {id:cid,...x}=c;if(FB)await FB.fs.doc("contactos/"+cid).set({lote:x.lote,asesor:x.asesor,fecha:x.fecha});if(!CONTACTOS.some(z=>z.id===cid))CONTACTOS.push(c)}tContactos()}catch(e){return fail(authErr(e))}break}
+    case"venta":{if(DB.ventas[d.lote])return fail(`El lote ${d.lote} ya tiene otra venta.`);if(byId[d.lote]&&byId[d.lote].estado!=="disponible")return fail(`El lote ${d.lote} ya no está disponible.`);
+      DB.ventas[d.lote]=d.venta;DB.lotes[d.lote]=d.lot;if(!save({v:[d.lote],l:[d.lote]}))return false;refresh();break}
+    case"usuario":{try{await FB.fs.doc("usuarios/"+d.uid).set(d.doc)}catch(e){return fail(authErr(e))}break}
+    case"asesor":{DB.asesores=DB.asesores||{};DB.asesores[d.id]=d.a;if(!save({ase:[d.id]}))return false;refresh();break}
+    case"imagen":{DB.imgs=DB.imgs||{};DB.imgs[d.k]=d.im;if(!save({img:[d.k]}))return false;applyConfig();try{cfgForm()}catch(e){}break}
+    case"traslado":{const v=DB.ventas[d.b];if(!v)return fail(`El lote ${d.b} ya no tiene venta.`);v.traslado=(v.traslado||[]).concat(d.t).sort((a,b)=>String(a.f).localeCompare(String(b.f)));if(!save({v:[d.b]}))return false;refresh();break}
+    case"movimientos":{const ids=new Set(MOVS.map(m=>m.id));MOVS=MOVS.concat(d.list.filter(m=>!ids.has(m.id))).sort((a,b)=>String(a.t).localeCompare(String(b.t)));movSave();trMovs();break}
+    default:return fail("No sé cómo recuperar este elemento.")}
+  await papDel([id]);toast("Recuperado: "+it.desc,5000);return true}
+function tPap(){const tb=document.getElementById("tPap");if(!tb)return;const L=PAP.slice().sort((a,b)=>String(b.f).localeCompare(String(a.f)));
+  const n=document.getElementById("papN");if(n){n.textContent=L.length||"";n.hidden=!L.length}document.getElementById("papCount").textContent=L.length?`${L.length} ${L.length===1?"elemento":"elementos"}`:"";document.getElementById("papEmpty").hidden=!L.length||!canEdit();
+  tb.innerHTML=L.map(x=>{const left=Math.max(0,Math.ceil((new Date(x.f).getTime()+PAPDIAS*864e5-Date.now())/864e5));
+    return`<tr data-p="${esc(x.id)}"><td><span class="pill">${esc(PAPN[x.tipo]||x.tipo)}</span></td><td>${esc(x.desc)}</td><td class="n">${new Date(x.f).toLocaleString("es-CO",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}<div class="pdet">${esc(x.por||"")}</div></td><td class="n"><span class="${left<=3?"pendpill":"tag"}">${left} ${left===1?"día":"días"}</span></td>
+    <td class="r"><div class="rlact"><button type="button" class="btn sm wr" data-pp="rest">↩ Recuperar</button><button type="button" class="btn sm ghost wr" data-pp="del" title="Borrar definitivamente">Borrar ya</button></div></td></tr>`}).join("")||`<tr><td colspan="5" class="note">La papelera está vacía.</td></tr>`}
+function papEvents(){const tb=document.getElementById("tPap");if(!tb)return;
+  tb.addEventListener("click",async e=>{const b=e.target.closest("[data-pp]");if(!b||!canEdit())return;const id=b.closest("tr").dataset.p;
+    if(b.dataset.pp==="rest"){b.disabled=true;if(!(await papRestore(id)))b.disabled=false;return}
+    if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Borrar para siempre?";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Borrar ya"}},4000);return}await papDel([id])});
+  document.getElementById("papEmpty").addEventListener("click",async e=>{const b=e.currentTarget;if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Vaciar todo? No se puede deshacer";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Vaciar papelera"}},4000);return}
+    b.dataset.sure="";b.textContent="Vaciar papelera";await papDel(PAP.map(x=>x.id))});
+  if(!CLOUD&&Array.isArray(DB.papelera)){PAP=DB.papelera;papPurge()}tPap()}
 // ---------- números de WhatsApp para cotizar ----------
 function waEd(){const box=document.getElementById("waRows");if(!box)return;const W=S.waDraft||(S.waDraft=waList(true).map(w=>({...w})));const C=CFG();
   box.innerHTML=W.map((w,i)=>`<div class="warow" data-i="${i}"><input class="waN" value="${esc(w.n)}" placeholder="Nombre de la asesora"><input class="waT" value="${esc(w.raw||w.num)}" placeholder="Celular, ej.: 3001234567" inputmode="tel"><button type="button" class="iconb" data-wd="${i}" title="Quitar" aria-label="Quitar número">✕</button></div>`).join("")||`<p class="note" style="padding:0">No hay números. Mientras tanto se usa el teléfono de la empresa (${esc(C.telefono||"—")}).</p>`;
@@ -2704,9 +2786,9 @@ function waEvents(){const $=id=>document.getElementById(id);if(!$("waSec"))retur
 }
 
 // ---------- reportes masivos: mora, conciliación y liquidación ----------
-function moraRows(min){min=min||30;return CLIENTES.map(c=>{const L=c.lots.filter(l=>l.vendido&&l.plan&&l.plan.venc&&!(l.v&&l.v.liq));if(!L.length)return null;
-  const dias=Math.max(...L.map(l=>l.plan.days||0));if(dias<min)return null;
-  return{c,L,dias,venc:L.reduce((s,l)=>s+(l.plan.late||0),0),saldo:L.reduce((s,l)=>s+l.saldo,0),mail:(c.mail||"").trim(),ase:[...new Set(L.map(l=>l.v.asesor).filter(Boolean))].join(", ")}}).filter(Boolean).sort((a,b)=>b.dias-a.dias)}
+function moraRows(min){min=min==null?30:+min;return CLIENTES.map(c=>{const L=c.lots.filter(l=>min===0?(l.v&&!l.v.liq):(l.vendido&&l.plan&&l.plan.venc&&!(l.v&&l.v.liq)));if(!L.length)return null;
+  const dias=Math.max(0,...L.map(l=>(l.plan&&l.plan.days)||0));if(min>0&&dias<min)return null;
+  return{c,L,dias,venc:L.reduce((s,l)=>s+((l.plan&&l.plan.late)||0),0),saldo:L.reduce((s,l)=>s+l.saldo,0),mail:(c.mail||"").trim(),ase:[...new Set(L.map(l=>l.v.asesor).filter(Boolean))].join(", ")}}).filter(Boolean).sort((a,b)=>b.dias-a.dias)}
 function liqRows(){return LOTS.filter(l=>l.v&&l.v.liq).map(l=>({l,c:CLIENTES.find(c=>c.lots.includes(l)),mail:(l.v.mail||"").trim()}))}
 function fillTpl(t,o){const C=CFG();return String(t||"").replace(/\\n/g,"\n").replace(/\{(\w+)\}/g,(m,k)=>k in o?o[k]:(k==="telefono"?C.telefono:k==="empresa"?C.empresa:m))}
 function gmailUrl(to,su,body,bcc){const e=encodeURIComponent;return`https://mail.google.com/mail/?view=cm&fs=1${to?"&to="+e(to):""}${bcc?"&bcc="+e(bcc):""}&su=${e(su)}&body=${e(body)}`}
@@ -2715,14 +2797,14 @@ function moraMail(r,k){return moraItem(r,k).url}
 function liqItem(x,k){return mailItem(k||S.lqTpl||"preaviso",x.mail,tplObj([x.l],x.l.v.cliente),title(x.l.v.cliente))}
 function liqMail(x){return liqItem(x).url}
 function tReportes(){const body=document.getElementById("rpBody");if(!body)return;
-  const min=+(S.rpDias||30),q=normA(S.rpQ||""),sel=S.rpSel||(S.rpSel={});
+  const min=S.rpDias==null?30:+S.rpDias,q=normA(S.rpQ||""),sel=S.rpSel||(S.rpSel={});document.getElementById("rpTitle").textContent=min===0?"Todos los clientes":"Clientes en mora";const PK=pendKeys();
   const all30=moraRows(30),R=moraRows(min).filter(r=>!q||normA(r.c.nombre+" "+r.L.map(l=>"lote "+l.n).join(" ")+" "+r.ase).includes(q));
   const tv=all30.reduce((s,r)=>s+r.venc,0);
   document.getElementById("rpBand").innerHTML=all30.length?`<span class="mi">!</span><div><b>${all30.length} ${all30.length===1?"cliente lleva":"clientes llevan"} más de un mes en mora</b><span>Cartera vencida total: ${fmt(tv)} · ${all30.filter(r=>r.mail).length} con correo registrado</span></div>`:`<span class="mi ok">✓</span><div><b>No hay clientes con más de un mes de mora</b><span>${ROLE==="vendedor"?"Tus clientes":"Todos los clientes"} van al día o dentro del primer mes.</span></div>`;
   document.getElementById("rpBand").className="moraband"+(all30.length?"":" ok");
-  body.innerHTML=R.map(r=>`<tr data-k="${esc(r.c.key)}"><td><input type="checkbox" class="rpC"${sel[r.c.key]?" checked":""} aria-label="Seleccionar ${esc(r.c.nombre)}"></td><td><b>${esc(title(r.c.nombre))}</b><div class="pdet">${r.mail?esc(r.mail):'<span style="color:var(--warn)">Sin correo</span>'} · ${esc(r.c.tel||"")}</div></td><td>${r.L.map(l=>`<b>${esc(l.n)}</b>`).join(", ")}</td><td>${r.ase?esc(title(r.ase)):'<span class="note" style="padding:0">Sin asignar</span>'}</td>
-    <td class="r n"><span class="dpill ${r.dias>=90?"d3":r.dias>=60?"d2":"d1"}">${r.dias} días</span></td><td class="r n" style="color:var(--bad);font-weight:600">${fmt(r.venc)}</td><td class="r n">${fmt(r.saldo)}</td>
-    <td class="act r"><div class="rpact">${r.mail?`<button type="button" class="btn sm" data-rp="one">Enviar correo</button>`:`<button type="button" class="btn sm ghost" data-rp="cli">Agregar correo</button>`} <button type="button" class="btn sm ghost" data-rp="pdf" title="Descargar su estado de cuenta en PDF">PDF</button> ${ROLE==="admin"?`<button type="button" class="btn sm danger" data-rp="liq">Liquidar</button>`:""}</div></td></tr>`).join("")||`<tr><td colspan="8" class="empty">No hay clientes en mora con ese filtro.</td></tr>`;
+  body.innerHTML=R.map(r=>`<tr data-k="${esc(r.c.key)}"${PK.has(r.c.key)?' class="pendrow"':""}><td><input type="checkbox" class="rpC"${sel[r.c.key]?" checked":""} aria-label="Seleccionar ${esc(r.c.nombre)}"></td><td><b>${esc(title(r.c.nombre))}</b>${PK.has(r.c.key)?' <span class="pendpill" title="No se le ha enviado el correo">✉ Correo pendiente</span>':""}<div class="pdet">${r.mail?esc(r.mail):'<span style="color:var(--warn)">Sin correo</span>'} · ${esc(r.c.tel||"")}</div></td><td>${r.L.map(l=>`<b>${esc(l.n)}</b>`).join(", ")}</td><td>${r.ase?esc(title(r.ase)):'<span class="note" style="padding:0">Sin asignar</span>'}</td>
+    <td class="r n">${r.dias>8?`<span class="dpill ${r.dias>=90?"d3":r.dias>=60?"d2":"d1"}">${r.dias} días</span>`:'<span class="pill pagado">Al día</span>'}</td><td class="r n" style="color:var(--bad);font-weight:600">${fmt(r.venc)}</td><td class="r n">${fmt(r.saldo)}</td>
+    <td class="act r"><div class="rpact">${r.mail?`<button type="button" class="btn sm" data-rp="one">Enviar correo</button>`:`<button type="button" class="btn sm ghost" data-rp="cli">Agregar correo</button>`} <button type="button" class="btn sm ghost" data-rp="pdf" title="Descargar su estado de cuenta en PDF">PDF</button> ${ROLE==="admin"?`<button type="button" class="btn sm danger" data-rp="liq">Liquidar</button>`:""}</div></td></tr>`).join("")||`<tr><td colspan="8" class="empty">No hay clientes con ese filtro.</td></tr>`;
   document.getElementById("rpFoot").innerHTML=R.length?`<tr><td colspan="5">${R.length} clientes</td><td class="r n">${fmt(R.reduce((s,r)=>s+r.venc,0))}</td><td class="r n">${fmt(R.reduce((s,r)=>s+r.saldo,0))}</td><td></td></tr>`:"";
   const ns=R.filter(r=>sel[r.c.key]).length;document.getElementById("rpSel").textContent=ns?`${ns} seleccionados`:"Marca clientes para el envío masivo";
   document.getElementById("rpAll").checked=R.length>0&&ns===R.length;
@@ -2763,8 +2845,9 @@ function rpEvents(){const sec=document.getElementById("v-reportes");if(!sec)retu
     if(a==="cancel"){const id=tr.dataset.id;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Sí, cancelar y liberar";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Cancelar venta y liberar lote"}},4000);return}
       const v=DB.ventas[id];const arc={...v,lote:id,canceladaEn:hoyStr()};delete arc.actualizadoPor;delete arc.actualizadoEn;
       try{if(CLOUD)await CLOUD.doc("canceladas/"+id+"-"+Date.now()).set(clean(arc));else{DB.canceladas=DB.canceladas||[];DB.canceladas.push(arc)}}catch(err){toast("No se pudo archivar la venta: "+authErr(err));return}
+      trash("venta",`Venta del lote ${id} (cancelada) · ${title(v.cliente||"")} · ${(v.recibos||[]).length} pagos`,{lote:id,venta:JSON.parse(JSON.stringify(v)),lot:JSON.parse(JSON.stringify(DB.lotes[id]||{}))});
       delete DB.ventas[id];DB.lotes[id]={...(DB.lotes[id]||{}),estado:"disponible",cliente:"",pagRes:0};delete DB.lotes[id].escrito;
-      if(save({vd:[id],l:[id]})){refresh();toast("Venta del lote "+id+" cancelada. El lote quedó disponible.")}}});
+      if(save({vd:[id],l:[id]})){refresh();toast("Venta del lote "+id+" cancelada. El lote quedó disponible. Se puede recuperar desde la papelera.")}}});
 }
 async function repMora(R){const wb=new ExcelJS.Workbook(),ws=wb.addWorksheet("Mora");
   ws.columns=[{header:"Cliente",width:34},{header:"C.C.",width:14},{header:"Celular",width:15},{header:"Correo",width:28},{header:"Lote(s)",width:12},{header:"Vendedor",width:22},{header:"Días de mora",width:12},{header:"Cartera vencida",width:17},{header:"Saldo total",width:17}];
@@ -2922,14 +3005,16 @@ function estadoTxt(l,lvl){lvl=lvl||0;const v=l.v||{},p=l.plan||{},L=[];const sd=
 function tplMail(k,mail,o){const t=tplOf(k);return gmailUrl(mail,fillTpl(t.su,o),fillTpl(t.tx,o))}
 const MAILMAX=8000;
 function pdfOn(k){const id=(k==="preaviso"||k==="liq")?"lqPdf":(k==="cartera"||k==="mora")?"rpPdf":null;const el=id&&document.getElementById(id);return !!(el&&el.checked)}
-function mailItem(k,mail,o,nombre,force){const t=tplOf(k),su=fillTpl(t.su,o);
+function mailItem(k,mail,o,nombre,force){const it=mailItem0(k,mail,o,nombre,force);it.k=k;it.lots=(o&&o._lots||[]).map(l=>l.id);return it}
+function mailItem0(k,mail,o,nombre,force){const t=tplOf(k),su=fillTpl(t.su,o);
   if(o._lots&&o._lots.length&&(force||pdfOn(k))){const fn=ecName(nombre,o._lots);const body=fillTpl(t.tx,{...o,estado:k==="gracias"?`Su estado de cuenta actualizado va adjunto en PDF («${fn}»), con el plan de cuotas completo mes por mes, las cuotas vencidas y todos los pagos recibidos${o._lots.length>1?" de sus "+o._lots.length+" lotes":""}.`:`Adjuntamos a este correo su estado de cuenta en PDF («${fn}»), con el plan de cuotas completo mes por mes, las cuotas vencidas y los pagos recibidos${o._lots.length>1?" de sus "+o._lots.length+" lotes":""}.`});
     return{nombre,mail,su,body,url:gmailUrl(mail,su,body),long:false,pdf:{lots:o._lots,nombre,fn}}}
   let body=fillTpl(t.tx,o);let url=gmailUrl(mail,su,body),long=false;const body0=body;
   for(let lv=1;url.length>MAILMAX&&lv<=3&&o._lots&&/\{estado\}/.test(t.tx);lv++){body=fillTpl(t.tx,{...o,estado:o._lots.map(l=>estadoTxt(l,lv)).join("\n\n")});url=gmailUrl(mail,su,body)}
   if(url.length>MAILMAX){long=true;body=body0;url=gmailUrl(mail,su,body.replace(/ESTADO DE CUENTA - [\s\S]*?FIN DEL ESTADO DE CUENTA/g,"[ESTADO DE CUENTA: pégalo aquí con Ctrl+V]"))}
   return{nombre,mail,su,body,url,long}}
-function openMailItem(it){if(GER){toast("Gerencia no envía correos.");return}window.open(it.url,"_blank","noopener");
+function markSent(ids,k){if(!canEdit()||!ids||!ids.length)return;const hoy=hoyStr(),ch=[];ids.forEach(id=>{const v=DB.ventas[id];if(!v)return;v.env={...(v.env||{}),[k]:hoy};ch.push(id)});if(ch.length&&save({v:ch})){try{tReportes()}catch(e){}try{bell()}catch(e){}}}
+function openMailItem(it){if(GER){toast("Gerencia no envía correos.");return}window.open(it.url,"_blank","noopener");if(it.k&&it.lots&&it.lots.length)markSent(it.lots,it.k);
   if(it.pdf){ecDownload(it.pdf.lots,it.pdf.nombre).then(ok=>{if(ok)toast("Se descargó «"+it.pdf.fn+"». En Gmail toca el clip 📎 y adjúntalo antes de enviar.",9000)});return}if(it.long){try{navigator.clipboard.writeText(it.body);toast("El estado de cuenta es largo: quedó copiado. En Gmail bórrale la línea que dice «pégalo aquí» y pega con Ctrl+V.")}catch(e){}}}
 function tplLoad(pre){const k=S[pre+"Tpl"]||(pre==="lq"?"preaviso":"cartera"),t=tplOf(k),su=document.getElementById(pre+"Su"),tx=document.getElementById(pre+"Tx");if(!su)return;
   su.value=t.su||"";tx.value=String(t.tx||"").replace(/\\n/g,"\n");const ro=ROLE!=="admin";su.readOnly=ro;tx.readOnly=ro;document.getElementById(pre+"Prev").hidden=true}
@@ -3129,13 +3214,13 @@ function trEvents(){const $=id=>document.getElementById(id);if(!$("trAlist"))ret
       b.disabled=true;await trUndo(id);return}
     if(b.dataset.tr==="del"){if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Quitar?";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="✕"}},4000);return}
       const v=DB.ventas[id];const L=v.traslado||[];const k=L.findIndex(t=>(b.dataset.tid&&t.id===b.dataset.tid)||(!b.dataset.tid&&t.f===b.dataset.f&&t.de===b.dataset.de));if(k<0)return;const t=L[k];
-      v.traslado=L.filter((_,i)=>i!==k);if(!v.traslado.length)delete v.traslado;if(save({v:[id]})){movAdd("borrado",`Se quitó de la lista el traslado ${trDe(String(t.de).split(/,\s*/))} al lote ${id} (los pagos siguen en el lote ${id})`);refresh()}return}
+      trash("traslado",`Fila de traslado ${trDe(String(t.de).split(/,\s*/))} al lote ${id}`,{b:id,t});v.traslado=L.filter((_,i)=>i!==k);if(!v.traslado.length)delete v.traslado;if(save({v:[id]})){movAdd("borrado",`Se quitó de la lista el traslado ${trDe(String(t.de).split(/,\s*/))} al lote ${id} (los pagos siguen en el lote ${id})`);refresh()}return}
     if(b.dataset.tr==="mail")trSend(id,true);else{const c=CLIENTES.find(c=>c.lots.some(x=>x.id===id));ecDownload([byId[id]],(DB.ventas[id]||{}).cliente)}});
   $("trTplSave").addEventListener("click",()=>{if(!canEdit())return;const c={...(DB.config||{})};const su=$("trSu").value.trim(),tx=$("trTx").value.trim();
     if(su&&su!==DEFAULT_CFG.tplTrSu)c.tplTrSu=su;else delete c.tplTrSu;if(tx&&tx!==DEFAULT_CFG.tplTrTx.replace(/\\n/g,"\n"))c.tplTrTx=tx;else delete c.tplTrTx;DB.config=c;if(save({cfg:true})){$("trTplMsg").className="msg";$("trTplMsg").textContent="✓ Mensaje guardado."}});
   $("trTplReset").addEventListener("click",()=>{$("trSu").value=DEFAULT_CFG.tplTrSu;$("trTx").value=DEFAULT_CFG.tplTrTx.replace(/\\n/g,"\n");$("trTplMsg").textContent="Toca «Guardar mensaje» para dejar el original."});
-  $("tMov").addEventListener("click",e=>{const b=e.target.closest("[data-mdel]");if(!b||!canEdit())return;const id=b.closest("tr").dataset.m;MOVS=MOVS.filter(m=>m.id!==id);movSave();trMovs();try{bell()}catch(e){}});
-  $("movClear").addEventListener("click",e=>{const b=e.currentTarget;if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Borrar todos? Toca otra vez";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Borrar todos"}},4000);return}b.dataset.sure="";b.textContent="Borrar todos";MOVS=[];movSave();trMovs();try{bell()}catch(e){}});
+  $("tMov").addEventListener("click",e=>{const b=e.target.closest("[data-mdel]");if(!b||!canEdit())return;const id=b.closest("tr").dataset.m;{const mm=MOVS.find(m=>m.id===id);if(mm)trash("movimientos",`Movimiento: ${mm.txt}`.slice(0,280),{list:[mm]})}MOVS=MOVS.filter(m=>m.id!==id);movSave();trMovs();try{bell()}catch(e){}});
+  $("movClear").addEventListener("click",e=>{const b=e.currentTarget;if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Borrar todos? Toca otra vez";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Borrar todos"}},4000);return}b.dataset.sure="";b.textContent="Borrar todos";if(MOVS.length)trash("movimientos",`${MOVS.length} movimientos de traslados`,{list:MOVS});MOVS=[];movSave();trMovs();try{bell()}catch(e){}});
   if(!CLOUD&&Array.isArray(DB.movs))MOVS=DB.movs;trFill();trTplLoad();trMovs()}
 // ---------- comprobantes de pago (imagen o PDF) de cada abono ----------
 const rid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
@@ -3149,7 +3234,9 @@ async function sopAdd(id,i,f){const v=DB.ventas[id],r=v.recibos[i];if(!r)return;
   r.sop=(r.sop||[]).concat({id:sid,n:f.name.slice(0,80)});guardarAbonos(id,"Comprobante adjuntado")}
 async function sopOpen(sid){const w=window.open("","_blank");try{let d;if(CLOUD){const x=await CLOUD.doc("soportes/"+sid).get();d=x.exists?x.data():null}else d=(DB.soportes||{})[sid];
   if(!d){w&&w.close();toast("No se encontró el comprobante.");return}const b=await (await fetch(d.data)).blob();const u=URL.createObjectURL(b);if(w)w.location=u;else window.open(u,"_blank")}catch(e){w&&w.close();toast("No se pudo abrir el comprobante.")}}
-async function sopDel(id,i,sid){const r=DB.ventas[id].recibos[i];r.sop=(r.sop||[]).filter(x=>x.id!==sid);try{if(CLOUD)await CLOUD.doc("soportes/"+sid).delete();else delete (DB.soportes||{})[sid]}catch(e){}guardarAbonos(id,"Comprobante quitado")}
+async function sopDel(id,i,sid){const r=DB.ventas[id].recibos[i];const meta=(r.sop||[]).find(x=>x.id===sid);
+  try{let doc=null;if(CLOUD){const sn=await CLOUD.doc("soportes/"+sid).get();doc=sn.exists?sn.data():null}else doc=(DB.soportes||{})[sid]||null;trash("comprobante",`Comprobante «${meta?meta.n:sid}» del lote ${id}${r.n?" (recibo No. "+r.n+")":""}`,{lote:id,rk:recKey(r),meta,sid,doc})}catch(e){}
+  r.sop=(r.sop||[]).filter(x=>x.id!==sid);try{if(CLOUD)await CLOUD.doc("soportes/"+sid).delete();else delete (DB.soportes||{})[sid]}catch(e){}guardarAbonos(id,"Comprobante quitado")}
 // ---------- ajustar plan de pagos (conciliación) ----------
 function planSplit(l){const v=l.v,cs=(v.cuotas||[]).filter(c=>c.f&&+c.v>0).sort((a,b)=>a.f.localeCompare(b.f));let cum=0;const keep=[];for(const c of cs){if(cum+(+c.v)<=l.pagado+1){keep.push(c);cum+=+c.v}else break}return{keep,keptSum:cum}}
 function planPreview(box,l){const n=Math.max(1,+box.querySelector(".pjN").value||1),f0=box.querySelector(".pjF").value,saldo=Math.max(0,l.precio-l.pagado);
@@ -3462,7 +3549,7 @@ function userEvents(){
     if(b.dataset.ua==="reset"){try{await FB.auth.sendPasswordResetEmail(u.correo);toast("Enviamos el enlace a "+u.correo)}catch(err){toast(authErr(err))}return}
     if(b.dataset.ua==="del"&&isSuper(u)){toast("Esta cuenta es administradora principal: no se puede quitar.");return}
     if(b.dataset.ua==="del"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Confirmar";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Quitar acceso"}},3500);return}
-      try{await FB.fs.doc("usuarios/"+uid).delete();toast("Se quitó el acceso a "+(u.nombre||u.correo))}catch(err){toast(authErr(err))}}});
+      try{await FB.fs.doc("usuarios/"+uid).delete();trash("usuario",`Acceso de ${u.nombre||u.correo} (${u.rol||""})`,{uid,doc:{nombre:u.nombre||"",correo:u.correo||"",rol:u.rol||"vendedor",...(u.asesor?{asesor:u.asesor}:{})}});toast("Se quitó el acceso a "+(u.nombre||u.correo))}catch(err){toast(authErr(err))}}});
 }
 function boot(){
   authEvents();userEvents();
@@ -3572,7 +3659,7 @@ function cfgEvents(){
   document.getElementById("cfReset").addEventListener("click",e=>{const b=e.currentTarget;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Confirmar: volver a lo original";setTimeout(()=>{b.dataset.sure="";b.textContent="Restablecer textos y colores"},3500);return}
     b.dataset.sure="";b.textContent="Restablecer textos y colores";DB.config={};if(save({cfg:true})){applyConfig();cfgForm();msg("Textos y colores restablecidos.")}});
   v.addEventListener("click",e=>{const b=e.target.closest("[data-cdef]");if(b){document.getElementById("cf_"+b.dataset.cdef).value=b.dataset.d;return}
-    const d=e.target.closest("[data-imgdel]");if(d){const k=d.dataset.imgdel;if(DB.imgs)delete DB.imgs[k];if(save({img:[k]})){applyConfig();cfgForm();msg("Se volvió a la imagen original.")}}});
+    const d=e.target.closest("[data-imgdel]");if(d){const k=d.dataset.imgdel;if(DB.imgs&&DB.imgs[k])trash("imagen",`Imagen personalizada «${k}»`,{k,im:DB.imgs[k]});if(DB.imgs)delete DB.imgs[k];if(save({img:[k]})){applyConfig();cfgForm();msg("Se volvió a la imagen original.")}}});
   v.addEventListener("change",async e=>{const f=e.target.closest("input[data-img]");if(!f||!f.files[0])return;const k=f.dataset.img;
     if(ROLE!=="admin"){msg("Solo un administrador puede cambiar imágenes.",1);return}
     msg("Procesando imagen…");
@@ -3846,7 +3933,7 @@ function adminEvents(){
   $("tAse").addEventListener("click",e=>{const b=e.target.closest("[data-aa]");if(!b)return;const id=b.dataset.id,a=DB.asesores[id];
     if(b.dataset.aa==="edit"){editA=id;$("aNom").value=a.nombre;$("aCC").value=a.cc||"";$("aTel").value=a.tel||"";$("aMail").value=a.correo||"";$("aBtn").textContent="Guardar cambios";$("aNom").focus();return}
     if(b.dataset.aa==="del"){if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="Confirmar";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Quitar"}},3500);return}
-      delete DB.asesores[id];if(save({ase:[id]})){refresh();toast("Se quitó a "+a.nombre+" de la lista de asesores. Sus ventas conservan el nombre.")}return}
+      trash("asesor",`Asesor(a) ${a.nombre}`,{id,a:JSON.parse(JSON.stringify(a))});delete DB.asesores[id];if(save({ase:[id]})){refresh();toast("Se quitó a "+a.nombre+" de la lista de asesores. Sus ventas conservan el nombre.")}return}
     if(b.dataset.aa==="acc"){const u=document.getElementById("cfUsersSec");cfTab("acceso");$("uNom").value=a.nombre;$("uMail").value=a.correo;$("uRol").value="vendedor";$("uAseW").hidden=false;$("uAse").innerHTML=aseOpts(a.nombre);$("uPass").value="";
       u.scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("uPass").focus(),400);
       const m=$("uMsg");m.className="msg";m.textContent=`${a.nombre} queda como Vendedor (verá solo sus clientes). Si prefieres, cámbialo a Administrador o Consulta. Escribe una contraseña temporal y oprime «Crear usuario».`}});
@@ -3995,13 +4082,13 @@ function rcClear(){
 }
 
 // ---------- navegación ----------
-function refresh(){rebuild();try{const rn=document.getElementById("rcNum");if(rn&&rn.dataset.auto!=="0"){const nx=nextRC();if(+rn.value<nx)rn.value=nx}}catch(e){}try{tReportes()}catch(e){console.error(e)}try{tAsig()}catch(e){}try{if(!S.waDraft)waEd()}catch(e){}try{pubSync()}catch(e){}try{tContactos()}catch(e){}try{rcList()}catch(e){console.error(e)}try{trFill();trList();trTplLoad()}catch(e){console.error(e)}try{admin()}catch(e){console.error(e)}kpis();paintMap();card();tLotes();tRecaudo();comisiones();clientList();clientDetail();stamp();tUsers();dashboard();
+function refresh(){rebuild();try{const rn=document.getElementById("rcNum");if(rn&&rn.dataset.auto!=="0"){const nx=nextRC();if(+rn.value<nx)rn.value=nx}}catch(e){}try{tReportes()}catch(e){console.error(e)}try{tAsig()}catch(e){}try{if(!S.waDraft)waEd()}catch(e){}try{pubSync()}catch(e){}try{tContactos()}catch(e){}try{rcList()}catch(e){console.error(e)}try{trFill();trList();trTplLoad()}catch(e){console.error(e)}try{tPend()}catch(e){console.error(e)}try{admin()}catch(e){console.error(e)}kpis();paintMap();card();tLotes();tRecaudo();comisiones();clientList();clientDetail();stamp();tUsers();dashboard();
   const sel=document.getElementById("rcLote"),cur=sel.value;
   sel.innerHTML=`<option value="">— Elige un lote —</option>`+LOTS.filter(l=>l.v).map(l=>`<option value="${l.id}">LOTE ${l.n}</option>`).join("");sel.value=cur;}
-const VIEWS=["inicio","plano","clientes","lotes","recaudo","comisiones","recibo","traslados","reportes","config"];
+const VIEWS=["inicio","plano","clientes","lotes","recaudo","comisiones","recibo","traslados","papelera","reportes","config"];
 function setView(v){try{setView0(v)}catch(e){console.error(e);S.view=VIEWS.includes(v)?v:"inicio";show()}}
 let POPPING=false;
-function setView0(v){const prevV=S.view;if(v==="usuarios"){v="config";try{cfTab("acceso")}catch(e){}setTimeout(()=>{const u=document.getElementById("cfUsersSec");if(u)u.scrollIntoView({behavior:"smooth",block:"start"})},80)}if(ROLE!=="admin"&&["config","recaudo"].concat(VEND?[]:["comisiones"]).includes(v))v="inicio";if(ROLE==="consulta"&&["recibo","clientes","reportes"].includes(v))v="inicio";if(GER&&["recibo","reportes","config","traslados"].includes(v))v="inicio";if(ROLE!=="admin"&&v==="traslados")v="inicio";S.view=VIEWS.includes(v)?v:"inicio";if(S.view==="config"){cfgForm();setTimeout(()=>{try{admin()}catch(e){console.error(e)}},0)}try{if(!POPPING&&prevV!==S.view&&setView0.ready){try{history.pushState({v:S.view},"","#"+S.view)}catch(e1){history.pushState({v:S.view},"")}S.depth=(S.depth||0)+1}else{try{history.replaceState({v:S.view},"","#"+S.view)}catch(e2){history.replaceState({v:S.view},"")}}}catch(e){}
+function setView0(v){const prevV=S.view;if(v==="usuarios"){v="config";try{cfTab("acceso")}catch(e){}setTimeout(()=>{const u=document.getElementById("cfUsersSec");if(u)u.scrollIntoView({behavior:"smooth",block:"start"})},80)}if(ROLE!=="admin"&&["config","recaudo"].concat(VEND?[]:["comisiones"]).includes(v))v="inicio";if(ROLE==="consulta"&&["recibo","clientes","reportes"].includes(v))v="inicio";if(GER&&["recibo","reportes","config","traslados","papelera"].includes(v))v="inicio";if(ROLE!=="admin"&&(v==="traslados"||v==="papelera"))v="inicio";S.view=VIEWS.includes(v)?v:"inicio";if(S.view==="config"){cfgForm();setTimeout(()=>{try{admin()}catch(e){console.error(e)}},0)}try{if(!POPPING&&prevV!==S.view&&setView0.ready){try{history.pushState({v:S.view},"","#"+S.view)}catch(e1){history.pushState({v:S.view},"")}S.depth=(S.depth||0)+1}else{try{history.replaceState({v:S.view},"","#"+S.view)}catch(e2){history.replaceState({v:S.view},"")}}}catch(e){}
   const bb=document.getElementById("bBack");if(bb)bb.hidden=!(S.depth>0);show()}
 function route(){let v="";try{v=(location.hash||"").slice(1)}catch(e){}if(VIEWS.includes(v)&&v!==S.view){POPPING=true;try{setView(v)}finally{POPPING=false}}}
 window.addEventListener("popstate",e=>{const v=e.state&&e.state.v;if(!v)return;S.depth=Math.max(0,(S.depth||0)-1);if(v!==S.view){POPPING=true;try{setView(v)}finally{POPPING=false}}const bb=document.getElementById("bBack");if(bb)bb.hidden=!(S.depth>0)});
@@ -4034,7 +4121,7 @@ function init(){
   document.getElementById("fMz").innerHTML=opts;document.getElementById("fMz2").innerHTML=opts;
   buildFilters();
   politica();
-  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();aiEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
+  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();aiEvents();pdEvents();papEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
   document.getElementById("moraStrip").addEventListener("click",()=>setView("reportes"));
   const kt=e=>{const k=e.target.closest(".kpi.tg");if(!k)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();S.kpiFull[k.dataset.k]=!S.kpiFull[k.dataset.k];kpis();const n=document.querySelector(`.kpi.tg[data-k="${k.dataset.k}"]`);if(n&&e.type==="keydown")n.focus()};
   document.getElementById("kpis").addEventListener("click",kt);document.getElementById("kpis").addEventListener("keydown",kt);
