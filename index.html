@@ -1039,6 +1039,12 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
             <button type="button" class="btn sm" id="asgSave">Guardar asignación</button>
           </div>
           <div class="tbl" style="max-height:420px;overflow:auto"><table><thead><tr><th></th><th>Lote</th><th>Cliente</th><th>Vendedor actual</th><th>Estado</th></tr></thead><tbody id="asgBody"></tbody></table></div>
+          <div class="cfsec" id="aiSec">
+            <h3 style="margin:0 0 4px;font-size:14px">Cargar asignaciones y observaciones desde Excel</h3>
+            <p class="note" style="padding:0 0 8px">Un Excel con las columnas <b>Lote</b>, <b>Vendedora</b>, <b>Teléfono</b> (opcional) y <b>Observación</b>. Primero ves cómo queda y después lo aplicas. La observación se agrega a las «Observaciones del cliente» de cada lote, sin borrar lo que ya tenía.</p>
+            <div class="btns"><label class="btn sm ghost" style="cursor:pointer">📂 Elegir Excel<input type="file" id="aiFile" accept=".xlsx" hidden></label><button type="button" class="btn sm" id="aiApply" hidden>Aplicar</button><button type="button" class="btn sm ghost" id="aiCancel" hidden>Cancelar</button><span class="msg" id="aiMsg"></span></div>
+            <div class="tbl" id="aiPrev" hidden style="max-height:380px;overflow:auto;margin-top:8px"><table><thead><tr><th>Lote</th><th>Cliente</th><th>Vendedor actual</th><th>Queda con</th><th>Observación</th><th>Resultado</th></tr></thead><tbody id="aiBody"></tbody></table></div>
+          </div>
           <p class="note">Marca los clientes del vendedor y toca «Guardar asignación»: en su cuenta le aparecen esos clientes con sus pagos. Si pasas un administrador a vendedor, ve los clientes que estén a su nombre.</p>
         </section>
         <section class="panel adm" id="cfCont" data-tab="whatsapp">
@@ -2193,6 +2199,7 @@ function clientDetail(){
          <div class="fl">Área<b class="num" style="color:var(--fg);font-size:14px">${m2f(l.area)} m²</b></div>
          <label class="fl">Precio del lote<input type="number" step="1" class="lPrecio" value="${v.precio}"></label>
          <label class="fl">Vendedor asignado<select class="lAsesor">${aseOpts(v.asesor||"").replace("— Elige el asesor —","Sin asignar")}</select></label>
+         <label class="fl" style="grid-column:1/-1">Observaciones del cliente (seguimiento)<textarea class="lObs" rows="3" maxlength="3000" placeholder="Notas de seguimiento de la vendedora, acuerdos de pago, pendientes…">${esc(v.obs||"")}</textarea></label>
          <div class="fl">${ROLE==="vendedor"?"Mi comisión":"Comisión"}${l.com?" · "+Math.round(l.com.p*100)+"%":""}<b class="num" style="color:var(--fg);font-size:14px">${l.com?fmt(l.com.tot):"—"}</b></div>
          <div class="fl">Abonado<b class="num" style="color:var(--fg);font-size:14px">${fmt(l.abonado)}</b></div>
          <div class="fl">Saldo<b class="num" style="color:var(--fg);font-size:14px">${fmt(l.saldo)}</b></div>
@@ -2268,7 +2275,8 @@ function clientEvents(){
   el.addEventListener("toggle",e=>{const d=e.target.closest&&e.target.closest("details.plan");if(d&&d.open){const box=d.closest(".box[data-lot]");if(box){S.planOpen=box.dataset.lot;const pj=box.querySelector(".pjF");if(pj)planPreview(box,byId[box.dataset.lot])}}},true);
   el.addEventListener("change",async e=>{const f=e.target.closest("[data-sopi]");if(!f||!f.files[0])return;const box=f.closest(".box[data-lot]"),msg=box.querySelector(".lmsg");msg.className="msg";msg.textContent="Subiendo comprobante…";
     try{await sopAdd(box.dataset.lot,+f.dataset.sopi,f.files[0])}catch(err){msg.className="msg err";msg.textContent=err.message||"No se pudo adjuntar."}});
-  el.addEventListener("change",e=>{if(e.target.classList.contains("lAsesor")){const box=e.target.closest(".box[data-lot]");DB.ventas[box.dataset.lot].asesor=e.target.value.trim();if(save({v:[box.dataset.lot]})){refresh();toast("Asesor guardado")}return}
+  el.addEventListener("change",e=>{if(e.target.classList.contains("lObs")){if(!canEdit())return;const box=e.target.closest(".box[data-lot]");const t=e.target.value.trim().slice(0,3000);if(t)DB.ventas[box.dataset.lot].obs=t;else delete DB.ventas[box.dataset.lot].obs;if(save({v:[box.dataset.lot]}))toast("Observación guardada.");return}
+    if(e.target.classList.contains("lAsesor")){const box=e.target.closest(".box[data-lot]");DB.ventas[box.dataset.lot].asesor=e.target.value.trim();if(save({v:[box.dataset.lot]})){refresh();toast("Asesor guardado")}return}
     if(!e.target.classList.contains("lPrecio"))return;const box=e.target.closest(".box[data-lot]"),val=+e.target.value;
     if(val>0){DB.ventas[box.dataset.lot].precio=val;guardarAbonos(box.dataset.lot,"Precio guardado")}});
 }
@@ -2659,6 +2667,25 @@ function asgEvents(){const $=id=>document.getElementById(id);if(!$("asgSec"))ret
     ids.forEach(id=>{const v=DB.ventas[id];if(!v)return;if(P[id])v.asesor=S.asgV;else if(normA(v.asesor)===normA(S.asgV))v.asesor=""});
     S.asgPend={};if(save({v:ids})){refresh();toast(`Listo: ${ids.length} clientes actualizados. ${S.asgV} ya los ve en su cuenta.`)}});
 }
+// ---------- importar asignaciones de vendedoras ----------
+function aiMatchAse(n){const N=normA(n),W=N.split(/\s+/).filter(Boolean);const A=Object.values(DB.asesores||{}).map(a=>a.nombre).filter(Boolean);
+  return A.find(a=>normA(a)===N)||A.find(a=>{const w=normA(a).split(/\s+/).filter(Boolean);return w.length>=2&&w.every(x=>W.includes(x))})||null}
+async function aiRead(file){const wb=new ExcelJS.Workbook();await wb.xlsx.load(await file.arrayBuffer());const ws=wb.worksheets[0];if(!ws)throw new Error("El Excel no tiene hojas.");
+  const val=c=>{let v=c&&c.value;if(v&&typeof v==="object"){if("result"in v)v=v.result;else if(v.richText)v=v.richText.map(t=>t.text).join("");else if("text"in v)v=v.text}return v==null?"":String(v).trim()};
+  let hr=0,col={};ws.eachRow((row,i)=>{if(hr)return;const c={};row.eachCell((cell,j)=>{const t=normA(val(cell));if(/^lote/.test(t))c.l=j;else if(/^(vendedor|asesor)/.test(t))c.v=j;else if(/^(tel|cel)/.test(t))c.t=j;else if(/^observ/.test(t))c.o=j});if(c.l&&c.v){hr=i;col=c}});
+  if(!hr)throw new Error("No encontré las columnas «Lote» y «Vendedora».");const out=[];
+  ws.eachRow((row,i)=>{if(i<=hr)return;const lote=val(row.getCell(col.l)).toUpperCase().replace(/^LOTE\s*/,"").replace(/[ª°º\s]/g,"");if(!lote)return;out.push({lote,ven:val(row.getCell(col.v)),tel:col.t?val(row.getCell(col.t)):"",obs:col.o?val(row.getCell(col.o)):""})});return out}
+function aiPlan(rows){return rows.map(r=>{const l=byId[r.lote],v=DB.ventas[r.lote];const ex=aiMatchAse(r.ven),nombre=ex||title(r.ven);
+  let res;if(!l)res="No existe ese lote";else if(!v)res="El lote no tiene venta registrada: se omite";else res="ok";return{...r,l,v,nombre,ex,res}})}
+function aiShow(){const P=S.aiPlan||[];const b=document.getElementById("aiBody");document.getElementById("aiPrev").hidden=!P.length;document.getElementById("aiApply").hidden=!P.some(x=>x.res==="ok");document.getElementById("aiCancel").hidden=!P.length;
+  b.innerHTML=P.map(x=>`<tr><td><b>${esc(x.lote)}</b></td><td>${x.v?esc(title(x.v.cliente||"")):"—"}</td><td>${x.v&&x.v.asesor?esc(title(x.v.asesor)):"Sin asignar"}</td><td>${esc(x.nombre)}${x.ex&&normA(x.ex)!==normA(x.ven)?` <span class="note">(vendedora ya registrada)</span>`:""}</td><td style="max-width:360px;white-space:normal;font-size:12.5px">${esc(x.obs||"—")}</td><td>${x.res==="ok"?'<span class="pill pagado">Se aplica</span>':`<span class="note" style="color:#b45309">${esc(x.res)}</span>`}</td></tr>`).join("")}
+function aiEvents(){const $=id=>document.getElementById(id);if(!$("aiFile"))return;
+  $("aiFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;const m=$("aiMsg");try{const rows=await aiRead(f);S.aiPlan=aiPlan(rows);m.className="msg";const ok=S.aiPlan.filter(x=>x.res==="ok").length;m.textContent=`${rows.length} filas leídas · ${ok} se pueden aplicar. Revisa y toca «Aplicar».`;aiShow()}catch(err){m.className="msg err";m.textContent=err.message||"No pude leer el Excel."}e.target.value=""});
+  $("aiCancel").addEventListener("click",()=>{S.aiPlan=[];aiShow();$("aiMsg").textContent=""});
+  $("aiApply").addEventListener("click",()=>{if(!canEdit())return;const P=(S.aiPlan||[]).filter(x=>x.res==="ok");if(!P.length)return;const hoy=dshow(hoyStr()),ids=[],newAse={};
+    for(const x of P){const v=DB.ventas[x.lote];if(!v)continue;v.asesor=x.nombre;if(x.obs){const line=`[${hoy} · ${x.nombre}] ${x.obs}`;if(!String(v.obs||"").includes(x.obs))v.obs=(v.obs?v.obs+"\n":"")+line;v.obs=v.obs.slice(-3000)}ids.push(x.lote);newAse[normA(x.nombre)]={n:x.nombre,tel:x.tel}}
+    for(const a of Object.values(newAse)){ensureAsesor(a.n);if(a.tel){const e=Object.entries(DB.asesores||{}).find(([,z])=>normA(z.nombre)===normA(a.n));if(e&&!e[1].tel){e[1].tel=a.tel;save({ase:[e[0]]})}}}
+    if(save({v:ids})){refresh();$("aiMsg").className="msg";$("aiMsg").textContent=`✓ Listo: ${ids.length} lotes asignados y con su observación.`;toast("Asignaciones aplicadas.");S.aiPlan=[];aiShow()}})}
 // ---------- números de WhatsApp para cotizar ----------
 function waEd(){const box=document.getElementById("waRows");if(!box)return;const W=S.waDraft||(S.waDraft=waList(true).map(w=>({...w})));const C=CFG();
   box.innerHTML=W.map((w,i)=>`<div class="warow" data-i="${i}"><input class="waN" value="${esc(w.n)}" placeholder="Nombre de la asesora"><input class="waT" value="${esc(w.raw||w.num)}" placeholder="Celular, ej.: 3001234567" inputmode="tel"><button type="button" class="iconb" data-wd="${i}" title="Quitar" aria-label="Quitar número">✕</button></div>`).join("")||`<p class="note" style="padding:0">No hay números. Mientras tanto se usa el teléfono de la empresa (${esc(C.telefono||"—")}).</p>`;
@@ -4007,7 +4034,7 @@ function init(){
   document.getElementById("fMz").innerHTML=opts;document.getElementById("fMz2").innerHTML=opts;
   buildFilters();
   politica();
-  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
+  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();aiEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
   document.getElementById("moraStrip").addEventListener("click",()=>setView("reportes"));
   const kt=e=>{const k=e.target.closest(".kpi.tg");if(!k)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();S.kpiFull[k.dataset.k]=!S.kpiFull[k.dataset.k];kpis();const n=document.querySelector(`.kpi.tg[data-k="${k.dataset.k}"]`);if(n&&e.type==="keydown")n.focus()};
   document.getElementById("kpis").addEventListener("click",kt);document.getElementById("kpis").addEventListener("keydown",kt);
