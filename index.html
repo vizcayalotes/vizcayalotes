@@ -260,6 +260,7 @@ details.plan .tbl{max-height:260px;overflow:auto;margin-top:8px}
 .pdfck{display:flex;gap:8px;align-items:flex-start;padding:10px 16px;margin:0 16px 8px;background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;font-size:13px}.pdfck input{margin-top:3px}
 .trlist{max-height:210px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.trlist label{display:flex;gap:9px;align-items:center;padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;cursor:pointer}.trlist label:last-child{border-bottom:0}.trlist label.on{background:#eef6f1}.trlist label small{margin-left:auto;color:var(--muted);white-space:nowrap}.trlist .same{font-size:11px;color:#1f7a4d;font-weight:600}.trinfo table{width:100%;font-size:12.5px}.trinfo td,.trinfo th{padding:3px 4px}
 .mvt{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#e8f0f6;color:#1e5b86;white-space:nowrap}.mvt.deshecho{background:#fdf0e3;color:#a1500c}.mvt.borrado{background:#eee;color:#555}
+.escdat{margin-top:8px}.pendpill.esc{background:#d9f0e3;color:#1f6b45}
 .pendrow td{background:#fff8db}.pendpill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:#fde68a;color:#7a5200;white-space:nowrap}.pendpanel{border:1px solid #f3d36b}.pendpanel .panel-h{background:#fff4c4}
 .btn.warnb{background:#c2410c;border-color:#c2410c;color:#fff}.trgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start;padding:14px 16px}.trarrow{font-size:28px;color:var(--muted);padding-top:28px}.trbox{display:flex;flex-direction:column;gap:8px}.trinfo{background:var(--surface-2,#f4f6f5);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;min-height:64px}.trinfo dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0}.trinfo dt{color:var(--muted)}.trinfo dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}.trh{margin:0 0 8px;font-size:14px}.trprev{margin-top:10px;font-size:13px}.trprev .sum{background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;padding:10px 12px;margin-bottom:8px;line-height:1.55}.trprev .warn{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:10px 12px;margin-bottom:8px}.trprev table{width:100%;font-size:12.5px}.trprev .tbl{max-height:260px;overflow:auto}.trtpl summary{cursor:pointer}@media(max-width:760px){.trgrid{grid-template-columns:1fr}.trarrow{display:none}}
 .rc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
@@ -1146,15 +1147,15 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
           <div class="moraband" id="rpBand"></div>
           <div class="panel pendpanel" id="pdPanel" hidden>
             <div class="panel-h"><h2>✉ Correos pendientes por enviar</h2><span class="hint2" id="pdCount"></span><button type="button" class="btn sm ghost wr" id="pdAllDone" style="margin-left:auto">Marcar todos como enviados</button></div>
-            <p class="note" style="padding:8px 16px 0">Clientes en mora a los que no se les ha enviado correo este mes, lotes en cancelación (liquidación) sin aviso y traslados sin confirmar. Al enviarle el correo desde la app, la fila se quita sola.</p>
+            <p class="note" style="padding:8px 16px 0">Clientes en mora a los que no se les ha enviado correo este mes, lotes en cancelación (liquidación) sin aviso, traslados sin confirmar y escrituras sin avisar. Al enviarle el correo desde la app, la fila se quita sola.</p>
             <div class="tbl" style="max-height:340px;overflow:auto"><table><thead><tr><th>Motivo</th><th>Cliente</th><th>Detalle</th><th>Último correo</th><th class="r">Acciones</th></tr></thead><tbody id="pdBody"></tbody></table></div>
           </div>
           <div class="panel">
             <div class="panel-h"><h2 id="rpTitle">Clientes en mora</h2>
-              <label class="fl" style="flex-direction:row;align-items:center;gap:8px">Mostrar<select id="rpDias"><option value="0">Todos los clientes (al día y en mora)</option><option value="30" selected>1 mes o más</option><option value="60">2 meses o más</option><option value="90">3 meses o más</option><option value="9">Toda la mora (más de 8 días)</option></select></label>
+              <label class="fl" style="flex-direction:row;align-items:center;gap:8px">Mostrar<select id="rpDias"><option value="act" selected>Todos los que están pagando (con o sin mora)</option><option value="30">En mora: 1 mes o más</option><option value="60">En mora: 2 meses o más</option><option value="90">En mora: 3 meses o más</option><option value="9">Toda la mora (más de 8 días)</option><option value="esc">Clientes con escritura</option><option value="0">Todos los clientes</option></select></label>
               <input id="rpQ" type="search" placeholder="Buscar cliente, lote o vendedor" style="min-width:min(260px,100%)"></div>
             <div class="rptpl">
-              <label class="fl rptpl-sel">Correo que vas a enviar<select id="rpTpl"><option value="cartera">Estado de cuenta (cartera, con todas las cuotas)</option><option value="mora">Aviso de mora</option></select></label>
+              <label class="fl rptpl-sel">Correo que vas a enviar<select id="rpTpl"><option value="cartera">Estado de cuenta (cartera, con todas las cuotas)</option><option value="mora">Aviso de mora</option><option value="escritura">Aviso de escritura (número de escritura)</option></select></label>
               <details id="rpTplBox"><summary>Ver o cambiar el texto de este correo</summary>
                 <label class="fl">Asunto<input id="rpSu"></label>
                 <label class="fl">Mensaje<textarea id="rpTx" rows="12"></textarea></label>
@@ -2223,6 +2224,7 @@ function clientDetail(){
        </div>
        ${pagoHTML(l)}
        <div class="escrow wr"><span>¿Tiene escritura?</span><div class="seg" role="group" aria-label="Escritura"><button type="button" data-esc="0" aria-pressed="${!l.escrito}">No</button><button type="button" data-esc="1" aria-pressed="${l.escrito}">Sí</button></div><span class="note" style="padding:0">Estado: <b>${ESTN[l.estado]}</b></span></div>
+       ${l.escrito?`<div class="cform escdat"><label class="fl">No. de escritura<input class="eEsc" data-k="n" value="${esc((v.esc||{}).n||"")}" placeholder="Ej.: 2519" maxlength="20"></label><label class="fl">Fecha de la escritura<input type="date" class="eEsc" data-k="f" value="${esc((v.esc||{}).f||"")}"></label><label class="fl">Notaría<input class="eEsc" data-k="not" value="${esc((v.esc||{}).not||"")}" placeholder="Ej.: Notaría 3ª de Cartagena" maxlength="80"></label></div>`:""}
        <div><div class="bar"><div style="width:${(p*100).toFixed(1)}%"></div></div><div style="font-size:12px;color:var(--muted);margin-top:4px">${Math.round(p*100)}% pagado${l.atraso>0?` · <span class="tag late">${fmt(l.atraso)} en atraso según el plan de cuotas</span>`:""}</div></div>
        <h5 class="subh">Abonos y recibos de caja</h5>
        <div class="tbl"><table class="rtable"><thead><tr><th>Fecha</th><th>No. recibo</th><th>Descripción</th><th class="r">Valor</th><th>Comprobante</th><th class="r wr"></th></tr></thead><tbody>
@@ -2294,7 +2296,8 @@ function clientEvents(){
   el.addEventListener("toggle",e=>{const d=e.target.closest&&e.target.closest("details.plan");if(d&&d.open){const box=d.closest(".box[data-lot]");if(box){S.planOpen=box.dataset.lot;const pj=box.querySelector(".pjF");if(pj)planPreview(box,byId[box.dataset.lot])}}},true);
   el.addEventListener("change",async e=>{const f=e.target.closest("[data-sopi]");if(!f||!f.files[0])return;const box=f.closest(".box[data-lot]"),msg=box.querySelector(".lmsg");msg.className="msg";msg.textContent="Subiendo comprobante…";
     try{await sopAdd(box.dataset.lot,+f.dataset.sopi,f.files[0])}catch(err){msg.className="msg err";msg.textContent=err.message||"No se pudo adjuntar."}});
-  el.addEventListener("change",e=>{if(e.target.classList.contains("lObs")){if(!canEdit())return;const box=e.target.closest(".box[data-lot]");const t=e.target.value.trim().slice(0,3000);if(t)DB.ventas[box.dataset.lot].obs=t;else delete DB.ventas[box.dataset.lot].obs;if(save({v:[box.dataset.lot]}))toast("Observación guardada.");return}
+  el.addEventListener("change",e=>{if(e.target.classList.contains("eEsc")){if(!canEdit())return;const box=e.target.closest(".box[data-lot]"),v=DB.ventas[box.dataset.lot];v.esc={...(v.esc||{}),[e.target.dataset.k]:e.target.value.trim()};if(save({v:[box.dataset.lot]})){toast("Datos de la escritura guardados.");try{tPend()}catch(_){}}return}
+    if(e.target.classList.contains("lObs")){if(!canEdit())return;const box=e.target.closest(".box[data-lot]");const t=e.target.value.trim().slice(0,3000);if(t)DB.ventas[box.dataset.lot].obs=t;else delete DB.ventas[box.dataset.lot].obs;if(save({v:[box.dataset.lot]}))toast("Observación guardada.");return}
     if(e.target.classList.contains("lAsesor")){const box=e.target.closest(".box[data-lot]");DB.ventas[box.dataset.lot].asesor=e.target.value.trim();if(save({v:[box.dataset.lot]})){refresh();toast("Asesor guardado")}return}
     if(!e.target.classList.contains("lPrecio"))return;const box=e.target.closest(".box[data-lot]"),val=+e.target.value;
     if(val>0){DB.ventas[box.dataset.lot].precio=val;guardarAbonos(box.dataset.lot,"Precio guardado")}});
@@ -2714,13 +2717,14 @@ function pendList(){const out=[],m0=MESINI();
     const mora=Ls.filter(l=>!l.v.liq&&l.vendido&&l.plan&&l.plan.venc&&(l.plan.days||0)>8);
     if(mora.length){const last=[env("cartera"),env("mora")].sort().pop();if(!last||last<m0)out.push({c,tipo:"mora",k:"cartera",L:ecLots(c).length?ecLots(c):mora,lots:mora,det:`${Math.max(...mora.map(l=>l.plan.days||0))} días de mora · lote ${mora.map(l=>l.n).join(", ")}`,last})}
     for(const l of Ls.filter(l=>l.v.liq)){const e=l.v.env||{},f=(l.v.liq&&l.v.liq.f)||"",last=[e.preaviso||"",e.liq||""].sort().pop();if(!last||last<f)out.push({c,tipo:"cancel",k:"preaviso",L:[l],lots:[l],det:`Lote ${l.n} en liquidación desde ${f?dshow(f):"—"}`,last})}
+    for(const l of Ls.filter(l=>l.escrito&&l.v.esc&&l.v.esc.n&&!(l.v.env||{}).escritura))out.push({c,tipo:"escritura",k:"escritura",L:[l],lots:[l],det:`Escritura No. ${l.v.esc.n} del lote ${l.n}${l.v.esc.f?" ("+dshow(l.v.esc.f)+")":""}`,last:""});
     for(const l of Ls){const t=(l.v.traslado||[]).slice(-1)[0];if(t&&t.a===l.id&&(!(l.v.env||{}).traslado||(l.v.env||{}).traslado<t.f))out.push({c,tipo:"traslado",k:"traslado",L:[l],lots:[l],det:`Traslado ${t.de?(String(t.de).includes(",")?"de los lotes ":"del lote ")+t.de:""} al lote ${l.n} (${dshow(t.f)})`,last:(l.v.env||{}).traslado||""})}}
   return out}
 function pendKeys(){return new Set(pendList().map(p=>p.c.key))}
 function pendItem(p){const mail=(p.c.mail||"").trim();if(p.tipo==="traslado"){const it=mailItem("traslado",mail,trObj(p.lots[0].id),title(p.c.nombre),true);it.lots=[p.lots[0].id];return it}
-  return mailItem(p.k,mail,tplObj(p.L,p.c.nombre,Math.max(0,...p.L.map(l=>(l.plan&&l.plan.days)||0))),title(p.c.nombre),true)}
+  return mailItem(p.k,mail,tplObj(p.L,p.c.nombre,Math.max(0,...p.L.map(l=>(l.plan&&l.plan.days)||0))),title(p.c.nombre),p.k!=="escritura")}
 function tPend(){const b=document.getElementById("pdBody");if(!b)return;const P=pendList();S.pend=P;const box=document.getElementById("pdPanel");box.hidden=!P.length;if(!P.length)return;
-  const lab={mora:"Mora",cancel:"Cancelación",traslado:"Traslado"};document.getElementById("pdCount").textContent=`${P.length} ${P.length===1?"correo sin enviar":"correos sin enviar"}`;
+  const lab={mora:"Mora",cancel:"Cancelación",traslado:"Traslado",escritura:"Escritura"};document.getElementById("pdCount").textContent=`${P.length} ${P.length===1?"correo sin enviar":"correos sin enviar"}`;
   b.innerHTML=P.map((p,i)=>`<tr class="pendrow" data-i="${i}"><td><span class="pendpill">${lab[p.tipo]}</span></td><td><b>${esc(title(p.c.nombre))}</b><div class="pdet">${p.c.mail?esc(p.c.mail):'<span style="color:var(--warn)">Sin correo</span>'}</div></td><td>${esc(p.det)}</td><td class="n">${p.last?dshow(p.last):"Nunca"}</td>
     <td class="act r"><div class="rpact">${p.c.mail?`<button type="button" class="btn sm" data-pd="send">Enviar correo</button>`:`<button type="button" class="btn sm ghost" data-pd="cli">Agregar correo</button>`}<button type="button" class="btn sm ghost wr" data-pd="done" title="Si ya se lo enviaste por otro medio">Ya se envió</button></div></td></tr>`).join("")}
 function pdEvents(){const b=document.getElementById("pdBody");if(!b)return;b.addEventListener("click",e=>{const x=e.target.closest("[data-pd]");if(!x)return;const p=(S.pend||[])[+x.closest("tr").dataset.i];if(!p)return;
@@ -2786,19 +2790,22 @@ function waEvents(){const $=id=>document.getElementById(id);if(!$("waSec"))retur
 }
 
 // ---------- reportes masivos: mora, conciliación y liquidación ----------
+function rowsFor(m){m=m==null?"act":String(m);if(m==="act"||m==="esc")return CLIENTES.map(c=>{const L=c.lots.filter(l=>l.v&&(m==="esc"?l.escrito:(!l.v.liq&&!l.escrito&&l.estado!=="escriturado"&&l.saldo>1)));if(!L.length)return null;
+  const dias=Math.max(0,...L.map(l=>(l.plan&&l.plan.days)||0));return{c,L,dias,venc:L.reduce((s,l)=>s+((l.plan&&l.plan.late)||0),0),saldo:L.reduce((s,l)=>s+l.saldo,0),mail:(c.mail||"").trim(),ase:[...new Set(L.map(l=>l.v.asesor).filter(Boolean))].join(", ")}}).filter(Boolean).sort((a,b)=>b.dias-a.dias||normA(a.c.nombre).localeCompare(normA(b.c.nombre)));
+  return moraRows(+m)}
 function moraRows(min){min=min==null?30:+min;return CLIENTES.map(c=>{const L=c.lots.filter(l=>min===0?(l.v&&!l.v.liq):(l.vendido&&l.plan&&l.plan.venc&&!(l.v&&l.v.liq)));if(!L.length)return null;
   const dias=Math.max(0,...L.map(l=>(l.plan&&l.plan.days)||0));if(min>0&&dias<min)return null;
   return{c,L,dias,venc:L.reduce((s,l)=>s+((l.plan&&l.plan.late)||0),0),saldo:L.reduce((s,l)=>s+l.saldo,0),mail:(c.mail||"").trim(),ase:[...new Set(L.map(l=>l.v.asesor).filter(Boolean))].join(", ")}}).filter(Boolean).sort((a,b)=>b.dias-a.dias)}
 function liqRows(){return LOTS.filter(l=>l.v&&l.v.liq).map(l=>({l,c:CLIENTES.find(c=>c.lots.includes(l)),mail:(l.v.mail||"").trim()}))}
 function fillTpl(t,o){const C=CFG();return String(t||"").replace(/\\n/g,"\n").replace(/\{(\w+)\}/g,(m,k)=>k in o?o[k]:(k==="telefono"?C.telefono:k==="empresa"?C.empresa:m))}
 function gmailUrl(to,su,body,bcc){const e=encodeURIComponent;return`https://mail.google.com/mail/?view=cm&fs=1${to?"&to="+e(to):""}${bcc?"&bcc="+e(bcc):""}&su=${e(su)}&body=${e(body)}`}
-function moraItem(r,k){const L=ecLots(r.c);return mailItem(k||S.rpTpl||"cartera",r.mail,tplObj(L.length?L:r.L,r.c.nombre,r.dias),title(r.c.nombre))}
+function moraItem(r,k){k=k||S.rpTpl||"cartera";const L=k==="escritura"?r.L:ecLots(r.c);return mailItem(k,r.mail,tplObj(L.length?L:r.L,r.c.nombre,r.dias),title(r.c.nombre))}
 function moraMail(r,k){return moraItem(r,k).url}
 function liqItem(x,k){return mailItem(k||S.lqTpl||"preaviso",x.mail,tplObj([x.l],x.l.v.cliente),title(x.l.v.cliente))}
 function liqMail(x){return liqItem(x).url}
 function tReportes(){const body=document.getElementById("rpBody");if(!body)return;
-  const min=S.rpDias==null?30:+S.rpDias,q=normA(S.rpQ||""),sel=S.rpSel||(S.rpSel={});document.getElementById("rpTitle").textContent=min===0?"Todos los clientes":"Clientes en mora";const PK=pendKeys();
-  const all30=moraRows(30),R=moraRows(min).filter(r=>!q||normA(r.c.nombre+" "+r.L.map(l=>"lote "+l.n).join(" ")+" "+r.ase).includes(q));
+  const mode=S.rpDias==null?"act":String(S.rpDias),q=normA(S.rpQ||""),sel=S.rpSel||(S.rpSel={});document.getElementById("rpTitle").textContent=mode==="act"?"Clientes pagando su lote (con o sin mora)":mode==="esc"?"Clientes con escritura":mode==="0"?"Todos los clientes":"Clientes en mora";const PK=pendKeys();
+  const all30=moraRows(30),R=rowsFor(mode).filter(r=>!q||normA(r.c.nombre+" "+r.L.map(l=>"lote "+l.n).join(" ")+" "+r.ase).includes(q));
   const tv=all30.reduce((s,r)=>s+r.venc,0);
   document.getElementById("rpBand").innerHTML=all30.length?`<span class="mi">!</span><div><b>${all30.length} ${all30.length===1?"cliente lleva":"clientes llevan"} más de un mes en mora</b><span>Cartera vencida total: ${fmt(tv)} · ${all30.filter(r=>r.mail).length} con correo registrado</span></div>`:`<span class="mi ok">✓</span><div><b>No hay clientes con más de un mes de mora</b><span>${ROLE==="vendedor"?"Tus clientes":"Todos los clientes"} van al día o dentro del primer mes.</span></div>`;
   document.getElementById("rpBand").className="moraband"+(all30.length?"":" ok");
@@ -2818,10 +2825,10 @@ function tReportes(){const body=document.getElementById("rpBody");if(!body)retur
 function rpEvents(){const sec=document.getElementById("v-reportes");if(!sec)return;
   document.getElementById("rpDias").addEventListener("change",e=>{S.rpDias=e.target.value;tReportes()});
   document.getElementById("rpQ").addEventListener("input",e=>{S.rpQ=e.target.value;tReportes()});
-  document.getElementById("rpAll").addEventListener("change",e=>{const R=moraRows(+(S.rpDias||30));S.rpSel={};if(e.target.checked)R.forEach(r=>S.rpSel[r.c.key]=1);tReportes()});
+  document.getElementById("rpAll").addEventListener("change",e=>{const R=rowsFor(S.rpDias);S.rpSel={};if(e.target.checked)R.forEach(r=>S.rpSel[r.c.key]=1);tReportes()});
   sec.addEventListener("change",e=>{const c=e.target.closest(".rpC");if(!c)return;const k=c.closest("tr").dataset.k;S.rpSel=S.rpSel||{};if(c.checked)S.rpSel[k]=1;else delete S.rpSel[k];tReportes()});
   sec.addEventListener("click",async e=>{const b=e.target.closest("[data-rp]");if(!b)return;const a=b.dataset.rp,tr=b.closest("tr"),C=CFG();
-    const R=moraRows(+(S.rpDias||30)),selR=R.filter(r=>(S.rpSel||{})[r.c.key]);
+    const R=rowsFor(S.rpDias),selR=R.filter(r=>(S.rpSel||{})[r.c.key]);
     if(a==="one"){const r=R.find(r=>r.c.key===tr.dataset.k);if(r)openMailItem(moraItem(r));return}
     if(a==="pdf"){const r=R.find(r=>r.c.key===tr.dataset.k);if(r){const L=ecLots(r.c);ecDownload(L.length?L:r.L,r.c.nombre)}return}
     if(a==="pdfLiq"){const x=liqRows().find(x=>x.l.id===tr.dataset.id);if(x)ecDownload([x.l],x.l.v.cliente);return}
@@ -2978,13 +2985,15 @@ function pyEvents(){const $=id=>document.getElementById(id);if(!$("cfProy"))retu
 }
 
 // ---------- plantillas de correo (estado de cuenta, mora, preaviso, liquidación) ----------
-const TPL={gracias:["Gracias por su pago (recibo de caja)","tplGrSu","tplGrTx"],cartera:["Estado de cuenta (cartera)","tplCarteraSu","tplCarteraTx"],mora:["Aviso de mora","moraAsunto","moraMensaje"],preaviso:["Preaviso de liquidación","tplPreSu","tplPreTx"],traslado:["Traslado de lote","tplTrSu","tplTrTx"],liq:["Liquidación (cancelación de la venta)","liqAsunto","liqMensaje"]};
+const TPL={gracias:["Gracias por su pago (recibo de caja)","tplGrSu","tplGrTx"],cartera:["Estado de cuenta (cartera)","tplCarteraSu","tplCarteraTx"],mora:["Aviso de mora","moraAsunto","moraMensaje"],preaviso:["Preaviso de liquidación","tplPreSu","tplPreTx"],escritura:["Aviso de escritura","tplEscSu","tplEscTx"],traslado:["Traslado de lote","tplTrSu","tplTrTx"],liq:["Liquidación (cancelación de la venta)","liqAsunto","liqMensaje"]};
 function tplOf(k){const C=CFG(),t=TPL[k]||TPL.cartera;return{su:C[t[1]],tx:C[t[2]]}}
 function tplObj(lots,nombre,dias){const due=l=>(l.v&&l.v.cuotas||[]).filter(c=>c.f&&new Date(c.f+"T00:00")<=HOY&&+c.v>0).length;
   return{nombre:title(nombre||""),lote:lots.map(l=>l.n).join(", "),dias:dias??Math.max(0,...lots.map(l=>l.plan&&l.plan.days||0)),
     vencido:fmt(lots.reduce((s,l)=>s+(l.plan?l.plan.late:0),0)),saldo:fmt(lots.reduce((s,l)=>s+l.saldo,0)),pagado:fmt(lots.reduce((s,l)=>s+l.pagado,0)),
     precio:fmt(lots.reduce((s,l)=>s+l.precio,0)),cuotas:lots.reduce((s,l)=>s+Math.max(0,due(l)-(l.plan?l.plan.paidN:0)),0),
-    fecha:new Date().toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"}),estado:lots.map(l=>estadoTxt(l,0)).join("\n\n"),_lots:lots}}
+    fecha:new Date().toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"}),estado:lots.map(l=>estadoTxt(l,0)).join("\n\n"),_lots:lots,
+    escritura:lots.map(l=>l.v&&l.v.esc&&l.v.esc.n).filter(Boolean).join(", ")||"(pendiente)",fechaescritura:lots.map(l=>l.v&&l.v.esc&&l.v.esc.f?dshow(l.v.esc.f):"").filter(Boolean).join(", ")||"—",
+    notaria:[...new Set(lots.map(l=>l.v&&l.v.esc&&l.v.esc.not).filter(Boolean))].join(", ")||"—",matricula:lots.map(l=>l.L&&l.L.folio).filter(Boolean).join(", ")||"—"}}
 function estadoTxt(l,lvl){lvl=lvl||0;const v=l.v||{},p=l.plan||{},L=[];const sd=d=>{const x=dshow(d);return x};
   L.push("ESTADO DE CUENTA - LOTE "+l.n+" (Manzana "+l.mz+")","Precio: "+fmt(l.precio)+" | Pagado: "+fmt(l.pagado)+" | Saldo: "+fmt(l.saldo),"Vencido a hoy: "+fmt(p.late||0)+(p.days?" ("+p.days+" días de mora)":""));
   const cs=(v.cuotas||[]).filter(c=>c.f&&+c.v>0).sort((a,b)=>a.f.localeCompare(b.f));let cum=0;const rows=[],atr=[];let pagN=0,pagT=0;
@@ -3028,12 +3037,12 @@ function queueShow(pre){const q=S[pre+"Q"],box=document.getElementById(pre+"Queu
 function queueStart(pre,k,items){if(GER){toast("Gerencia no envía correos.");return}if(!items.length){toast("Ninguno tiene correo registrado.");return}S[pre+"Q"]={k,items,i:0,sent:0};queueShow(pre);document.getElementById(pre+"Queue").scrollIntoView({behavior:"smooth",block:"center"})}
 function rpQueueStart(k,items){queueStart(TPL[k]&&(k==="preaviso"||k==="liq")?"lq":"rp",k,items)}
 function tplUI(pre){const $=id=>document.getElementById(pre+id);if(!$("Tpl"))return;const def=pre==="lq"?"preaviso":"cartera";
-  $("Tpl").addEventListener("change",e=>{S[pre+"Tpl"]=e.target.value;tplLoad(pre)});
+  $("Tpl").addEventListener("change",e=>{S[pre+"Tpl"]=e.target.value;tplLoad(pre);if(pre==="rp"){const d=document.getElementById("rpDias");if(e.target.value==="escritura"){d.value="esc";S.rpDias="esc"}else if(S.rpDias==="esc"){d.value="act";S.rpDias="act"}S.rpSel={};tReportes()}});
   $("TplSave").addEventListener("click",()=>{const t=TPL[S[pre+"Tpl"]||def];DB.config=DB.config||{};DB.config[t[1]]=$("Su").value.trim();DB.config[t[2]]=$("Tx").value;
     const m=$("TplMsg");if(save({cfg:true})){m.className="msg";m.textContent="Guardado: así saldrá este correo desde ahora.";setTimeout(()=>m.textContent="",4000)}});
   $("TplReset").addEventListener("click",()=>{const t=TPL[S[pre+"Tpl"]||def];if(DB.config){delete DB.config[t[1]];delete DB.config[t[2]]}save({cfg:true});tplLoad(pre);$("TplMsg").textContent="Se restableció el texto original."});
   $("TplPrev").addEventListener("click",()=>{let o;if(pre==="lq"){const x=liqRows()[0]||null;const r=moraRows(30)[0];o=x?tplObj([x.l],x.l.v.cliente):r?tplObj(r.L,r.c.nombre,r.dias):tplObj([],"Cliente de ejemplo",0)}
-    else{const r=moraRows(+(S.rpDias||30))[0];o=r?tplObj(r.L,r.c.nombre,r.dias):tplObj([],"Cliente de ejemplo",0)}
+    else{const r=rowsFor(S.rpDias)[0];o=r?tplObj(r.L,r.c.nombre,r.dias):tplObj([],"Cliente de ejemplo",0)}
     const p=$("Prev");p.hidden=false;p.textContent="Asunto: "+fillTpl($("Su").value,o)+"\n\n"+fillTpl($("Tx").value,o)});
   $("Queue").addEventListener("click",e=>{const b=e.target.closest("[data-q]"),q=S[pre+"Q"];if(!b||!q)return;const a=b.dataset.q;
     if(a==="go"){openMailItem(q.items[q.i]);q.sent++;setTimeout(()=>{q.i++;queueShow(pre)},400);return}
@@ -3576,6 +3585,8 @@ const DEFAULT_CFG={
   tplCarteraTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nQueremos recordarle que, según nuestros registros, su plan de pagos del lote {lote} presenta {dias} días de mora. Este es el estado de su cuenta:\n\n* Valor vencido a la fecha: {vencido}\n* Saldo total del lote: {saldo}\n\n{estado}\n\nLe invitamos a ponerse al día lo antes posible. Así evita el cobro de intereses de mora y mantiene vigentes las condiciones de su promesa de compraventa.\n\nSi en este momento tiene alguna dificultad, comuníquese con nosotros. Con gusto revisamos alternativas para que pueda normalizar su plan de cuotas.\n\n📞 Línea de atención: 3126596675\n\nSi ya realizó el pago, por favor envíenos el soporte para actualizar su estado de cuenta.\n\nAgradecemos su atención y la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplTrSu:"{nombre} · Traslado al lote {lote} realizado · Vizcaya Lake House",
   tplTrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que el {fecha} quedó hecho su traslado {delorigen} al lote {lote}.\n\nTodos los pagos que había hecho {alorigen}, por un total de {trasladado}, quedaron abonados al lote {lote}. Los números de sus recibos de caja se conservan.\n\n* Precio del lote {lote}: {precio}\n* Pagado a la fecha: {pagado}\n* Saldo por pagar: {saldo}\n* Nuevo plan: {cuotasn} cuotas mensuales de {valorcuota}, desde el {primera}\n\n{estado}\n\nA partir de ahora sus pagos se registran en el lote {lote}.\n\n📞 Línea de atención: {telefono}\n\nCordialmente,\n{empresa}",
+  tplEscSu:"{nombre} · Su escritura del lote {lote} · Vizcaya Lake House",
+  tplEscTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nNos complace informarle que la escritura pública de su lote {lote} ya quedó firmada:\n\n* Escritura pública No.: {escritura}\n* Fecha: {fechaescritura}\n* Notaría: {notaria}\n* Matrícula inmobiliaria: {matricula}\n\nCon esto su lote queda escriturado a su nombre. Si necesita una copia o tiene alguna inquietud, comuníquese con nosotros.\n\n📞 Línea de atención: {telefono}\n\nGracias por confiar en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplGrSu:"{nombre} · Recibo de caja No. {recibo} · Gracias por su pago",
   tplGrTx:"Estimado(a) {nombre}:\n\nReciba un cordial saludo de parte de {empresa}.\n\nLe confirmamos que recibimos su pago por {valor} el {fechapago}, correspondiente al lote {lote}, registrado con el Recibo de caja No. {recibo}. ¡Muchas gracias por su pago y por estar al tanto de su plan de cuotas!\n\nAdjuntamos el recibo de caja en PDF.\n\n{estado}\n\n📞 Línea de atención: 3126596675\n\nAgradecemos la confianza que ha depositado en Vizcaya Lake House.\n\nCordialmente,\n{empresa}",
   tplPreSu:"{nombre} · Preaviso de liquidación del lote {lote} · Vizcaya Lake House",
