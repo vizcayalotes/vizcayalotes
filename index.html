@@ -261,6 +261,7 @@ details.plan .tbl{max-height:260px;overflow:auto;margin-top:8px}
 .trlist{max-height:210px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.trlist label{display:flex;gap:9px;align-items:center;padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;cursor:pointer}.trlist label:last-child{border-bottom:0}.trlist label.on{background:#eef6f1}.trlist label small{margin-left:auto;color:var(--muted);white-space:nowrap}.trlist .same{font-size:11px;color:#1f7a4d;font-weight:600}.trinfo table{width:100%;font-size:12.5px}.trinfo td,.trinfo th{padding:3px 4px}
 .mvt{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#e8f0f6;color:#1e5b86;white-space:nowrap}.mvt.deshecho{background:#fdf0e3;color:#a1500c}.mvt.borrado{background:#eee;color:#555}
 .escdat{margin-top:8px}.pendpill.esc{background:#d9f0e3;color:#1f6b45}
+.mgdone{background:#e7f5ec;border:1px solid #bfe3cc;border-radius:10px;padding:12px 14px;font-size:13.5px;line-height:1.55}.mglog{margin:10px 0 0;padding:0 0 0 18px;font-size:13px;line-height:1.7}.mglog .ok{color:#1f7a4d}.mglog .err{color:#b42318}
 .pendrow td{background:#fff8db}.pendpill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:#fde68a;color:#7a5200;white-space:nowrap}.pendpanel{border:1px solid #f3d36b}.pendpanel .panel-h{background:#fff4c4}
 .btn.warnb{background:#c2410c;border-color:#c2410c;color:#fff}.trgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start;padding:14px 16px}.trarrow{font-size:28px;color:var(--muted);padding-top:28px}.trbox{display:flex;flex-direction:column;gap:8px}.trinfo{background:var(--surface-2,#f4f6f5);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;min-height:64px}.trinfo dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0}.trinfo dt{color:var(--muted)}.trinfo dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}.trh{margin:0 0 8px;font-size:14px}.trprev{margin-top:10px;font-size:13px}.trprev .sum{background:#eef6f1;border:1px solid #cfe5d8;border-radius:10px;padding:10px 12px;margin-bottom:8px;line-height:1.55}.trprev .warn{background:var(--warn-soft);border:1px solid var(--warn);border-radius:10px;padding:10px 12px;margin-bottom:8px}.trprev table{width:100%;font-size:12.5px}.trprev .tbl{max-height:260px;overflow:auto}.trtpl summary{cursor:pointer}@media(max-width:760px){.trgrid{grid-template-columns:1fr}.trarrow{display:none}}
 .rc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}
@@ -1071,6 +1072,21 @@ body.ger input:not([type=search]):not([type=checkbox]):not([type=radio]):not(#rp
                 <b>Sube aquí el Excel (.xlsx)</b><span>toca para elegirlo o arrástralo</span></label>
               <div class="msg" id="pyMsg"></div>
               <div id="pyPrev"></div>
+            </div>
+          </div>
+          <div class="panel adm" id="mgPanel" data-tab="respaldo">
+            <div class="panel-h"><h2>Copiar los datos de Firebase a Google Drive</h2><span class="hint2">Se hace una sola vez</span></div>
+            <div class="cfsec" style="border-top:0">
+              <div id="mgDone" class="mgdone" hidden></div>
+              <div id="mgForm">
+                <p class="note" style="padding:0 0 8px">Copia todo lo que hay en Firebase (ventas, lotes, asesores, usuarios, presupuestos, contactos, canceladas, configuración y público) a las carpetas de <b>VIZCAYA APP- NO ELIMINAR</b> en tu Drive, un archivo por registro. Cuando termina, este botón queda <b>bloqueado para siempre</b> y no vuelve a copiar nada, aunque recargues la página. Si se corta a mitad, al volver a tocarlo sigue sin duplicar: los archivos que ya están no se repiten.</p>
+                <div class="cform" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+                  <label class="fl">Dirección del script de Drive (termina en /exec)<input id="mgUrl" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"></label>
+                  <label class="fl">Clave del script<input id="mgKey" type="password" autocomplete="off" placeholder="La misma clave que pusiste en el script"></label>
+                </div>
+                <div class="btns" style="margin-top:8px"><button type="button" class="btn" id="mgGo">Copiar datos de Firebase a Drive</button><span class="msg" id="mgMsg"></span></div>
+                <ul class="mglog" id="mgLog" hidden></ul>
+              </div>
             </div>
           </div>
           <div class="panel" id="cfBackup" data-tab="respaldo">
@@ -2772,6 +2788,35 @@ function papEvents(){const tb=document.getElementById("tPap");if(!tb)return;
   document.getElementById("papEmpty").addEventListener("click",async e=>{const b=e.currentTarget;if(!canEdit())return;if(b.dataset.sure!=="1"){b.dataset.sure="1";b.textContent="¿Vaciar todo? No se puede deshacer";setTimeout(()=>{if(b.isConnected){b.dataset.sure="";b.textContent="Vaciar papelera"}},4000);return}
     b.dataset.sure="";b.textContent="Vaciar papelera";await papDel(PAP.map(x=>x.id))});
   if(!CLOUD&&Array.isArray(DB.papelera)){PAP=DB.papelera;papPurge()}tPap()}
+// ---------- copiar Firebase a Google Drive (una sola vez) ----------
+const MG_COLS=["ventas","lotes","asesores","usuarios","presupuestos","contactos","canceladas","config","publico"];
+let MG=null;
+function mgShow(){const done=document.getElementById("mgDone");if(!done)return;const h=MG&&MG.hecho;done.hidden=!h;document.getElementById("mgForm").hidden=!!h;
+  if(h){const r=MG.res||{};done.innerHTML=`<b>✓ Los datos ya se copiaron a Google Drive</b>${MG.f?" el "+esc(MG.f):""}.${Object.keys(r).length?"<br>"+Object.entries(r).map(([k,v])=>`${esc(k)}: ${v}`).join(" · "):""}<br><span class="note" style="padding:0">El script de Drive quedó marcado como hecho, así que el botón no vuelve a copiar.</span>`}}
+const mgUrlSaved=()=>{let u="";try{u=localStorage.getItem(KEY+"-mgurl")||""}catch(_){}return (CFG().mgUrl||u||"").trim()};
+async function mgLoad(){const url=mgUrlSaved();if(!url)return;try{const st=await mgPost(url,{accion:"estado"});MG=st&&st.hecho?{hecho:true,f:st.fecha||"",res:st.res||{}}:null}catch(e){}mgShow()}
+function mgPlain(x){if(x==null)return x;if(typeof x.toDate==="function")return x.toDate().toISOString();if(Array.isArray(x))return x.map(mgPlain);if(typeof x==="object"){const o={};for(const k of Object.keys(x))o[k]=mgPlain(x[k]);return o}return x}
+async function mgPost(url,body){const r=await fetch(url,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});const t=await r.text();try{return JSON.parse(t)}catch(e){throw new Error("El script no respondió bien. Revisa que la dirección termine en /exec y que esté publicado para «Cualquier usuario».")}}
+async function mgRun(){const $=id=>document.getElementById(id),m=$("mgMsg"),log=$("mgLog"),go=$("mgGo");if(!canEdit())return;
+  if(!CLOUD){m.className="msg err";m.textContent="Esto solo funciona con la app conectada a Firebase.";return}
+  const url=$("mgUrl").value.trim(),key=$("mgKey").value;if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(url)){m.className="msg err";m.textContent="Pega la dirección del script: empieza por https://script.google.com/macros/s/ y termina en /exec.";return}
+  if(!key){m.className="msg err";m.textContent="Escribe la clave del script.";return}
+  if(go.dataset.sure!=="1"){go.dataset.sure="1";go.textContent="¿Seguro? Toca otra vez para copiar";setTimeout(()=>{if(go.isConnected&&go.dataset.sure==="1"){go.dataset.sure="";go.textContent="Copiar datos de Firebase a Drive"}},5000);return}
+  go.dataset.sure="";go.disabled=true;go.textContent="Copiando…";log.hidden=false;log.innerHTML="";const li=(t,c)=>{const e=document.createElement("li");e.className=c||"";e.textContent=t;log.appendChild(e);return e};
+  try{try{localStorage.setItem(KEY+"-mgurl",url)}catch(_){}if(CFG().mgUrl!==url){DB.config={...(DB.config||{}),mgUrl:url};save({cfg:true})}
+    const st=await mgPost(url,{token:key,accion:"estado"});if(!st.ok)throw new Error(st.error||"El script no respondió.");
+    if(st.hecho){MG={hecho:true,f:st.fecha||"",res:st.res||{}};mgShow();return}
+    const ck=await mgPost(url,{token:key,accion:"clave"});if(!ck.ok)throw new Error(ck.error||"La clave no coincide con la del script.");
+    const res={};
+    {for(const col of MG_COLS){const l=li(`${col}: leyendo…`);const sn=await CLOUD.collection(col).get();const docs=sn.docs.map(d=>({id:d.id,data:mgPlain(d.data())}));
+      let n=0,nuevos=0,iguales=0,act=0;const chunks=[];let cur=[],size=0;for(const d of docs){const z=JSON.stringify(d).length;if(cur.length&&(cur.length>=40||size+z>4e6)){chunks.push(cur);cur=[];size=0}cur.push(d);size+=z}if(cur.length)chunks.push(cur);
+      for(const ch of chunks){const r=await mgPost(url,{token:key,accion:"lote",coleccion:col,docs:ch});if(!r.ok){if(r.hecho)break;throw new Error(`${col}: ${r.error||"error del script"}`)}n+=ch.length;nuevos+=r.nuevos||0;iguales+=r.iguales||0;act+=r.act||0;l.textContent=`${col}: ${n} de ${docs.length}…`}
+      res[col]=docs.length;l.className="ok";l.textContent=`✓ ${col}: ${docs.length} registros (${nuevos} nuevos${iguales?", "+iguales+" ya estaban":""}${act?", "+act+" actualizados":""})`}
+      const f=await mgPost(url,{token:key,accion:"fin",res});if(!f.ok&&!f.hecho)throw new Error(f.error||"No se pudo cerrar la copia.");
+      MG={hecho:true,f:f.fecha||new Date().toLocaleString("es-CO"),res}}
+    mgShow();toast("Datos copiados a Google Drive.",6000)}
+  catch(err){li("✕ "+(err.message||err),"err");m.className="msg err";m.textContent="Se detuvo. Puedes volver a tocar el botón: sigue sin duplicar lo que ya se copió.";go.disabled=false;go.textContent="Copiar datos de Firebase a Drive"}}
+function mgEvents(){const g=document.getElementById("mgGo");if(!g)return;g.addEventListener("click",mgRun);setTimeout(()=>{const u=mgUrlSaved();if(u)document.getElementById("mgUrl").value=u;mgLoad()},1500)}
 // ---------- números de WhatsApp para cotizar ----------
 function waEd(){const box=document.getElementById("waRows");if(!box)return;const W=S.waDraft||(S.waDraft=waList(true).map(w=>({...w})));const C=CFG();
   box.innerHTML=W.map((w,i)=>`<div class="warow" data-i="${i}"><input class="waN" value="${esc(w.n)}" placeholder="Nombre de la asesora"><input class="waT" value="${esc(w.raw||w.num)}" placeholder="Celular, ej.: 3001234567" inputmode="tel"><button type="button" class="iconb" data-wd="${i}" title="Quitar" aria-label="Quitar número">✕</button></div>`).join("")||`<p class="note" style="padding:0">No hay números. Mientras tanto se usa el teléfono de la empresa (${esc(C.telefono||"—")}).</p>`;
@@ -4132,7 +4177,7 @@ function init(){
   document.getElementById("fMz").innerHTML=opts;document.getElementById("fMz2").innerHTML=opts;
   buildFilters();
   politica();
-  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();aiEvents();pdEvents();papEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
+  drawMap();rcInit();applyConfig();refresh();clientEvents();presEvents();presDetEvents();rcListEvents();contEvents();asgEvents();waEvents();rpEvents();rpTplEvents();cfTabEvents();plEvents();trEvents();aiEvents();pdEvents();papEvents();mgEvents();pyEvents();if(DB.proyecto&&!PROY)applyProject(DB.proyecto);shellEvents();cfgEvents();adminEvents();
   document.getElementById("moraStrip").addEventListener("click",()=>setView("reportes"));
   const kt=e=>{const k=e.target.closest(".kpi.tg");if(!k)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();S.kpiFull[k.dataset.k]=!S.kpiFull[k.dataset.k];kpis();const n=document.querySelector(`.kpi.tg[data-k="${k.dataset.k}"]`);if(n&&e.type==="keydown")n.focus()};
   document.getElementById("kpis").addEventListener("click",kt);document.getElementById("kpis").addEventListener("keydown",kt);
